@@ -264,3 +264,11 @@ R1(config-if)#
 #### Prueba de SSH
 ![](../assets/img/lab-intervlan-ros-test2.png)
 
+
+Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compartelo.
+
+Si encuentras algun error o punto de mejora, por favor deja tus comentarios.
+
+Saludos,
+
+Carlos R.

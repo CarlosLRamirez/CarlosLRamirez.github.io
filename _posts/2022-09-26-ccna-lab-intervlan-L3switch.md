@@ -99,11 +99,16 @@ Descargar laboratorio de packet tracer [inicial](/assets/labs/ccna-lab-intervlan
 - Si realizó toda la configuración correctamente, debe de poder hacer ping desde cualquier computadora a los demas host, incluyendo las SVI de los switches y las interfaces del router.
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
-----
 Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](/_posts/2022-09-26-ccna-lab-intervlan-L3switch-answer.md), o puedes encontrar encontrar el archivo de packet tracer final [aqui](/assets/labs/ccna-lab-intervlan-L3switch-answer.pkt).
 
 
+Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compartelo.
 
+Si encuentras algun error o punto de mejora, por favor deja tus comentarios.
+
+Saludos,
+
+Carlos R.
 
     
     
