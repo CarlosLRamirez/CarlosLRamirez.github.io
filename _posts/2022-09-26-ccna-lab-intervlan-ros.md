@@ -1,7 +1,7 @@
 ---
 layout: post
-title: CCNA Lab - Inter VLAN Routing
-subtitle: Routing on Stick
+title: CCNA Lab Inter VLAN Routing (Router-on-stick)
+subtitle: Lab Instructions
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
@@ -59,42 +59,44 @@ El proposito de este laboratorio es configurar una red con 3 VLANs identificadas
 
 ## Instrucciones
 
-Parte 1: Parametros iniciales en R1, SW1 y SW2.
-- Configure Hostname
+### Parte 1: Parametros iniciales
+- En todos los dispositivos, configure el nombre de host,
 - Configure un mensaje del dia que contenga la palabra `advertencia`
 - Proteja el acceso a consola con el password `cisco`
 - Proteja el acceso a EXE privilegiado con `class`
 - Encripte las contraseñas en el archivo de configuración
   
-Parte 2: Habilite el acceso por SSH a los dispositivos de red y cree un usuario local.
+### Parte 2: Acceso por SSH 
    - Configure un nombre de dominio `mylab.com`
-   - Genere un par de llaves RSA con **1024bits ** para habilitar SSH.
-   - Cree un usuario `admin` con contraseña segura `letmein` y el **maximo** privilegio
-   - Habilite el acces por SSH en todas las terminales virtuales disponibles, asegurese de utilizar la base de datos local para la autenticación de usuarios.
+   - Genere un par de llaves RSA con **1024bits** para habilitar SSH.
+   - Cree un usuario `admin` con contraseña segura `letmein` y el **máximo** privilegio
+   - Habilite el acceso por SSH en todas las terminales virtuales disponibles, asegurese de utilizar la base de datos local para la autenticación de usuarios.
    - Asegurese de estar utilizndo la version 2 del protocolo
 
-Parte 3: Configuración de Vlans y puertos de switch
+### Parte 3: VLANs y puertos de switch
 
 - Configure las VLANs en SW1 y SW2 de acuerdo ala información proporcionada en [tabla de vlans](#tabla-de-vlans)
+  
 - Configure los puertos de acceso en SW1 y SW2 según la información proporcionada en la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip) 
 
 - Configure los enlaces troncales en SW1 y SW2 de acuerdo con la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip). ***Unicamente debe permitir el tráfico de las vlans utilizadas en el ejercicio y rechazar cualquier trafico que pertenezca a otra VLAN.***
 
-- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada],(#asignación-de-puertos-y-direccionamiento-ip)
+- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip).
 - Configure lo necesario para que el switch puede ser alcanzado desde redes externas
 
 
- Parte 4: Configuración de enrutamiento inter vlan en R1 (router-on-stick)
- - Configure la interfaz del router, como un puerto troncal y asigne las direcciónes IP indicadas en la [tabla](#asignación-de-puertos-y-direccionamiento-ip)
+ ### Parte 4: Enrutamiento inter vlan
+ - Configure en enrutamiento inter-vlan colocando la interfaz del router como puerto troncal mediante sub-interfaces y asigne las direcciónes IP según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar la interfaz principal.
 
-Parte 5: Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip) 
+### Parte 5: Direcciones de los hosts
+- Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip) 
 
-Parte 6: Pruebas
+### Parte 6: Pruebas
 - Si realizó toda la configuración correctamente, debe de poder hacer ping desde cualquier computadora a los demas host, incluyendo las SVI de los switches y las interfaces del router.
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
 ----
-> Intente realizar el laboratorio por su cuenta, si tiene alguna duda, puede consultar la solución [aqui.](2022-09-26-ccna-lab-intervlan-ros-answer.md)
+> Intente realizar el laboratorio por su cuenta, si tiene alguna duda, puede consultar la solución [aqui](2022-09-26-ccna-lab-intervlan-ros-answer.md)
 
 
 

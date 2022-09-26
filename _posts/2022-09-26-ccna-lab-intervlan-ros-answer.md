@@ -1,7 +1,7 @@
 ---
 layout: post
-title: CCNA Lab - Inter VLAN Routing
-subtitle: Routing on Stick
+title: CCNA Lab Inter VLAN Routing (Router-on-stick)
+subtitle: Lab answer
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
 share-img: /assets/img/path.jpg
@@ -10,56 +10,9 @@ tags: [ccna, lab, spanish]
 
 # Laboratorio CCNA - Inter Vlan Routing - Router-on-Stick
 
-## Objetivo
+## Solucion del laboratorio
 
-El proposito de este laboratorio es configurar una red con 3 VLANs identificadas cada una por un color y 1 VLAN adicional para la administración de los equipos de red. Para el enrutamiento Inter VLAN se utiliza un router con sub-interfaces, una para cada VLAN, lo que comunmente se conoce como Router-on-Stick. Adicionalmente se deben configurar los parametros iniciales de los dispositivos de red.
-
-## Topología 
-
-![](../assets/img/lab-intervlan-ros.png)
-
-## Información General
-
-#### Tabla de VLANs
-
-    
-| Vlan ID    | Name      | Subnet           |
-| ---------- |:---------:| ----------------:|
-| 101        | pink      | 192.168.100.0/24 |
-| 110        | green     | 192.168.110.0/24 |
-| 120        | yellow    | 192.168.120.0/24 |
-| 99         | mgmt      | 192.168.99.0./24 |
-
-#### Asignación de puertos y direccionamiento IP
-    
-| Device   | Port   | Port Type | Vlan(s)   | IP address   |
-| -------- |:------:| :--------:|:------:|------------  |
-| SW1      | Fa0/1  | Access    | pink   |              |
-| SW1      | Fa0/2  | Access    | green  |              |
-| SW1      | Fa0/3  | Access    | yellow |              |
-| SW1      | SVI    | Access    | mgmt   |192.168.99.10 |
-| SW1      | Gi0/1  | Trunk     | ALL   ||
-| SW1      | Gi0/2  | Trunk     | ALL   ||
-| SW2      | Fa0/1  | Access    | green  |              |
-| SW2      | Fa0/2  | Access    | yellow |              |
-| SW2      | Fa0/3  | Access    | pink   |              |
-| SW2      | SVI    | Access    | mgmt   | 192.168.99.11|
-| SW2      | Gi0/1  | Trunk     | ALL   ||
-| R1      | Gi0/0/0.100 | Trunk | pink   | 192.168.100.1|
-| R1       | Gi0/0/0.110 | Trunk | green | 192.168.110.1|
-| R1       | Gi0/0/0.120 | Trunk | yellow| 192.168.120.1|
-| R1       | Gi0/0/0.99  | Trunk | mgmt  | 192.168.99.1| 
-| P10      | eth  | Access | pink  | 192.168.100.10| 
-| G10      | eth  | Access | green  | 192.168.110.10| 
-| Y10      | eth  | Access | yellow  | 192.168.120.10| 
-| P11      | eth  | Access | pink  | 192.168.100.11| 
-| G11      | eth  | Access | green  | 192.168.110.11| 
-| Y11      | eth  | Access | yellow  | 192.168.120.11| 
-
-
-## Instrucciones
-
-### Parte 1: Parametros iniciales en R1, SW1 y SW2.
+### Parte 1: Parametros iniciales
 
 - SW1
  
@@ -114,7 +67,7 @@ R1(config)#
 R1(config)#
 ```
 
-### Parte 2: Habilite el acceso por SSH a los dispositivos de red y cree un usuario local.
+### Parte 2: Acceso por SSH 
 
 - SW1, SW2 y R1
 
@@ -142,8 +95,7 @@ SW1(config)#ip ssh version 2
 SW1(config)#
 ```
 
-
-### Parte 3: Configuración de Vlans y puertos de switch
+### Parte 3: VLANs y puertos de switch
 - Configure las VLANs en SW1 y SW2 de acuerdo ala información proporcionada en [tabla de vlans](#tabla-de-vlans)
 
 ```
@@ -248,7 +200,7 @@ SW2(config)#
 ```
 
 
-- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada],(#asignación-de-puertos-y-direccionamiento-ip). 
+- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip). 
 - Configure lo necesario para que el switch puede ser alcanzado desde redes externas
 
 ```
@@ -271,9 +223,9 @@ SW2(config)#ip default-gateway 192.168.99.1
 SW2(config)#
 ```
 
-### Parte 4: Configuración de enrutamiento inter vlan en R1 (router-on-stick)
- - Configure la interfaz del router, como un puerto troncal y asigne las vlans ID y direcciónes IP indicadas en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar la interfaz
-             ^
+ ### Parte 4: Enrutamiento inter vlan
+ - Configure en enrutamiento inter-vlan colocando la interfaz del router como puerto troncal mediante sub-interfaces y asigne las direcciónes IP según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar la interfaz principal.
+ - 
 ```
 R1(config)#
 R1(config)#interface G0/0/0.100
@@ -298,7 +250,8 @@ R1(config-if)#
 
 ```
 
-### Parte 5: Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip) 
+### Parte 5: Direcciones de los hosts
+- Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip) 
 
 Ejemplo P10
 ![](../assets/img/lab-intervlan-ros-P10.png)
