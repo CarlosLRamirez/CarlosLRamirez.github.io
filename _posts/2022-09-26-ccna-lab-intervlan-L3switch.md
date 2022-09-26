@@ -2,9 +2,9 @@
 layout: post
 title: CCNA Lab - Inter Vlan Routing - Multilayer Switch 1/2
 subtitle: Lab Instructions
-cover-img: /assets/img/lab-intervlan-ros.png
+cover-img: /assets/img/ccna-lab-intervlan-L3swtich-topology.png
 thumbnail-img: /assets/img/ccna-lab-intervlan-L3swtich-tumb.png
-share-img: /assets/img/lab-intervlan-ros.png
+share-img: /assets/img/ccna-lab-intervlan-L3swtich-topology.png
 tags: [ccna, lab, spanish]
 ---
 

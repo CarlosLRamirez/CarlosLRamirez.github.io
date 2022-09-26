@@ -2,14 +2,16 @@
 layout: post
 title: CCNA Lab - Inter Vlan Routing - Multilayer Switch 2/2
 subtitle: Lab Answer
-cover-img: /assets/img/lab-intervlan-ros.png
+cover-img: /assets/img/ccna-lab-intervlan-L3swtich-topology.png
 thumbnail-img: /assets/img/ccna-lab-intervlan-L3swtich-tumb.png
-share-img: /assets/img/lab-intervlan-ros.png
+share-img: /assets/img/ccna-lab-intervlan-L3swtich-topology.png
 tags: [ccna, lab, spanish]
 ---
 
 
 # CCNA Lab - Inter Vlan Routing - Multilayer Switch Part 2/2
+
+Para ver las instrucciones de este laboratorio, ve primero [aqui.](2022-09-26-ccna-lab-intervlan-L3switch.md)
 
 ## Solución del Laboratorio
 
@@ -225,9 +227,6 @@ MainSW#
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
 ----
-Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](), o puedes encontrar encontrar el archivo de packet tracer final [aqui]().
-
-
 
 Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compartelo.
 

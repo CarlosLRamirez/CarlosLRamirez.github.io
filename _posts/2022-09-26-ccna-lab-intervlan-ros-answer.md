@@ -11,6 +11,8 @@ tags: [ccna, lab, spanish]
 
 # CCNA Lab - Inter Vlan Routing - Router-on-Stick Part 2/2
 
+Para ver las instrucciones de este laboratorio, ve primero [aqui](2022-09-26-ccna-lab-intervlan-ros.md).
+
 ## Solucion del laboratorio
 
 ### Parte 1: Parametros iniciales
