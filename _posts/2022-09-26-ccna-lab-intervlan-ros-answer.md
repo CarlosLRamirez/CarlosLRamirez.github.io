@@ -2,11 +2,12 @@
 layout: post
 title: CCNA Lab Inter VLAN Routing (Router-on-stick) Part 2/2
 subtitle: Lab answer
-cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/thumb.png
-share-img: /assets/img/path.jpg
+cover-img: /assets/img/lab-intervlan-ros.png
+thumbnail-img: /assets/img/lab-intervlan-ros-tumb.png
+share-img: /assets/img/lab-intervlan-ros.png
 tags: [ccna, lab, spanish]
 ---
+
 
 # CCNA Lab - Inter Vlan Routing - Router-on-Stick Part 2/2
 
