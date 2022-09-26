@@ -27,7 +27,7 @@ Descargar laboratorio de packet tracer [inicial](assets/../../assets/labs/ccna-l
     
 | Vlan ID    | Name      | Subnet           |
 | ---------- |:---------:| ----------------:|
-| 101        | pink      | 192.168.100.0/24 |
+| 100       | pink      | 192.168.100.0/24 |
 | 110        | green     | 192.168.110.0/24 |
 | 120        | yellow    | 192.168.120.0/24 |
 | 99         | mgmt      | 192.168.99.0./24 |
