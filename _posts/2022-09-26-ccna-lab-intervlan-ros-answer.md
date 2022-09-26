@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CCNA Lab Inter VLAN Routing (Router-on-stick)
+title: CCNA Lab Inter VLAN Routing (Router-on-stick) Part 2/2
 subtitle: Lab answer
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
@@ -8,14 +8,13 @@ share-img: /assets/img/path.jpg
 tags: [ccna, lab, spanish]
 ---
 
-# Laboratorio CCNA - Inter Vlan Routing - Router-on-Stick
+# CCNA Lab - Inter Vlan Routing - Router-on-Stick Part 2/2
 
 ## Solucion del laboratorio
 
 ### Parte 1: Parametros iniciales
 
-- SW1
- 
+#### SW1:
 ```text
 Switch>
 Switch>enable
@@ -32,7 +31,7 @@ SW1(config)#service password-encryption
 
 ```
 
-- SW2
+#### SW2:
 ```
 Switch>
 Switch>enable
@@ -49,7 +48,7 @@ SW2(config)#service password-encryption
 SW2(config)#
 ```
 
-- R1
+#### R1:
 ```
 Router>
 Router>enable
@@ -69,8 +68,7 @@ R1(config)#
 
 ### Parte 2: Acceso por SSH 
 
-- SW1, SW2 y R1
-
+#### SW1, SW2 y R1:
 ```text
 SW1#
 SW1#configure terminal
@@ -175,7 +173,6 @@ SW2(config)#
 
 - Configure los enlaces troncales en SW1 y SW2 de acuerdo con la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip). ***Unicamente debe permitir el tráfico de las vlans utilizadas en el ejercicio y rechazar cualquier trafico que pertenezca a otra VLAN.***
 
-
 ```
 SW1(config)#
 SW1(config)#interface g0/1
@@ -224,8 +221,9 @@ SW2(config)#
 ```
 
  ### Parte 4: Enrutamiento inter vlan
- - Configure en enrutamiento inter-vlan colocando la interfaz del router como puerto troncal mediante sub-interfaces y asigne las direcciónes IP según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar la interfaz principal.
- - 
+
+- Configure en enrutamiento inter-vlan colocando la interfaz del router como puerto troncal mediante sub-interfaces y asigne las direcciónes IP según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar la interfaz principal.
+ 
 ```
 R1(config)#
 R1(config)#interface G0/0/0.100
@@ -253,14 +251,15 @@ R1(config-if)#
 ### Parte 5: Direcciones de los hosts
 - Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip) 
 
-Ejemplo P10
+#### Ejemplo P10
 ![](../assets/img/lab-intervlan-ros-P10.png)
 
 
 ### Parte 6: Pruebas
-- Si realizó toda la configuración correctamente, debe de poder hacer ping desde cualquier computadora a los demas host, incluyendo las SVI de los switches y las interfaces del router.
+
+#### Prueba de Ping
 ![](../assets/img/lab-intervlan-ros-test1.png)
 
-- Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
+#### Prueba de SSH
 ![](../assets/img/lab-intervlan-ros-test2.png)
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CCNA Lab Inter VLAN Routing (Router-on-stick)
+title: CCNA Lab - Inter Vlan Routing - Router-on-Stick Part 1/2
 subtitle: Lab Instructions
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/thumb.png
@@ -8,7 +8,7 @@ share-img: /assets/img/path.jpg
 tags: [ccna, lab, spanish]
 ---
 
-# Laboratorio CCNA - Inter Vlan Routing - Router-on-Stick
+# CCNA Lab - Inter Vlan Routing - Router-on-Stick Part 1/2
 
 ## Objetivo
 
@@ -17,6 +17,8 @@ El proposito de este laboratorio es configurar una red con 3 VLANs identificadas
 ## Topología 
 
 ![](../assets/img/lab-intervlan-ros.png)
+
+Descargar laboratorio de packet tracer [inicial](assets/../../assets/labs/ccna-lab-intervlan-ros-start.pkt)
 
 ## Información General
 
@@ -96,7 +98,8 @@ El proposito de este laboratorio es configurar una red con 3 VLANs identificadas
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
 ----
-> Intente realizar el laboratorio por su cuenta, si tiene alguna duda, puede consultar la solución [aqui](2022-09-26-ccna-lab-intervlan-ros-answer.md)
+Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](2022-09-26-ccna-lab-intervlan-ros-answer.md), o puedes encontrar encontrar el archivo de packet tracer final [aqui](assests/../../assets/labs/ccna-lab-intervlan-ros-answer.pkt).
+
 
 
 
