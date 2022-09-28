@@ -10,7 +10,7 @@ tags: [ccna, lab, spanish]
 
 # CCNA Lab - Inter-Vlan routing y DHCPv4
 
-Este laboratorio es el **No. 3**  de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](../2022-09-27-ccna-lab-stp.md), y [Parte 2](../2022-09-27-ccna-lab-ethechannel).
+Este laboratorio es el **No. 3**  de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](../2022-09-27-ccna-lab-stp), y [Parte 2](../2022-09-27-ccna-lab-ethechannel).
 
 Partiendo del ejercicio anterior, ahora vamos a agregar un serviodor DHCPv4 en SW1, el cual proveera de IPs a las VLANs de usuarios, exceptuando la vlan de administración de equipos de red.
 

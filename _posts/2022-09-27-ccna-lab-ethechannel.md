@@ -10,7 +10,7 @@ tags: [ccna, lab, spanish]
 
 # CCNA Lab - Inter-Vlan routing y Etherchannel
 
-Este laboratorio es el **No. 2**  de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](../2022-09-27-ccna-lab-stp.md), y [Parte 3](../2022-09-27-ccna-lab-dhcpv4).
+Este laboratorio es el **No. 2**  de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](../2022-09-27-ccna-lab-stp), y [Parte 3](../2022-09-27-ccna-lab-dhcpv4).
 
 
 Partiendo del ejercicio anterior, ahora agregaremos enlaces redudantes entres SW1, SW2 y SW3 para formar Etherchannels entre ellos y aumentar el ancho de banda y la disponiblidad.
