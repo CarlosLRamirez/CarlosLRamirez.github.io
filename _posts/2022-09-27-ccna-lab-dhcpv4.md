@@ -28,6 +28,7 @@ Descargar archivo de [packet tracer aqui](../assets/labs/ccna-lab-intervlan-dhcp
 
 # Parte 1: Rango de direcciones excluidas
 
+```
 SW1(config)#
 SW1(config)#ip dhcp excluded-address 192.168.10.1 192.168.10.9
 SW1(config)#ip dhcp excluded-address 192.168.10.100 192.168.10.254
@@ -36,9 +37,11 @@ SW1(config)#ip dhcp excluded-address 192.168.11.100 192.168.11.254
 SW1(config)#ip dhcp excluded-address 192.168.12.1 192.168.12.9
 SW1(config)#ip dhcp excluded-address 192.168.12.100 192.168.12.254
 SW1(config)#
+```
 
 # Parte2: Configuración de los pools de DHCP
 
+```
 SW1(config)#
 SW1(config)#ip dhcp pool students
 SW1(dhcp-config)#network 192.168.10.0 255.255.255.0
@@ -61,6 +64,7 @@ SW1(dhcp-config)#dns-server 8.8.8.8
 SW1(dhcp-config)#domain-name mylab.com
 SW1(dhcp-config)#exit
 SW1(config)#
+```
 
 # Parte 3: Prueba
 
