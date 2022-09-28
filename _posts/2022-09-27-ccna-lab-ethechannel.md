@@ -10,29 +10,35 @@ tags: [ccna, lab, spanish]
 
 # CCNA Lab - Etherchannel y Spanning Tree Protocol
 
-Este laboratorio es continuación del presentado en la [publicación](../2022-09-27-ccna-lab-stp) anterior.
+Este laboratorio es continuación de el que se encuentra en [esta publicación](../2022-09-27-ccna-lab-stp) anterior.
 
-En la red exitente del ejercicio anterior, agregaremos enlaces redudantes entres SW1, SW2 y SW3 para formar Etherchannels entre ellos y aumentar el ancho de banda y la disponiblidad.
+Partiendo del ejercicio anterior, ahora agregaremos enlaces redudantes entres SW1, SW2 y SW3 para formar Etherchannels entre ellos y aumentar el ancho de banda y la disponiblidad.
 
 ## Objetivo
 
-El proposito de este laboratorio es configurar la agregación de enlaces (Etherchannels) entre los switches SW1, SW2 y SW3, implementando los protocolos LAGp, LACP, asi como de forma manual (sin protocolo).
+El proposito de este laboratorio es configurar la agregación de enlaces (Etherchannels) entre los switches SW1, SW2 y SW3, implementando los protocolos PAgP, LACP, asi como de forma manual (sin protocolo).
 
 ## Topología 
 
 ![topologia](../assets/img/ccna-lab-intervlan-etherchannel-topology.png)
 
-Descargar archivo de [packet tracer](../assets/labs/ccna-lab-intervlan-etherchannel.start.pkt)
+Descargar archivo de [packet tracer aqui](../assets/labs/ccna-lab-intervlan-etherchannel.start.pkt)
 
 ## Procedimiento
 
 ### Parte 1: Etherchannel entre SW2 y SW3 (LACP)
 
+Empezamos con apagar las interfaces individuales que forman el channel-group, para evitar cualquier conflicto. Eliminamos toda la configuración previa existe en las interfaces individuales y las agregamos a un nuervo channel-group. 
+
+Luego configuramos el enlace troncal, pero esta vez a nivel de port-channel, no en las interfaces individuales
+
 ```
 SW2(config)#
 SW2(config)#interface range f0/21,f0/24
 SW2(config-if-range)#shutdown
-SW2(config-if-range)#switchport mode trunk 
+SW2(config-if-range)#no switchport mode trunk 
+SW2(config-if-range)#no switchport trunk allowed vlan 
+SW2(config-if-range)#no switchport trunk native vlan
 SW2(config-if-range)#channel-group 1 mode active 
 SW2(config-if-range)#exit
 SW2(config)#interface po1
@@ -43,12 +49,16 @@ SW2(config-if)#exit
 SW2(config)#
 ```
 
+Repetimos el proceso en SW3
+
 
 ```
 SW3(config)#
 SW3(config)#interface range f0/21,f0/24
 SW3(config-if-range)#shutdown
-SW3(config-if-range)#noswitchport mode trunk
+SW3(config-if-range)#no switchport mode trunk 
+SW3(config-if-range)#no switchport trunk allowed vlan 
+SW3(config-if-range)#no switchport trunk native vlan
 SW3(config-if-range)#channel-group 1 mode passive
 SW3(config-if-range)#
 SW3(config-if-range)#exit
@@ -61,14 +71,17 @@ SW3(config)#
 
 ```
 
-### Parte 2: Etherchannel entre SW1 y SW3 (PAGp)
+### Parte 2: Etherchannel entre SW1 y SW3 (PAgP)
 
-Configuramos el etherchannel en SW3 con las interfaces apagadas para evitar algun conflicto, primero eliminamos toda la configuración exitente en las interfaces individuales, luego las asociamos con el channel group 2 y finalmente configuramos en enlace troncal en el Port-channel 2.
+Configuramos el etherchannel en SW3 con las interfaces apagadas para evitar cualquier conflicto, primero eliminamos toda la configuración exitente en las interfaces individuales, luego las asociamos con el channel group 2 y finalmente configuramos en enlace troncal en el Port-channel.
+
 ```
 SW3(config)#
 SW3(config)#interface range g0/1,g0/2
 SW3(config-if-range)#shutdown
-SW3(config-if-range)#no switchport mode trunk
+SW3(config-if-range)#no switchport mode trunk 
+SW3(config-if-range)#no switchport trunk allowed vlan 
+SW3(config-if-range)#no switchport trunk native vlan
 SW3(config-if-range)#channel-group 2 mode auto
 SW3(config-if-range)#exit
 SW3(config)#interface po2
@@ -101,6 +114,8 @@ SW1(config)#
 
 ### Parte 3: Etherchannel entre SW1 y SW2 (manual)
 
+Repetimos los pasos anteriores, sin embargo en este caso no utilizaremos ningún protocolo para la negociación del Etherchannel, sino lo formaremos de forma "manual".
+
 ```
 SW1(config)#
 SW1(config)#interface range gi1/0/21,gi1/0/24
@@ -117,6 +132,7 @@ SW1(config-if)#switchport trunk native vlan 99
 SW1(config-if)#exit
 SW1(config)#
 ```
+
 
 ```
 SW2(config)#
@@ -234,7 +250,7 @@ Group  Port-channel  Protocol    Ports
 
 ```
 
-Si verificamos el estado de STP, vemos que los Port-channels se comportan como interfaces inidividuales en el spanning tree.
+Si verificamos el estado de STP, vemos que los Port-channels aparecen en el spanning tree, en lugar de las interfaces individuales.
 
 
 ```
@@ -265,7 +281,7 @@ SW2#
 
 ## Conclusiones
 
-Con este laboratorio practicamos la configuración de Etherchannel en switches CISO, utilizando los protocolos LACP y PAgP, así como mediante forma manual.
+Con este laboratorio practicamos la configuración de Etherchannel en switches CISCO, utilizando los protocolos LACP y PAgP, así como mediante forma manual.
 
 Obervamos como se modifica la información de spanning tree al tener configurados enlaces agregados (etherchannel) en lugar de interfaces individuales.
 
