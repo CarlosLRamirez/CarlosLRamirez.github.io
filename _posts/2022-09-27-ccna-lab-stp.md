@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CCNA Lab - Inter-vlan routing y Spanning Tree Protocol
+title: CCNA Lab - Inter-Vlan routing + Spanning Tree Protocol
 subtitle: Lab Instructions
 cover-img: /assets/img/ccna-lab-intervlan-stp-topology.png
 thumbnail-img: /assets/img/cisco-tumb-generic.jpeg
@@ -10,7 +10,7 @@ tags: [ccna, lab, spanish]
 
 # CCNA Lab - Inter-vlan routing y Spanning Tree Protocol
 
-En el siguiente laboratorio se muestra el funcionamiento del protocolo Rapid Spanning Tree Protocol (Rapid PVST+) de Cisco. en una red con varios switches L2 y multicapa.
+En el siguiente laboratorio se muestra el funcionamiento del protocolo Rapid Spanning Tree Protocol (Rapid PVST+) de CISCO. en una red multi vlan, formada por varios switches tanto L2 como L2/L3
 
 ## Objetivo
 
@@ -466,6 +466,9 @@ SW4(config)#
 ## Conclusiones
 
 Con este laboratorio hemos practicado con el protocolo spanning tree, especificamente la version **rapid pvst+,** de CISCO, y hemos modificado el arbol de spanning tree para poder balancear el trafico entre las diferentes vlans de la red.
+
+Este laboratorio es el **primero** de una serie de **3**, los laboratorios posteriores los puede encontrar aqui, [Parte 2](../2022-09-27-ccna-lab-ethechannel), y [Parte 3](../2022-09-27-ccna-lab-dhcpv4).
+
 
 Espero que este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compartelo.
 

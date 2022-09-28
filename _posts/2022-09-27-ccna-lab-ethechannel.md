@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CCNA Lab - Etherchannel y STP
+title: CCNA Lab - Inter-Vlan routing + Etherchannel
 subtitle: Lab Instructions
 cover-img: /assets/img/ccna-lab-intervlan-etherchannel-topology.png
 thumbnail-img: /assets/img/cisco-tumb-generic.jpeg
@@ -8,9 +8,10 @@ share-img: /assets/img/ccna-lab-intervlan-etherchannel-topology.png
 tags: [ccna, lab, spanish]
 ---
 
-# CCNA Lab - Etherchannel y Spanning Tree Protocol
+# CCNA Lab - Inter-Vlan routing y Etherchannel
 
-Este laboratorio es continuación de el que se encuentra en [esta publicación](../2022-09-27-ccna-lab-stp) anterior.
+Este laboratorio es el **No. 2**  de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](../2022-09-27-ccna-lab-stp.md), y [Parte 3](../2022-09-27-ccna-lab-dhcpv4).
+
 
 Partiendo del ejercicio anterior, ahora agregaremos enlaces redudantes entres SW1, SW2 y SW3 para formar Etherchannels entre ellos y aumentar el ancho de banda y la disponiblidad.
 
