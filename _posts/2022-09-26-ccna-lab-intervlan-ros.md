@@ -98,7 +98,7 @@ Descargar laboratorio de packet tracer [inicial](assets/../../assets/labs/ccna-l
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
 ----
-Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](2022-09-26-ccna-lab-intervlan-ros-answer.md), o puedes encontrar encontrar el archivo de packet tracer final [aqui](assests/../../assets/labs/ccna-lab-intervlan-ros-answer.pkt).
+Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](../2022-09-26-ccna-lab-intervlan-ros-answer), o puedes encontrar encontrar el archivo de packet tracer final [aqui](assests/../../assets/labs/ccna-lab-intervlan-ros-answer.pkt).
 
 
 Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compartelo.

@@ -11,7 +11,7 @@ tags: [ccna, lab, spanish]
 
 # CCNA Lab - Inter Vlan Routing - Multilayer Switch Part 2/2
 
-Para ver las instrucciones de este laboratorio, ve primero [aqui](2022-09-26-ccna-lab-intervlan-L3switch.md).
+Para ver las instrucciones de este laboratorio, ve primero [aqui](../2022-09-26-ccna-lab-intervlan-L3switch).
 
 ## Solución del Laboratorio
 
