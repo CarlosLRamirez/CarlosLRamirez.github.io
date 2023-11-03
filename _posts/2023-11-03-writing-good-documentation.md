@@ -10,7 +10,7 @@ tags: [github, documentation, english]
 
 # Writing Good Documentation
 
-GitHub Flavored Markdown (GFM)[^1] is a variant of the Markdown markup language designed for use on the GitHub platform. Markdown is a lightweight and easy-to-read plain text format that allows you to format text using a simple and intuitive syntax[^2] . 
+GitHub Flavored Markdown (GFM)[^1]is a variant of the Markdown markup language designed for use on the GitHub platform. Markdown is a lightweight and easy-to-read plain text format that allows you to format text using a simple and intuitive syntax[^2] . 
 
 One of the key advantages of GitHub Flavored Markdown is its versatility and ease of use, making it an excellent choice for creating comprehensive documentation. Whether you're a developer working on open-source software, a technical writer crafting user guides, or simply looking to improve the clarity of your project's README, GFM offers a wide range of features to help you present your information in a structured and visually appealing way.
 
