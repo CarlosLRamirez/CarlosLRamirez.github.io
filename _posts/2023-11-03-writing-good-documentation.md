@@ -2,9 +2,9 @@
 layout: post
 title: Writing Good Documentation
 subtitle: using Github Flavores Markup language
-cover-img: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png
-thumbnail-img: /assets/img/cisco-tumb-generic.jpeg
-share-img: https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png
+cover-img:
+thumbnail-img:
+share-img: 
 tags: [github, documentation, english]
 ---
 
