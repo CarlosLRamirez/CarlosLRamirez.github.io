@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DevOps labs (WIP)
+title: DevOps labs Work in progress...
 subtitle: DevOps Journey Documentation
 cover-img:
 thumbnail-img:
