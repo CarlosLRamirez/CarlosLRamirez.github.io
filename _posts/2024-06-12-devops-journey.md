@@ -8,8 +8,40 @@ share-img:
 tags: [devops, cicd, spanish]
 ---
 
+# Preparación de un Landing Zone basico (VPC, Subnets, Routing Tables, NAT GW y Internet GW)
 
-# Laboratorio 1 - Aplicación Web en NGINX (Manual)
+## Manual
+
+## CloudFormation
+
+
+# Despliegue de una Instancia EC2 con NGINX
+
+## Manual
+
+## CloudFormation
+
+# Despliegue de una Instancia EC con JENKINS
+
+## Manual
+
+## CloudFormation
+
+
+
+
+
+# Creación de un Pipeline para el despliegue automatico de una App en un Servidor Web en la nube con Jenkins
+
+## Fase 1 (Despliegue Manual)
+
+### Paso 1
+
+Desplegar 2 instancias  EC2 para:
+- Servidor de Despliegue: Jenkins
+- Servidor de Web: NGINX
+
+
 
 En este laboratorio se describe el paso a paso para desplegar una aplicación web simple en un servidor NGINX. El proceso se hará manualmente, mediante un pull del código de un repositorio en GitHub.
 
