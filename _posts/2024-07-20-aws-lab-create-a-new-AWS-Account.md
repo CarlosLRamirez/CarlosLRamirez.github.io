@@ -12,7 +12,6 @@ tags: [aws, lab, spanish]
 
 ## Objetivo
 El objetivo de este laboratorio es guiar a los usuarios en el proceso de creación y configuración segura de su primera cuenta de AWS. Está diseñado para aquellos que desean aprender los fundamentos de la nube, específicamente en AWS, y dar sus primeros pasos de manera segura, tomando las precauciones adecuadas para monitorear los costos asociados con el uso de AWS.
-
 ## Instrucciones
 - Crear una cuenta nueva en AWS utilizando una dirección de correo electrónico tipo alias o alias con signo "+".
 - Agregar autenticación multifactor (MFA) al usuario root.
@@ -20,20 +19,21 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 - Crear un presupuesto y configurar alertas por correo electrónico.
 
 ## Guía Paso a Paso
-
 ### 1. Crear de una cuenta en AWS
 
 - Navega a  https://aws.amazon.com/ y haz clic en "Crear Cuenta de AWS"  o "Create AWS Account" dependiendo del idioma en que aparezca.
+
 ![Pasted image 20240718071533](../assets/img/Pasted%20image%2020240718071533.png)
+
 - Ingresa la dirección de correo electrónico asociada a la cuenta, esta debe ser **única** y a la vez es el usuario Root de la cuenta, **este no se puede cambiar una vez creada la cuenta**.
 - En la dirección de correo puedes usar un dirección de **alias** como por ejemplo `micorreo+alias@gmail`, con esto puedes usar la misma cuenta de correo principal (e.g. `micorreo@gmail.com`) multiples veces. 
 
-> [!NOTE]
+> [!NOTE]  
 > Esto lo he comprobado con Gmail, pero tambien debería funcionar con otros proveedores de correo.
 
-- Completa el nombre de la cuenta, en mi caso el nombre elegido es DevOps2024General, esto **si se puede cambiar** después, y hacer click en el boton de Verify email address.
+- Completa el nombre de la cuenta, en mi caso el nombre elegido es DevOps2024General, (esto **si se puede cambiar** después), y haz click en el botón de **Verify email address**.
 
-![Pasted image 2020240720163225](../assets/img/Pasted%20image%2020240720163225.png)
+![](../assets/img/Pasted%20image%2020240720163225.png)
 
 - Al correo de la cuenta llegará un código de verificación, ingresarlo para verificar que el correo nos pertenece.
 ![Pasted image 20240718072847](../assets/img/Pasted%20image%2020240718072847.png)
@@ -43,8 +43,8 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 ![Pasted image 20240718073342](../assets/img/Pasted%20image%2020240718073342.png)![Pasted image 20240718073532](../assets/img/Pasted%20image%2020240718073532.png)
 - Ingresa la información de tarjeta de crédito (es posible que haga un cargo temporal de $1 USD, para comprobar la tarjeta. AWS no te realizará ningún otro cargó a menos que despliegues recursos que estén fuera de la capa gratuita.
 
-> [!TODO]
-> Agregar la imagen
+> [!NOTE]
+> **TODO**: Falta agregar la imagen
 
 - Luego debes agregar nuevamente tu número telefónico para comprobar tu identidad mediante la confirmación de un código que llegará por  SMS o llamada telefónica.
 
@@ -125,7 +125,7 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ### 3. Pasos adicionales necesarios con Root
 
-#### 3.1 Agregar información de otros contactos en la cuenta.
+#### 5.1 Agregar información de otros contactos en la cuenta.
 
 > [!IMPORTANT]
 > Los siguientes pasos los debes hacer ingresando con  el usuario **Root**.
@@ -142,7 +142,7 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ![Pasted image 20240718075026](../assets/img/Pasted%20image%2020240718075026.png)
 
-#### 3.2 Habilitar usuario IAM para ver información de Facturación
+#### 5.2 Habilitar usuario IAM para ver información de Facturación
  
  - El siguiente paso es habilitar para que los usuarios IAM puedan acceder a la información de facturación, con esto no será necesario acceder con el usuario **Root** para ver datos de costos y facturación. Recordemos que debemos utilizar el usuario Root lo menos posible.
 
@@ -157,7 +157,6 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 - Luego puedes comprobar que esta opción ha sido activada.
 
 ![Pasted image 20240718094448](../assets/img/Pasted%20image%2020240718094448.png)
-
 
 ### 4. Crear un usuario IAM como Administrador
 
@@ -186,7 +185,7 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 - En la siguiente pagina debes definir que permisos tendrá este usuario, esto lo podemos hacer ya sea agregando el usuario a algún grupo existente, copiando los permisos de otro usuario, o asignando una politica directamente al usuario. 
 - Selecciona la opción de *Attachar* las políticas directamente al usuario.  
 
-> [!NOTA] 
+> [!NOTE] 
 > Para una gestión mas ordenada de usuarios y permisos se recomienda la creación de grupos y asignar policies a los mismos en lugar de asignar políticas a usuarios individuales
 
 - En la sección de *Permission policies* debes agregar la política llamada `AdministratorAccess`, la puedes buscar en la opción de búsqueda  y luego marcar el checkbox en la política.
@@ -202,7 +201,7 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 - Tambien podemos ver el password temporal al hacer click en Show y tenemos la opción de descargar estos datos en un archivo .csv (recomendado). 
 - Una vez anotada dicha información, podemos regresar a la lista de usuarios haciendo click en **Return to users lists.**
 
->[!NOTA ]
+>[!NOTE ]
 >Esta es la única oportunidad para ver la contraseña o descargar el archivo con las credenciales)
 
 ![](../assets/img/Pasted%20image%2020240720151446.png)
