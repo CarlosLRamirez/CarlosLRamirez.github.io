@@ -12,6 +12,7 @@ tags: [aws, lab, spanish]
 
 ## Objetivo
 El objetivo de este laboratorio es guiar a los usuarios en el proceso de creación y configuración segura de su primera cuenta de AWS. Está diseñado para aquellos que desean aprender los fundamentos de la nube, específicamente en AWS, y dar sus primeros pasos de manera segura, tomando las precauciones adecuadas para monitorear los costos asociados con el uso de AWS.
+
 ## Instrucciones
 - Crear una cuenta nueva en AWS utilizando una dirección de correo electrónico tipo alias o alias con signo "+".
 - Agregar autenticación multifactor (MFA) al usuario root.
@@ -19,6 +20,7 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 - Crear un presupuesto y configurar alertas por correo electrónico.
 
 ## Guía Paso a Paso
+
 ### 1. Crear de una cuenta en AWS
 
 - Navega a  https://aws.amazon.com/ y haz clic en "Crear Cuenta de AWS"  o "Create AWS Account" dependiendo del idioma en que aparezca.
@@ -26,10 +28,12 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 - Ingresa la dirección de correo electrónico asociada a la cuenta, esta debe ser **única** y a la vez es el usuario Root de la cuenta, **este no se puede cambiar una vez creada la cuenta**.
 - En la dirección de correo puedes usar un dirección de **alias** como por ejemplo `micorreo+alias@gmail`, con esto puedes usar la misma cuenta de correo principal (e.g. `micorreo@gmail.com`) multiples veces. 
 
+> [!NOTE]
 > Esto lo he comprobado con Gmail, pero tambien debería funcionar con otros proveedores de correo.
 
-- Completa el nombre de la cuenta, en mi caso el nombre elegido es DevOps2024General, esto **si se puede cambiar** después .
-![Pasted image 20240718072804](../assets/img/Pasted%20image%2020240718072804.png
+- Completa el nombre de la cuenta, en mi caso el nombre elegido es DevOps2024General, esto **si se puede cambiar** después, y hacer click en el boton de Verify email address.
+
+![Pasted image 2020240720163225](../assets/img/Pasted%20image%2020240720163225.png)
 
 - Al correo de la cuenta llegará un código de verificación, ingresarlo para verificar que el correo nos pertenece.
 ![Pasted image 20240718072847](../assets/img/Pasted%20image%2020240718072847.png)
