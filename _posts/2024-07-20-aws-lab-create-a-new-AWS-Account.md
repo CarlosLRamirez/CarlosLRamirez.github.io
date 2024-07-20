@@ -125,7 +125,7 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ### 3. Pasos adicionales necesarios con Root
 
-#### 5.1 Agregar información de otros contactos en la cuenta.
+#### 3.1 Agregar información de otros contactos en la cuenta.
 
 > [!IMPORTANT]
 > Los siguientes pasos los debes hacer ingresando con  el usuario **Root**.
@@ -142,7 +142,7 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ![Pasted image 20240718075026](../assets/img/Pasted%20image%2020240718075026.png)
 
-#### 5.2 Habilitar usuario IAM para ver información de Facturación
+#### 3.2 Habilitar usuario IAM para ver información de Facturación
  
  - El siguiente paso es habilitar para que los usuarios IAM puedan acceder a la información de facturación, con esto no será necesario acceder con el usuario **Root** para ver datos de costos y facturación. Recordemos que debemos utilizar el usuario Root lo menos posible.
 
