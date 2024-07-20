@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Laboratorio: Crear y asegurar una cuenta nueva en AWS
