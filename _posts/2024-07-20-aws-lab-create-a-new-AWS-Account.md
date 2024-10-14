@@ -10,6 +10,8 @@ tags: [aws, lab, spanish]
 
 # Guía: Crear y asegurar una cuenta nueva en AWS desde Cero
 
+Última revisón: 14/Oct/2024
+
 ## Objetivo
 El objetivo de este laboratorio es guiar a los usuarios en el proceso de creación y configuración segura de su primera cuenta de AWS. Está diseñado para aquellos que desean aprender los fundamentos de la nube, específicamente en AWS, y dar sus primeros pasos de manera segura, tomando las precauciones adecuadas para monitorear los costos asociados con el uso de AWS.
 
