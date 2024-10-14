@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Laboratorio - Crear y asegurar una cuenta nueva en AWS
+title: Guía - Crear y asegurar una cuenta nueva en AWS desde Cero
 subtitle: AWS
 cover-img:
 thumbnail-img: 
@@ -8,18 +8,21 @@ share-img:
 tags: [aws, lab, spanish]
 ---
 
-# Laboratorio: Crear y asegurar una cuenta nueva en AWS
+# Guía: Crear y asegurar una cuenta nueva en AWS desde Cero
 
 ## Objetivo
 El objetivo de este laboratorio es guiar a los usuarios en el proceso de creación y configuración segura de su primera cuenta de AWS. Está diseñado para aquellos que desean aprender los fundamentos de la nube, específicamente en AWS, y dar sus primeros pasos de manera segura, tomando las precauciones adecuadas para monitorear los costos asociados con el uso de AWS.
-## Instrucciones
-- Crear una cuenta nueva en AWS utilizando una dirección de correo electrónico tipo alias o alias con signo "+".
-- Agregar autenticación multifactor (MFA) al usuario root.
-- Crear un usuario IAM y agregarle MFA.
-- Crear un presupuesto y configurar alertas por correo electrónico.
 
-## Guía Paso a Paso
-### 1. Crear de una cuenta en AWS
+## Tabla de Contenido
+	
+- [Paso 1:Crear de una cuenta en AWS](#paso-1crear-de-una-cuenta-en-aws)
+- [Paso 2:Agregar autenticación multifactor (MFA) al usuario root](#paso-2agregar-autenticación-multifactor-mfa-al-usuario-root)
+- [Paso 3:Configuraciones adicionales recomendadas en la Cuenta](#paso-3configuraciones-adicionales-recomendadas-en-la-cuenta)
+- [Paso 4: Crear un usuario IAM como Administrador](#paso-4-crear-un-usuario-iam-como-administrador)
+- [Paso 5: Crear un presupuesto para la cuenta una alerta por correo.](#paso-5-crear-un-presupuesto-para-la-cuenta-una-alerta-por-correo)
+
+
+## Paso 1:Crear de una cuenta en AWS
 
 - Navega a  https://aws.amazon.com/ y haz clic en "Crear Cuenta de AWS"  o "Create AWS Account" dependiendo del idioma en que aparezca.
 
@@ -91,7 +94,7 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 
 ![Pasted image 20240719054313](../assets/img/Pasted%20image%2020240719054313.png)
 
-### 2. Agregar autenticación multifactor (MFA) al usuario root
+## Paso 2:Agregar autenticación multifactor (MFA) al usuario root
 Como lo comprobaste en la sección anterior, para poder acceder a tu cuenta con el usuario Root solo es necesario que alguien tenga acceso a  la dirección de correo electrónico de la cuenta y a la contraseña, para que se pueda tener acceso COMPLETO a la cuenta de AWS.
 
 Es por eso que es altamente recomendable que agregues Multiple Factor de Autenticación para el usuario Root de la cuenta, con esto agregar una capa extra de seguridad.
@@ -123,9 +126,9 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 ![Pasted image 20240719062841](../assets/img/Pasted%20image%2020240719062841.png)
 
 
-### 3. Pasos adicionales necesarios con Root
+## Paso 3:Configuraciones adicionales recomendadas en la Cuenta
 
-#### 5.1 Agregar información de otros contactos en la cuenta.
+### 3.1 Agregar información de otros contactos en la cuenta.
 
 > [!IMPORTANT]
 > Los siguientes pasos los debes hacer ingresando con  el usuario **Root**.
@@ -142,7 +145,7 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ![Pasted image 20240718075026](../assets/img/Pasted%20image%2020240718075026.png)
 
-#### 5.2 Habilitar usuario IAM para ver información de Facturación
+### 3.2 Habilitar usuario IAM para ver información de Facturación
  
  - El siguiente paso es habilitar para que los usuarios IAM puedan acceder a la información de facturación, con esto no será necesario acceder con el usuario **Root** para ver datos de costos y facturación. Recordemos que debemos utilizar el usuario Root lo menos posible.
 
@@ -158,7 +161,7 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ![Pasted image 20240718094448](../assets/img/Pasted%20image%2020240718094448.png)
 
-### 4. Crear un usuario IAM como Administrador
+## Paso 4: Crear un usuario IAM como Administrador
 
 Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de administrador a la cuenta, con el cual podremos hace todo (o casi todo) lo que hace el usuario Root y así no usar Root en la operación normal de la cuenta.
 
@@ -251,7 +254,7 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 
 ![Pasted image 20240719072213](../assets/img/Pasted%20image%2020240719072213.png)
 
-###  5. Crear un presupuesto para la cuenta una alerta por correo.
+## Paso 5: Crear un presupuesto para la cuenta una alerta por correo.
 
 - En la consola principal de AWS, ve al menú desplegable en la parte superior derecha y selecciona **Billing and Cost Management.**
 
