@@ -13,6 +13,8 @@ tags: [aws, lab, spanish]
 ## Objetivo
 El objetivo de este laboratorio es guiar a los usuarios en el proceso de creación y configuración segura de su primera cuenta de AWS. Está diseñado para aquellos que desean aprender los fundamentos de la nube, específicamente en AWS, y dar sus primeros pasos de manera segura, tomando las precauciones adecuadas para monitorear los costos asociados con el uso de AWS.
 
+
+
 ## Tabla de Contenido
 	
 - [Paso 1:Crear de una cuenta en AWS](#paso-1crear-de-una-cuenta-en-aws)
@@ -31,7 +33,11 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 - Ingresa la dirección de correo electrónico asociada a la cuenta, esta debe ser **única** y a la vez es el usuario Root de la cuenta, **este no se puede cambiar una vez creada la cuenta**.
 - En la dirección de correo puedes usar un dirección de **alias** como por ejemplo `micorreo+alias@gmail`, con esto puedes usar la misma cuenta de correo principal (e.g. `micorreo@gmail.com`) multiples veces. 
 
-{: .box-note} Nota: Esto lo he comprobado con Gmail, pero tambien debería funcionar con otros proveedores de correo.
+{: .box-note} 
+**Nota:** Esto lo he comprobado con Gmail, pero tambien debería funcionar con otros proveedores de correo.
+
+{: .box-warning}
+**Warning:** This is a warning box.
 
 - Completa el nombre de la cuenta, en mi caso el nombre elegido es DevOps2024General, (esto **si se puede cambiar** después), y haz click en el botón de **Verify email address**.
 
@@ -201,7 +207,6 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 - En la siguiente pantalla podemos ver la URL para poder hacer el login a la cuenta directamente.
 - Tambien podemos ver el password temporal al hacer click en Show y tenemos la opción de descargar estos datos en un archivo .csv (recomendado). 
 - Una vez anotada dicha información, podemos regresar a la lista de usuarios haciendo click en **Return to users lists.**
-
 
 {: .box-warning} Importante: Esta es la única oportunidad para ver la contraseña o descargar el archivo con las credenciales
 
