@@ -8,14 +8,8 @@ share-img: assets/img/aws-account.jpg
 tags: [aws, lab, spanish]
 ---
 
-# Guía: Crear y asegurar una cuenta nueva en AWS desde Cero
-
-Última revisón: 14/Oct/2024
-
 ## Objetivo
 El objetivo de este laboratorio es guiar a los usuarios en el proceso de creación y configuración segura de su primera cuenta de AWS. Está diseñado para aquellos que desean aprender los fundamentos de la nube, específicamente en AWS, y dar sus primeros pasos de manera segura, tomando las precauciones adecuadas para monitorear los costos asociados con el uso de AWS.
-
-
 
 ## Tabla de Contenido
 	
@@ -25,13 +19,12 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 - [Paso 4: Crear un usuario IAM como Administrador](#paso-4-crear-un-usuario-iam-como-administrador)
 - [Paso 5: Crear un presupuesto para la cuenta una alerta por correo.](#paso-5-crear-un-presupuesto-para-la-cuenta-una-alerta-por-correo)
 
+Última revisón: 14/Oct/2024
 
 ## Paso 1:Crear de una cuenta en AWS
 
 - Navega a  https://aws.amazon.com/ y haz clic en "Crear Cuenta de AWS"  o "Create AWS Account" dependiendo del idioma en que aparezca.
-
 ![Pasted image 20240718071533](../assets/img/Pasted%20image%2020240718071533.png)
-
 - Ingresa la dirección de correo electrónico asociada a la cuenta, esta debe ser **única** y a la vez es el usuario Root de la cuenta, **este no se puede cambiar una vez creada la cuenta**.
 - En la dirección de correo puedes usar un dirección de **alias** como por ejemplo `micorreo+alias@gmail`, con esto puedes usar la misma cuenta de correo principal (e.g. `micorreo@gmail.com`) multiples veces. 
 
