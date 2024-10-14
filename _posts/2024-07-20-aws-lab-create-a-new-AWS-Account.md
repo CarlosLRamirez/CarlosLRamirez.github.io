@@ -36,9 +36,6 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 {: .box-note} 
 **Nota:** Esto lo he comprobado con Gmail, pero tambien debería funcionar con otros proveedores de correo.
 
-{: .box-warning}
-**Warning:** This is a warning box.
-
 - Completa el nombre de la cuenta, en mi caso el nombre elegido es DevOps2024General, (esto **si se puede cambiar** después), y haz click en el botón de **Verify email address**.
 
 ![](../assets/img/Pasted%20image%2020240720163225.png)
@@ -51,12 +48,14 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 ![Pasted image 20240718073342](../assets/img/Pasted%20image%2020240718073342.png)![Pasted image 20240718073532](../assets/img/Pasted%20image%2020240718073532.png)
 - Ingresa la información de tarjeta de crédito (es posible que haga un cargo temporal de $1 USD, para comprobar la tarjeta. AWS no te realizará ningún otro cargó a menos que despliegues recursos que estén fuera de la capa gratuita.
 
-{: .box-error} ToDo: Falta agregar la imagen.
+{: .box-error} 
+**ToDo:** Falta agregar la imagen.
 
 - Luego debes agregar nuevamente tu número telefónico para comprobar tu identidad mediante la confirmación de un código que llegará por  SMS o llamada telefónica.
 
 
-{: .box-note} Nota: En mi caso seleccioné SMS y el código me llegó por medio de Whatsapp desde una cuenta llamada VerifyHubs).
+{: .box-note} 
+**Nota:** En mi caso seleccioné SMS y el código me llegó por medio de Whatsapp desde una cuenta llamada VerifyHubs).
 
 ![Pasted image 20240718074121](../assets/img/Pasted%20image%2020240718074121.png)
 - Luego de verificar el código recibido continuas con el siguiente paso.
@@ -134,8 +133,8 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ### 3.1 Agregar información de otros contactos en la cuenta.
 
-
-{: .box-warning} Importante: Los siguientes pasos los debes hacer ingresando con  el usuario **Root**.
+{: .box-warning}
+**Importante:** Los siguientes pasos los debes hacer ingresando con  el usuario **Root**.
 
 - En la consola principal de AWS, debes ir al menu desplegable de la esquina superior derecha donde esta el nombre de la cuenta, y hacer clic en **Account**.
 
@@ -193,7 +192,8 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 - Selecciona la opción de *Attachar* las políticas directamente al usuario.  
 
 
-{: .box-note} Nota: Para una gestión mas ordenada de usuarios y permisos se recomienda la creación de grupos y asignar policies a los mismos en lugar de asignar políticas a usuarios individuales
+{: .box-note} 
+**Nota:** Para una gestión mas ordenada de usuarios y permisos se recomienda la creación de grupos y asignar policies a los mismos en lugar de asignar políticas a usuarios individuales
 
 - En la sección de *Permission policies* debes agregar la política llamada `AdministratorAccess`, la puedes buscar en la opción de búsqueda  y luego marcar el checkbox en la política.
 - Una vez seleccionada, ve a la parte de abajo y dale click en Next.
@@ -208,7 +208,8 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 - Tambien podemos ver el password temporal al hacer click en Show y tenemos la opción de descargar estos datos en un archivo .csv (recomendado). 
 - Una vez anotada dicha información, podemos regresar a la lista de usuarios haciendo click en **Return to users lists.**
 
-{: .box-warning} Importante: Esta es la única oportunidad para ver la contraseña o descargar el archivo con las credenciales
+{: .box-warning} 
+**Importante:** Esta es la única oportunidad para ver la contraseña o descargar el archivo con las credenciales
 
 ![](../assets/img/Pasted%20image%2020240720151446.png)
 
@@ -250,7 +251,8 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 ![Pasted image 20240719070924](../assets/img/Pasted%20image%2020240719070924.png)
 
 
-{: .box-warning} Importante: Identifica correctamente cada usuario en la aplicación de autenticación para no equivocarnos al momento de ingresar el código MFA, esto empezará a cobrar relevancia cuando tengas a  muchos MFA para diferentes usuarios , en multiples cuentas.
+{: .box-warning} 
+**Importante:** Identifica correctamente cada usuario en la aplicación de autenticación para no equivocarnos al momento de ingresar el código MFA, esto empezará a cobrar relevancia cuando tengas a muchos MFA para diferentes usuarios , en multiples cuentas.
 
 - Listo, ahora si estas listos para empezar a utilizar la cuenta de AWS de forma segura, con un usuario IAM con MFA.
 
