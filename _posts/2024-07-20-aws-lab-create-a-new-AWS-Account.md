@@ -2,7 +2,7 @@
 layout: post
 title: Guía - Crear y asegurar una cuenta nueva en AWS desde Cero
 subtitle: AWS
-cover-img: assets/img/aws-account.jpg
+cover-img: assets/img/aws_console.heic
 thumbnail-img: assets/img/aws-account.jpg
 share-img: assets/img/aws-account.jpg
 tags: [aws, lab, spanish]
