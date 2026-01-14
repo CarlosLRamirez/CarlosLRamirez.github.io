@@ -1,8 +1,150 @@
----
-layout: home
-title: Welcome to my site
-subtitle: Hi, my name is Carlos Ramirez!
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Ramirez | IT Professional</title>
+  <meta name="description" content="IT Professional specializing in Cloud Computing, DevOps, and AWS">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-Hello, welcome to this blog, here I hope to share my journey learning new things related to IT, or document any other project or experience that I embark on.
-You will find publications in both English and Spanish.
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0a0a0a;
+      color: #e5e5e5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      border: 3px solid #333;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .bio {
+      font-size: 0.95rem;
+      color: #b0b0b0;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      background-color: #1a1a1a;
+      color: #e5e5e5;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid #333;
+      transition: all 0.2s ease;
+    }
+
+    .links a:hover {
+      background-color: #252525;
+      border-color: #444;
+      transform: translateY(-2px);
+    }
+
+    .social {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .social a {
+      color: #666;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s ease;
+    }
+
+    .social a:hover {
+      color: #fff;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/assets/img/photo.png" alt="Carlos Ramirez" class="avatar">
+
+    <h1>Carlos Ramirez</h1>
+    <p class="tagline">IT Professional | Cloud & DevOps | AWS</p>
+
+    <p class="bio">
+      I have nearly 15 years of experience as an IT professional. I started my career as a cellular network engineer at Ericsson before transitioning to enterprise networks and IT infrastructure. Throughout my career, I have developed extensive expertise in managing, designing, implementing, and supporting IT infrastructure for organizations of all sizes.
+      <br><br>
+      In recent years, my focus has shifted towards IT project management, with a particular emphasis on cloud computing and AWS. I am passionate about helping enterprises in their digital transformation through cloud computing and DevOps practices.
+    </p>
+
+    <div class="links">
+      <a href="/blog/">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        Blog
+      </a>
+      <a href="/notes/">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z"/></svg>
+        Notes
+      </a>
+    </div>
+
+    <div class="social">
+      <a href="https://github.com/CarlosLRamirez" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/carloslrm" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://twitter.com/clramirez" target="_blank" rel="noopener">Twitter</a>
+      <a href="mailto:carloslrm@gmail.com">Email</a>
+    </div>
+  </div>
+</body>
+</html>
