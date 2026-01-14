@@ -1,0 +1,88 @@
+name: Deploy Multi-Site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Solo un deploy a la vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      # ===== Build Landing (Jekyll) =====
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+          working-directory: ./landing-source
+
+      - name: Build Landing with Jekyll
+        run: |
+          cd landing-source
+          bundle install
+          bundle exec jekyll build --destination ../public
+        env:
+          JEKYLL_ENV: production
+
+      # ===== Build Blog (Hugo) =====
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build Blog with Hugo
+        run: |
+          cd blog
+          hugo --minify --baseURL "https://carloslramirez.com/blog/"
+          mkdir -p ../public/blog
+          cp -r public/* ../public/blog/
+
+      # ===== Build Notes (Quartz) =====
+      # Por ahora comentado hasta que configuremos Quartz
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      
+      # - name: Build Digital Garden with Quartz
+      #   run: |
+      #     cd notes-source
+      #     npm ci
+      #     npx quartz build
+      #     mkdir -p ../public/notes
+      #     cp -r public/* ../public/notes/
+
+      # ===== Deploy =====
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
