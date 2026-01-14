@@ -1,0 +1,118 @@
+baseURL = 'https://carloslramirez.com/blog/'
+languageCode = 'es-gt'
+title = 'Carlos L. Ramírez | Blog Técnico'
+theme = 'PaperMod'
+
+# Habilita emojis y highlighting
+enableEmoji = true
+pygmentsUseClasses = true
+
+[pagination]
+  pagerSize = 10
+
+# Taxonomías
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
+# Menú principal
+[[menu.main]]
+  name = "Inicio"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Posts"
+  url = "/posts/"
+  weight = 2
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 3
+
+[[menu.main]]
+  name = "Series"
+  url = "/series/"
+  weight = 4
+
+[[menu.main]]
+  name = "Digital Garden"
+  url = "/notes/"
+  weight = 5
+
+[[menu.main]]
+  name = "Portfolio"
+  url = "/"
+  weight = 6
+
+# Configuración de PaperMod
+[params]
+  env = "production"
+  description = "Blog técnico sobre AWS Cloud, IoT, Networking y AI"
+  author = "Carlos L. Ramírez"
+  
+  # Página de inicio
+  [params.homeInfoParams]
+    Title = "Bienvenido a mi Blog Técnico 👋"
+    Content = """
+Explorando AWS Cloud, IoT, Networking y AI.  
+Tutoriales prácticos, experiencias y aprendizajes.
+"""
+
+  # Características del tema
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+  showtoc = true
+  tocopen = false
+
+  # Redes sociales
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/CarlosLRamirez"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/carloslrm"
+
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/carlosredesynubes"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:carloslrm@gmail.com"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/blog/index.xml"
+
+# Markup y highlighting
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    noClasses = false
+    style = "monokai"
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# Outputs
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
