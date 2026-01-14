@@ -1,103 +1,36 @@
-# project
-_site
-.sass-cache
-.vagrant
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
 
-# general
-.DS_Store
-Thumbs.db
-ehthumbs.db
+# Hugo
+/resources/
+public/
+.hugo_build.lock
 
-Gemfile.lock
-
-beautiful-jekyll-theme-*.gem
-
-
-# VS Code specific files
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-
-# Local History for Visual Studio Code
-.history/
-
-# Common credential files
-*.pem
-*.key
-*.env
-.env*
-credentials.json
-
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Dependency directories
+# Quartz/Node
 node_modules/
-jspm_packages/
+.cache/
+.quartz-cache/
 
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
-# Mac OS specific files
+# System
 .DS_Store
-
-# Windows specific files
-Thumbs.db
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 ehthumbs.db
-[Dd]esktop.ini
+Thumbs.db
 
-# Python specific files
-*.py[cod]
-*$py.class
-__pycache__/
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
-# Terraform specific files
-**/.terraform/*
-*.tfstate
-*.tfstate.*
-crash.log
-*.tfvars
-
-# AWS specific files
-.aws/credentials
-.aws/config
-
-# Ignore any local .terraform directories
-**/.terraform/*
-
-# Ignore CLI configuration files
-.terraformrc
-terraform.rc
-
-# Obsidian specific files
-.obsidian/workspace
-.obsidian/cache
-.trash/
-.DS_Store
+# Build outputs (importante!)
+/public/
