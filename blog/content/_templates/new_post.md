@@ -8,37 +8,24 @@ if (!folderName) {
 // Function to URLerize the folder name
 const urlerize = (name) => {
     return name
-        .toLowerCase() // Convert to lowercase
-        .replace(/[^a-z0-9\s-]/g, "") // Remove special characters
-        .trim() // Trim whitespace
-        .replace(/\s+/g, "-"); // Replace spaces with hyphens
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-");
 };
 
-// URLerize the folder name
 const sanitizedFolderName = urlerize(folderName);
-
-// Define the base path for folders
 const basePath = "posts";
 const newFolderPath = `${basePath}/${sanitizedFolderName}`;
 
-// Create the folder
 await app.vault.createFolder(newFolderPath);
-
-// move the default untitled file
 await tp.file.move(newFolderPath + '/index');
-
-// Define YAML front matter
 %>---
 title:
-slug: <% sanitizedFolderName %>
-description:
-tags:
-date: <% tp.date.now("YYYY-MM-DD") %>
+date: <% tp.date.now("YYYY-MM-DDTHH:mm:ssZ") %>
 draft: true
-image:
-layout:
-excludeSearch: false
-unlisted: false
+description:
+tags: []
+categories: []
 ---
 
-Let's write something great:
