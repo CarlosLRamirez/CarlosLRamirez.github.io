@@ -55,20 +55,9 @@ jobs:
           mkdir -p ../public/blog
           cp -r public/* ../public/blog/
 
-      # ===== Build Notes (Quartz) =====
-      # Por ahora comentado hasta que configuremos Quartz
-      # - name: Setup Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '20'
-      
-      # - name: Build Digital Garden with Quartz
-      #   run: |
-      #     cd notes-source
-      #     npm ci
-      #     npx quartz build
-      #     mkdir -p ../public/notes
-      #     cp -r public/* ../public/notes/
+      # ===== Copy CNAME for custom domain =====
+      - name: Copy CNAME
+        run: cp CNAME public/
 
       # ===== Deploy =====
       - name: Upload artifact
