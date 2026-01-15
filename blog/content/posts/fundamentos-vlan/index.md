@@ -1,7 +1,7 @@
 ---
 title: Fundamentos de VLANs
 date: 2025-01-15T10:00:00-06:00
-draft: true
+draft: false
 tags:
   - ccna
   - vlan

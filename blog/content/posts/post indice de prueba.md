@@ -4,6 +4,7 @@ aliases:
   - Post indice de prueba
 date: 2022-09-13T12:00:00-06:00
 description: Este es una entrada de preuba para probar la compatilbidad de Obsidian con Hugo
+draft:
 ---
 Prueba de diferentes wikilink en Obsidian:
 
