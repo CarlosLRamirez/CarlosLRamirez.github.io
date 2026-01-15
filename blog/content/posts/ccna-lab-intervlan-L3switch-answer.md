@@ -5,6 +5,7 @@ draft: false
 tags: ["ccna", "lab", "spanish"]
 categories: ["Networking"]
 description: "Lab Answer - Solución del laboratorio de enrutamiento Inter VLAN con switch multilayer"
+series: ["CCNA"]
 cover:
   image: "/images/ccna-lab-intervlan-L3swtich-topology.png"
 ---
@@ -15,7 +16,7 @@ Para ver las instrucciones de este laboratorio, ve primero [aqui](/blog/posts/cc
 
 ### Parte 1: Parametros iniciales (opcional)
 
-#### SW1:
+#### SW1
 
 ```text
 Switch>
@@ -34,7 +35,7 @@ SW1(config)#exit
 SW1#
 ```
 
-#### SW2:
+#### SW2
 
 ```text
 Switch>
@@ -53,7 +54,7 @@ SW2(config)#exit
 SW2#
 ```
 
-#### MainSW:
+#### MainSW
 
 ```text
 Switch>
@@ -73,10 +74,9 @@ MainSW(config)#exit
 MainSW#
 ```
 
-
 ### Parte 2: Acceso por SSH
 
-### SW1, SW2 y MainSW:
+### SW1, SW2 y MainSW
 
 ```
 MainSW#
@@ -130,7 +130,6 @@ MainSW(config)#
 
 - Configure los puertos de acceso en SW1 y SW2 según la información proporcionada en la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip)
 
-
 #### Repetir para SW1 y SW2
 
 ```
@@ -152,11 +151,9 @@ SW1(config-if-range)#exit
 SW1(config)#
 ```
 
+- Configure los enlaces troncales en SW1, SW2 y MainSW de forma **estática**, de acuerdo con la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip). **_Unicamente debe permitir el tráfico de las vlans utilizadas en el ejercicio y rechazar cualquier trafico que pertenezca a otra VLAN._**
 
-- Configure los enlaces troncales en SW1, SW2 y MainSW de forma **estática**, de acuerdo con la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip). ***Unicamente debe permitir el tráfico de las vlans utilizadas en el ejercicio y rechazar cualquier trafico que pertenezca a otra VLAN.***
-
-
-#### SW1 y SW2:
+#### SW1 y SW2
 
 ```text
 SW1(config)#
@@ -167,7 +164,7 @@ SW1(config-if)#exit
 SW1(config)#
 ```
 
-#### MainSW;
+#### MainSW
 
 ```text
 MainSW(config)#
@@ -181,7 +178,7 @@ MainSW(config)#
 - Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip).
 - Configure lo necesario para que el switch puede ser alcanzado desde redes externas
 
-#### SW1:
+#### SW1
 
 ```
 SW1(config)#
@@ -192,7 +189,7 @@ SW1(config)#ip default-gateway 172.16.99.1
 SW1(config)#
 ```
 
-#### SW2:
+#### SW2
 
 ```
 SW2(config)#
@@ -203,10 +200,11 @@ SW2(config)#ip default-gateway 172.16.99.1
 SW2(config)#
 ```
 
- ### Parte 4: Enrutamiento inter vlan
- - Habilite el enrutamiento inter-vlan en MainSW mediante la configuración de las SVIs correspondientes, según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar en enrutamiento IPv4 en el router multicapa.
+### Parte 4: Enrutamiento inter vlan
 
-#### MainSW:
+- Habilite el enrutamiento inter-vlan en MainSW mediante la configuración de las SVIs correspondientes, según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar en enrutamiento IPv4 en el router multicapa.
+
+#### MainSW
 
 ```
 MainSW(config)#
@@ -230,22 +228,28 @@ MainSW#
 ```
 
 ### Parte 5: Direcciones de los hosts
+
 - Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip)
 
 #### Ejemplo: PC eng1
+
 ![](/images/ccna-lab-intervlan-L3swtich-eng1.png)
 
 #### Ejemplo: PC mkt2
+
 ![](/images/ccna-lab-intervlan-L3swtich-mkt2.png)
 
 ### Parte 6: Pruebas
+
 - Si realizó toda la configuración correctamente, debe de poder hacer ping desde cualquier computadora a los demas host, incluyendo las SVI de los switches y las interfaces del router.
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
 ### Prueba de ping
+
 ![](/images/ccna-lab-intervlan-L3swtich-test1.png)
 
 #### Prueba de SSH
+
 ![](/images/ccna-lab-intervlan-L3swtich-test2.png)
 
 ---

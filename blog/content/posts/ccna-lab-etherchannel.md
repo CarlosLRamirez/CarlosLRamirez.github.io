@@ -5,12 +5,12 @@ draft: false
 tags: ["ccna", "lab", "spanish"]
 categories: ["Networking"]
 description: "Laboratorio de agregación de enlaces con LACP, PAgP y manual"
+series: ["CCNA"]
 cover:
   image: "/images/ccna-lab-intervlan-etherchannel-topology.png"
 ---
 
-Este laboratorio es el **No. 2**  de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](/blog/posts/ccna-lab-stp/), y [Parte 3](/blog/posts/ccna-lab-dhcpv4/).
-
+Este laboratorio es el **No. 2** de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](/blog/posts/ccna-lab-stp/), y [Parte 3](/blog/posts/ccna-lab-dhcpv4/).
 
 Partiendo del ejercicio anterior, ahora agregaremos enlaces redudantes entres SW1, SW2 y SW3 para formar Etherchannels entre ellos y aumentar el ancho de banda y la disponiblidad.
 
@@ -48,7 +48,6 @@ SW2(config)#
 ```
 
 Repetimos el proceso en SW3
-
 
 ```
 SW3(config)#
@@ -91,7 +90,6 @@ SW3(config-if)#
 
 Repetimos el proceso en el SW1
 
-
 ```
 SW1(config)#
 SW1(config)#interface range gi1/0/22-23
@@ -130,7 +128,6 @@ SW1(config-if)#switchport trunk native vlan 99
 SW1(config-if)#exit
 SW1(config)#
 ```
-
 
 ```
 SW2(config)#
@@ -173,7 +170,6 @@ SW3(config)#
 SW3(config)#interface range f0/21,f0/24,g0/1-2
 SW3(config-if-range)#no shutdown
 ```
-
 
 Aqui podemos ver que los etherchannel se han establecido correctamente en los tres switches, según el protocolo configurado,
 

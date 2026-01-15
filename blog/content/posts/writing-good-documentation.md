@@ -1,7 +1,7 @@
 ---
 title: "Writing Good Documentation"
 date: 2023-11-03T10:00:00-06:00
-draft: false
+draft: true
 tags: ["github", "documentation", "english"]
 categories: ["General"]
 description: "Using Github Flavored Markup language for better documentation"
@@ -17,7 +17,7 @@ When it comes to documentation, the devil is often in the details. GitHub Flavor
 
 Use headers and sections to break down your documentation into manageable and organized chunks. This makes it easier for readers to navigate and find the information they need.
 
-``` md
+```md
 # Getting Started
 
 ## Installation
@@ -27,14 +27,11 @@ Use headers and sections to break down your documentation into manageable and or
 ### Step 2: Configure your settings
 ```
 
-
-## Step 2 - Use Codeblocks with syntax highlight.
+## Step 2 - Use Codeblocks with syntax highlight
 
 Codeblocks in mardkown allow us to **copy, plaste and share core**.
 
 A goog Cloud Engineer uses Codeblocks whenever possible, because it allows others to copy and paste their code to replicate or research issues.
-
-
 
 - To create a code block in Markdown, you can use triple backticks (```) followed by the programming language (if applicable).
 - Not to be confused with quotation (')
@@ -48,7 +45,7 @@ def my_function():
 
 - This is another example for highligthed for GO language
 
-``` go
+```go
 #include <iostream>
 
 int main() {
@@ -113,22 +110,22 @@ Github extends Markdown to have a list where you can check off items[^3].
 
 GitHub Flavored Markdown supports emoji shurtcuts[^4]. Here are some examples:
 
-| Name | Shortcut | Emoji |
-| --- | --- | --- |
-| Cloud | `:cloud:` | :cloud: |
+| Name                 | Shortcut                 | Emoji                  |
+| -------------------- | ------------------------ | ---------------------- |
+| Cloud                | `:cloud:`                | :cloud:                |
 | Cloud with Lightning | `:cloud_with_lightning:` | :cloud_with_lightning: |
-| Fire | `:fire:` | :fire: |
+| Fire                 | `:fire:`                 | :fire:                 |
 
 ## Step 6 - How to Create a Table
 
 You can use the following markdown format to create table:
 
 ```md
-| Name | Shortcut | Emoji |
-| --- | --- | --- |
-| Cloud | `:cloud:` | :cloud: |
+| Name                 | Shortcut                 | Emoji                  |
+| -------------------- | ------------------------ | ---------------------- |
+| Cloud                | `:cloud:`                | :cloud:                |
 | Cloud with Lightning | `:cloud_with_lightning:` | :cloud_with_lightning: |
-| Fire | `:fire:` | :fire: |
+| Fire                 | `:fire:`                 | :fire:                 |
 ```
 
 Github extends the functionality of Markdown tables to provide more alignment and table cell formatting options [^5]:
@@ -141,7 +138,6 @@ Github extends the functionality of Markdown tables to provide more alignment an
 ## Step 7 - Use Links and Cross-References
 
 Link to other sections within your documentation or reference external resources. Mentioning GitHub issues and users within your repository also creates contextual links for discussion and collaboration.
-
 
 ## External References
 

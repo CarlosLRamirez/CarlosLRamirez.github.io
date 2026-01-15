@@ -10,6 +10,7 @@ cover:
 ---
 
 ## Objetivo
+
 El objetivo de este laboratorio es guiar a los usuarios en el proceso de creación y configuración segura de su primera cuenta de AWS. Está diseñado para aquellos que desean aprender los fundamentos de la nube, específicamente en AWS, y dar sus primeros pasos de manera segura, tomando las precauciones adecuadas para monitorear los costos asociados con el uso de AWS.
 
 ## Tabla de Contenido
@@ -24,8 +25,8 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 
 ## Paso 1:Crear de una cuenta en AWS
 
-- Navega a  https://aws.amazon.com/ y haz clic en "Crear Cuenta de AWS"  o "Create AWS Account" dependiendo del idioma en que aparezca.
-![Pasted image 20240718071533](/images/Pasted%20image%2020240718071533.png)
+- Navega a <https://aws.amazon.com/> y haz clic en "Crear Cuenta de AWS" o "Create AWS Account" dependiendo del idioma en que aparezca.
+  ![Pasted image 20240718071533](/images/Pasted%20image%2020240718071533.png)
 - Ingresa la dirección de correo electrónico asociada a la cuenta, esta debe ser **única** y a la vez es el usuario Root de la cuenta, **este no se puede cambiar una vez creada la cuenta**.
 - En la dirección de correo puedes usar un dirección de **alias** como por ejemplo `micorreo+alias@gmail`, con esto puedes usar la misma cuenta de correo principal (e.g. `micorreo@gmail.com`) multiples veces.
 
@@ -36,26 +37,27 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 ![](/images/Pasted%20image%2020240720163225.png)
 
 - Al correo de la cuenta llegará un código de verificación, ingresarlo para verificar que el correo nos pertenece.
-![Pasted image 20240718072847](/images/Pasted%20image%2020240718072847.png)
+  ![Pasted image 20240718072847](/images/Pasted%20image%2020240718072847.png)
 - Ingresa el password para el usuario **root**, se recomienda usar un password fuerte y anotar este password en un lugar seguro, en un proximo paso agregaremos un **segundo factor de autenticación** para el usuario root (recomendado).
-![Pasted image 20240718072934](/images/Pasted%20image%2020240718072934.png)
+  ![Pasted image 20240718072934](/images/Pasted%20image%2020240718072934.png)
 - Completa información de contacto, en tipo de cuenta selecciona **Personal**, y acepta los términos de servicio.
-![Pasted image 20240718073342](/images/Pasted%20image%2020240718073342.png)![Pasted image 20240718073532](/images/Pasted%20image%2020240718073532.png)
+  ![Pasted image 20240718073342](/images/Pasted%20image%2020240718073342.png)![Pasted image 20240718073532](/images/Pasted%20image%2020240718073532.png)
 - Ingresa la información de tarjeta de crédito (es posible que haga un cargo temporal de $1 USD, para comprobar la tarjeta. AWS no te realizará ningún otro cargó a menos que despliegues recursos que estén fuera de la capa gratuita.
 
-- Luego debes agregar nuevamente tu número telefónico para comprobar tu identidad mediante la confirmación de un código que llegará por  SMS o llamada telefónica.
+- Luego debes agregar nuevamente tu número telefónico para comprobar tu identidad mediante la confirmación de un código que llegará por SMS o llamada telefónica.
 
 > **Nota:** En mi caso seleccioné SMS y el código me llegó por medio de Whatsapp desde una cuenta llamada VerifyHubs).
 
 ![Pasted image 20240718074121](/images/Pasted%20image%2020240718074121.png)
+
 - Luego de verificar el código recibido continuas con el siguiente paso.
-![Pasted image 20240718074223](/images/Pasted%20image%2020240718074223.png)
-- Ahora debemos selecciona  el plan de soporte, el cual  será  **Basic Support** el cual incluye lo básico y es gratuito.
-![Pasted image 20240718074442](/images/Pasted%20image%2020240718074442.png)
+  ![Pasted image 20240718074223](/images/Pasted%20image%2020240718074223.png)
+- Ahora debemos selecciona el plan de soporte, el cual será **Basic Support** el cual incluye lo básico y es gratuito.
+  ![Pasted image 20240718074442](/images/Pasted%20image%2020240718074442.png)
 - Listo, con eso hemos completado el proceso de creación de la cuenta de AWS, luego nos dirigimos a la consola principal de AWS mediante el botón naranja grande **Go to the AWS Management Console.**
-![Pasted image 20240718074513](/images/Pasted%20image%2020240718074513.png)
+  ![Pasted image 20240718074513](/images/Pasted%20image%2020240718074513.png)
 - Este es el panel principal de la consola de AWS, puede que algunos widgets todavía se estén actualizando. En la parte superior derecha aparece el nombre que asignamos a la cuenta y mas a la izquierda la región seleccionada, esta puede ser diferente de acuerdo al lugar donde te encuentres.
-![Pasted image 20240718074545](/images/Pasted%20image%2020240718074545.png)
+  ![Pasted image 20240718074545](/images/Pasted%20image%2020240718074545.png)
 - Un paso importante es anotar el ID de la cuenta y guardarlo en un lugar seguro, ese ID es único para tu cuenta de AWS, puedes cambiar el nombre o alias, pero al final el ID es lo que identifica tu cuenta.
 - Para ver el Account ID, haz clic en el menu desplegable al lado del nombre de la cuenta.
 
@@ -88,7 +90,8 @@ El objetivo de este laboratorio es guiar a los usuarios en el proceso de creaci�
 ![Pasted image 20240719054313](/images/Pasted%20image%2020240719054313.png)
 
 ## Paso 2:Agregar autenticación multifactor (MFA) al usuario root
-Como lo comprobaste en la sección anterior, para poder acceder a tu cuenta con el usuario Root solo es necesario que alguien tenga acceso a  la dirección de correo electrónico de la cuenta y a la contraseña, para que se pueda tener acceso COMPLETO a la cuenta de AWS.
+
+Como lo comprobaste en la sección anterior, para poder acceder a tu cuenta con el usuario Root solo es necesario que alguien tenga acceso a la dirección de correo electrónico de la cuenta y a la contraseña, para que se pueda tener acceso COMPLETO a la cuenta de AWS.
 
 Es por eso que es altamente recomendable que agregues Multiple Factor de Autenticación para el usuario Root de la cuenta, con esto agregar una capa extra de seguridad.
 
@@ -101,9 +104,9 @@ Es por eso que es altamente recomendable que agregues Multiple Factor de Autenti
 ![Pasted image 20240719054935](/images/Pasted%20image%2020240719054935.png)
 
 Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una llave física de seguridad, o una aplicación de autenticación en el móvil como Microsoft Autheticator o Google Authenticator, o un disopositovo tipo token para generer claves temporales. En este caso estoy utilizando la aplicación Google Authenticator y los pasos se describen a continuacion:
+
 - Ingresa un nombre para el dispositivo MFA que vamos a agregar.
 - Selecciona Auhtenticator App en el tipo de dispositivo.
-
 
 ![Pasted image 20240719062406](/images/Pasted%20image%2020240719062406.png)
 
@@ -114,32 +117,31 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 ![Pasted image 20240719062514](/images/Pasted%20image%2020240719062514.png)
 
-- Al completar los pasos anteriores  ya te aparece un dispositivo de MFA tipo Virtual asociado al usuario **Root**, el cual debes utilizar cada vez que ingresemos con a la cuenta con dicho usuario (**es decir casi nunca!**)
+- Al completar los pasos anteriores ya te aparece un dispositivo de MFA tipo Virtual asociado al usuario **Root**, el cual debes utilizar cada vez que ingresemos con a la cuenta con dicho usuario (**es decir casi nunca!**)
 
 ![Pasted image 20240719062841](/images/Pasted%20image%2020240719062841.png)
 
-
 ## Paso 3:Configuraciones adicionales recomendadas en la Cuenta
 
-### 3.1 Agregar información de otros contactos en la cuenta.
+### 3.1 Agregar información de otros contactos en la cuenta
 
-> **Importante:** Los siguientes pasos los debes hacer ingresando con  el usuario **Root**.
+> **Importante:** Los siguientes pasos los debes hacer ingresando con el usuario **Root**.
 
 - En la consola principal de AWS, debes ir al menu desplegable de la esquina superior derecha donde esta el nombre de la cuenta, y hacer clic en **Account**.
 
 ![Pasted image 20240718074833](/images/Pasted%20image%2020240718074833.png)
 
-- Esto te lleva a la consola de Billing and Cost Management,  donde **podras** ver los datos generales de la cuenta, como el ID y nombre de la cuenta, así como la información de contacto principal.
+- Esto te lleva a la consola de Billing and Cost Management, donde **podras** ver los datos generales de la cuenta, como el ID y nombre de la cuenta, así como la información de contacto principal.
 
 ![Pasted image 20240719052459](/images/Pasted%20image%2020240719052459.png)
 
-- Adicionalmente al contacto principal puedes agregar los contactos de **Billing**, **Operations** y Security, en una **organización** es muy probable que los encargados de cada uno de estos temas sean  personas diferentes, sin embargo en este caso que es unicamente para uso personal y aprendizaje, coloca tus datos para los tres.
+- Adicionalmente al contacto principal puedes agregar los contactos de **Billing**, **Operations** y Security, en una **organización** es muy probable que los encargados de cada uno de estos temas sean personas diferentes, sin embargo en este caso que es unicamente para uso personal y aprendizaje, coloca tus datos para los tres.
 
 ![Pasted image 20240718075026](/images/Pasted%20image%2020240718075026.png)
 
 ### 3.2 Habilitar usuario IAM para ver información de Facturación
 
- - El siguiente paso es habilitar para que los usuarios IAM puedan acceder a la información de facturación, con esto no será necesario acceder con el usuario **Root** para ver datos de costos y facturación. Recordemos que debemos utilizar el usuario Root lo menos posible.
+- El siguiente paso es habilitar para que los usuarios IAM puedan acceder a la información de facturación, con esto no será necesario acceder con el usuario **Root** para ver datos de costos y facturación. Recordemos que debemos utilizar el usuario Root lo menos posible.
 
 - En la pantalla de Billing and Cost Management de la cuenta, ve a la sección donde dice **IAM users and role access to Billing information** como se muestra en la imagen y haz click en **Edit**.
 
@@ -157,7 +159,7 @@ Puedes agregar diferentes tipos de dispositivos de MFA los cuales pueden ser una
 
 Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de administrador a la cuenta, con el cual podremos hace todo (o casi todo) lo que hace el usuario Root y así no usar Root en la operación normal de la cuenta.
 
-- En la consola principal de administración de AWS, ve al servicio de  IAM, para esto puede escribir IAM en la barra de búsqueda en la parte superior, y te mostrará el acceso a la consola del servicio IAM
+- En la consola principal de administración de AWS, ve al servicio de IAM, para esto puede escribir IAM en la barra de búsqueda en la parte superior, y te mostrará el acceso a la consola del servicio IAM
 
 ![Pasted image 20240719063436](/images/Pasted%20image%2020240719063436.png)
 
@@ -169,7 +171,7 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 
 ![Pasted image 20240719063820](/images/Pasted%20image%2020240719063820.png)
 
-- Ingresa el nombre del usuario a crear, en este caso el usuario se llamará  `IAMadmin`
+- Ingresa el nombre del usuario a crear, en este caso el usuario se llamará `IAMadmin`
 - Cheque la opción para que el usuario tenga acceso a la consola de AWS.
 - El la sección de User Type selecciona que quieres crear un usuario de IAM.
 - Para el password de consola, selecciona la opción de auto-generar el password.
@@ -178,11 +180,11 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 ![Pasted image 20240719064912](/images/Pasted%20image%2020240719064912.png)
 
 - En la siguiente pagina debes definir que permisos tendrá este usuario, esto lo podemos hacer ya sea agregando el usuario a algún grupo existente, copiando los permisos de otro usuario, o asignando una politica directamente al usuario.
-- Selecciona la opción de *Attachar* las políticas directamente al usuario.
+- Selecciona la opción de _Attachar_ las políticas directamente al usuario.
 
 > **Nota:** Para una gestión mas ordenada de usuarios y permisos se recomienda la creación de grupos y asignar policies a los mismos en lugar de asignar políticas a usuarios individuales
 
-- En la sección de *Permission policies* debes agregar la política llamada `AdministratorAccess`, la puedes buscar en la opción de búsqueda  y luego marcar el checkbox en la política.
+- En la sección de _Permission policies_ debes agregar la política llamada `AdministratorAccess`, la puedes buscar en la opción de búsqueda y luego marcar el checkbox en la política.
 - Una vez seleccionada, ve a la parte de abajo y dale click en Next.
 
 ![Pasted image 20240719065237](/images/Pasted%20image%2020240719065237.png)
@@ -214,7 +216,7 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 
 - Ahora (al igual como hicimos con el usuario Root) vamos a agregar un MFA al usuario IAM recién creado, recordemos que dicho usuario tiene permisos full a la cuenta por lo que debemos asegurarlo de la misma forma.
 
-- Debes ir nuevamente al  servicio de IAM ya sea buscándolo en la barra de búsqueda o probablemnte te aparezca en los servicios visitados recientemente.
+- Debes ir nuevamente al servicio de IAM ya sea buscándolo en la barra de búsqueda o probablemnte te aparezca en los servicios visitados recientemente.
 
 ![Pasted image 20240719073429](/images/Pasted%20image%2020240719073429.png)
 
@@ -225,9 +227,11 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 - Haz clic en el nombre del usuario recién creado, en este caso `IAMadmin`.
 
 ![Pasted image 20240719070710](/images/Pasted%20image%2020240719070710.png)
+
 - Luego en el panel del usuario selecciona la pestaña de **Security Credentials**
 
 ![](/images/Pasted%20image%2020240720153018.png)
+
 - Ve a la sección de Multi-factor authentication (MFA) y selecciona el botón de **Assign MFA device**, para agregar un nuevo dispositivo.
 
 ![Pasted image 20240719070843](/images/Pasted%20image%2020240719070843.png)
@@ -242,11 +246,12 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 
 ![Pasted image 20240719072213](/images/Pasted%20image%2020240719072213.png)
 
-## Paso 5: Crear un presupuesto para la cuenta una alerta por correo.
+## Paso 5: Crear un presupuesto para la cuenta una alerta por correo
 
 - En la consola principal de AWS, ve al menú desplegable en la parte superior derecha y selecciona **Billing and Cost Management.**
 
 ![](/images/Pasted%20image%2020240720154716.png)
+
 - Esto te llevara la consola principal de Costos y Facturación de AWS (Billing and Cost Management), aquí selecciona la opción de Presupuestos (**Budgets**) en el menu principal de la derecha.
 
 ![](/images/Pasted%20image%2020240720155026.png)
@@ -257,9 +262,9 @@ Otro paso altamente recomendado es crear un usuario tipo IAM con permisos de adm
 ![](/images/Pasted%20image%2020240720155057.png)
 
 - AWS ya cuenta con un template para crear un budget cero (0) costo, para que en caso de tener algún consumo en AWS este genere una alerta, para esto selecciona las opciones mostradas en la imagen:
-	- Use a template (simplified)
-	- Zero spend budget
-	- Ingresa el nombre del presupuesto, en donde puedes dejar el nombre predefinido de `My Zero-Spend Budget´.
+  - Use a template (simplified)
+  - Zero spend budget
+  - Ingresa el nombre del presupuesto, en donde puedes dejar el nombre predefinido de `My Zero-Spend Budget´.
 
 ![](/images/Pasted%20image%2020240720155239.png)
 

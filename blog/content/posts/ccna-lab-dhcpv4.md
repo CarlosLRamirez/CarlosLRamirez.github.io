@@ -5,11 +5,12 @@ draft: false
 tags: ["ccna", "lab", "spanish"]
 categories: ["Networking"]
 description: "Configurar un servidor DHCPv4 en un switch multicapa"
+series: ["CCNA"]
 cover:
   image: "/images/ccna-lab-intervlan-dhcpv4-topology.png"
 ---
 
-Este laboratorio es el **No. 3**  de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](/blog/posts/ccna-lab-stp/), y [Parte 2](/blog/posts/ccna-lab-etherchannel/).
+Este laboratorio es el **No. 3** de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](/blog/posts/ccna-lab-stp/), y [Parte 2](/blog/posts/ccna-lab-etherchannel/).
 
 Partiendo del ejercicio anterior, ahora vamos a agregar un serviodor DHCPv4 en SW1, el cual proveera de IPs a las VLANs de usuarios, exceptuando la vlan de administración de equipos de red.
 
@@ -68,7 +69,6 @@ SW1(config)#
 Aqui podemos ver que el servidor DHCP esta entregando direcciones IP de acuerdo al rango indicado.
 
 ![](/images/ccna-lab-intervlan-dhcpv4-test1.png)
-
 
 ## Conclusiones
 

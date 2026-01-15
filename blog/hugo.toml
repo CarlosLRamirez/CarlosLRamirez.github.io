@@ -52,8 +52,9 @@ pygmentsUseClasses = true
   env = "production"
   description = "Blog técnico sobre AWS Cloud, IoT, Networking y AI"
   author = "Carlos L. Ramírez"
-  
-  # Página de inicio
+
+
+# Página de inicio
   [params.homeInfoParams]
     Title = "Bienvenido a mi Blog Técnico 👋"
     Content = """
@@ -98,6 +99,23 @@ Tutoriales prácticos, experiencias y aprendizajes.
   [[params.socialIcons]]
     name = "rss"
     url = "/blog/index.xml"
+ 
+  comments = true 
+
+  [params.comments]
+    [params.comments.giscus]
+      repo = "CarlosLRamirez/CarlosLRamirez.github.io"
+      repoID = "R_kgDOHRYoiQ"
+      category = "Blog Comments"
+      categoryID = "DIC_kwDOHRYoic4C0_k5"
+      mapping = "pathname"
+      strict = "0"
+      reactionsEnabled = "1"
+      emitMetadata = "1"
+      inputPosition = "bottom"
+      theme = "preferred_color_scheme"
+      lang = "es"
+
 
 # Markup y highlighting
 [markup]
