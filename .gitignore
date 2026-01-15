@@ -32,5 +32,6 @@ Thumbs.db
 *.swo
 *~
 
+Laboratorios-CCNA/
 # Build outputs (importante!)
 /public/
