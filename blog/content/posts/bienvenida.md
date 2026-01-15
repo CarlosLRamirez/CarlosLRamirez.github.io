@@ -1,11 +1,16 @@
 ---
-title: "Bienvenido a Mi Blog Técnico"
+title: Bienvenido a Mi Blog Técnico
 date: 2025-01-14T18:00:00-06:00
 draft: false
-tags: ["meta", "bienvenida"]
-categories: ["General"]
+tags:
+  - meta
+  - bienvenida
+categories:
+  - General
 comments: true
-description: "Primer post del blog técnico de Carlos L. Ramírez"
+description: Primer post del blog técnico de Carlos L. Ramírez
+aliases:
+  - Post de Bienvenida
 ---
 
 ¡Hola! 👋

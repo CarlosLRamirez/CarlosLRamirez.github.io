@@ -1,7 +1,7 @@
 baseURL = 'https://carloslramirez.com/blog/'
 languageCode = 'es-gt'
 title = 'Carlos L. Ramírez | Blog Técnico'
-theme = 'PaperMod'
+theme = ["hugo-admonitions", "PaperMod"]
 
 # Habilita emojis y highlighting
 enableEmoji = true

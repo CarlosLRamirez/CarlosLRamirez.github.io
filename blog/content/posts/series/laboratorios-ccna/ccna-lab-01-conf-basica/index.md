@@ -2,13 +2,20 @@
 title: "CCNA - Laboratorio 1: Comandos Básicos de IOS"
 date: 2022-09-13T12:00:00-06:00
 draft: false
-tags: ["ccna", "lab", "spanish"]
-categories: ["Networking"]
-description: "Comandos básicos de Cisco IOS"
-series: ["CCNA"]
+tags:
+  - ccna
+  - lab
+  - spanish
+categories:
+  - Networking
+description: Comandos básicos de Cisco IOS
+series:
+  - CCNA
 comments: true
 cover:
-  image: "comandos-basicos-ios-cover.jpg"
+  image: comandos-basicos-ios-cover.jpg
+aliases:
+  - "CCNA - Laboratorio No. 1: Comandos Básicos de Cisco IOS"
 ---
 
 Si estas empezando en el mundo de Cisco y en la configuración de routers o switches, ya sea que tengas la suerte de contar con equipo físico para tus prácticas o estas trabajando en Packet Tracer, este post es para ti.

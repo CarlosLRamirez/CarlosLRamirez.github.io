@@ -32,6 +32,11 @@ Thumbs.db
 *.swo
 *~
 
-Laboratorios-CCNA/
+# Obsidian
+.obsidian/
+
+# Claude Code
+.claude/
+
 # Build outputs (importante!)
 /public/

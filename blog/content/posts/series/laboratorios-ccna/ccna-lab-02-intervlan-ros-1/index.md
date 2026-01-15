@@ -8,20 +8,23 @@ description: "Ennrutamiento de enrutamiento inter-vlan con Router-on-Stick"
 series: ["CCNA"]
 comments: true
 cover:
-  image: "lab-intervlan-ros.png"
+  image: "img/covers/router-on-stick-cover.png"
 ---
 
 ## Objetivo
 
-El proposito de este laboratorio es configurar una red con 3 VLANs identificadas cada una por un color y 1 VLAN adicional para la administración de los equipos de red. Para el enrutamiento Inter VLAN se utiliza un router con sub-interfaces, una para cada VLAN, lo que comunmente se conoce como Router-on-Stick. Adicionalmente se deben configurar los parametros iniciales de los dispositivos de red.
+El propósito de este laboratorio es configurar una red con 3 VLANs identificadas cada una por un color y 1 VLAN adicional para la administración de los equipos de red. Para el enrutamiento Inter VLAN se utiliza un router con sub-interfaces, una para cada VLAN, lo que comúnmente se conoce como Router-on-Stick. Adicionalmente se deben configurar los parámetros iniciales de los dispositivos de red.
+
+> [!TASK]
+> Incluir el archivo de Packet Tracer inicial
 
 ## Topología
 
-![](lab-intervlan-ros.png)
+![Diagrama de red](lab-intervlan-ros.png)
 
 ## Información General
 
-#### Tabla de VLANs
+### Tabla de VLANs
 
 | Vlan ID |  Name  |           Subnet |
 | ------- | :----: | ---------------: |
@@ -30,7 +33,7 @@ El proposito de este laboratorio es configurar una red con 3 VLANs identificadas
 | 120     | yellow | 192.168.120.0/24 |
 | 99      |  mgmt  | 192.168.99.0./24 |
 
-#### Asignación de puertos y direccionamiento IP
+### Asignación de puertos y direccionamiento IP
 
 | Device |    Port     | Port Type | Vlan(s) | IP address     |
 | ------ | :---------: | :-------: | :-----: | -------------- |
@@ -58,21 +61,21 @@ El proposito de este laboratorio es configurar una red con 3 VLANs identificadas
 
 ## Instrucciones
 
-### Parte 1: Parametros iniciales
+### Parte 1: Parámetros iniciales
 
 - En todos los dispositivos, configure el nombre de host,
-- Configure un mensaje del dia que contenga la palabra `advertencia`
+- Configure un mensaje del día que contenga la palabra `advertencia`
 - Proteja el acceso a consola con el password `cisco`
-- Proteja el acceso a EXE privilegiado con `class`
-- Encripte las contraseñas en el archivo de configuración
+- Proteja el acceso a EXEC privilegiado con `class`
+- Encriptar las contraseñas en el archivo de configuración
 
 ### Parte 2: Acceso por SSH
 
 - Configure un nombre de dominio `mylab.com`
 - Genere un par de llaves RSA con **1024bits** para habilitar SSH.
 - Cree un usuario `admin` con contraseña segura `letmein` y el **máximo** privilegio
-- Habilite el acceso por SSH en todas las terminales virtuales disponibles, asegurese de utilizar la base de datos local para la autenticación de usuarios.
-- Asegurese de estar utilizndo la version 2 del protocolo
+- Habilite el acceso por SSH en todas las terminales virtuales disponibles, asegúrese de utilizar la base de datos local para la autenticación de usuarios.
+- Asegúrese de estar utilizado la version 2 del protocolo
 
 ### Parte 3: VLANs y puertos de switch
 
@@ -82,12 +85,12 @@ El proposito de este laboratorio es configurar una red con 3 VLANs identificadas
 
 - Configure los enlaces troncales en SW1 y SW2 de acuerdo con la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip). **_Unicamente debe permitir el tráfico de las vlans utilizadas en el ejercicio y rechazar cualquier trafico que pertenezca a otra VLAN._**
 
-- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip).
+- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciones IP, de acuerdo con la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip).
 - Configure lo necesario para que el switch puede ser alcanzado desde redes externas
 
 ### Parte 4: Enrutamiento inter vlan
 
-- Configure en enrutamiento inter-vlan colocando la interfaz del router como puerto troncal mediante sub-interfaces y asigne las direcciónes IP según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar la interfaz principal.
+- Configure el enrasamiento inter-vlan colocando la interfaz del router como puerto troncal mediante sub-interfaces y asigne las direcciones IP según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar la interfaz principal.
 
 ### Parte 5: Direcciones de los hosts
 
@@ -95,16 +98,16 @@ El proposito de este laboratorio es configurar una red con 3 VLANs identificadas
 
 ### Parte 6: Pruebas
 
-- Si realizó toda la configuración correctamente, debe de poder hacer ping desde cualquier computadora a los demas host, incluyendo las SVI de los switches y las interfaces del router.
+- Si realizó toda la configuración correctamente, debe de poder hacer ping desde cualquier computadora a los damas host, incluyendo las SVI de los switches y las interfaces del router.
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
 ---
 
-Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](/blog/posts/ccna-lab-intervlan-ros-answer/).
+Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](/blog/posts/series/laboratorios-ccna/ccna-lab-03-intervlan-ros-2/).
 
 Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compartelo.
 
-Si encuentras algun error o punto de mejora, por favor deja tus comentarios.
+Si encuentras algún error o punto de mejora, por favor deja tus comentarios.
 
 Saludos,
 
