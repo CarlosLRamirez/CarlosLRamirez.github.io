@@ -1,12 +1,16 @@
 ---
-title: "Como crear y asegurar una cuenta nueva en AWS desde Cero"
+title: Como crear y asegurar una cuenta nueva en AWS desde Cero
 date: 2024-07-20T10:00:00-06:00
 draft: false
-tags: ["aws", "lab", "spanish"]
-categories: ["AWS"]
-description: "Guia paso a paso para crear y configurar de forma segura tu primera cuenta de AWS"
+tags:
+  - aws
+  - lab
+  - spanish
+categories:
+  - AWS
+description: Guia paso a paso para crear y configurar de forma segura tu primera cuenta de AWS
 cover:
-  image: "/images/aws_console_dark.jpg"
+  image: /images/aws_console_dark.jpg
 ---
 
 ## Objetivo

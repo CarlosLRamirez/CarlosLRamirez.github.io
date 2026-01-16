@@ -1,7 +1,7 @@
 ---
 title: Fundamentos de VLANs
 date: 2025-01-15T10:00:00-06:00
-draft: false
+draft: true
 tags:
   - ccna
   - vlan
@@ -10,10 +10,10 @@ categories:
   - Networking
 description: Conceptos básicos de VLANs y su importancia en redes modernas
 cover:
-  image: vlan-diagram.png
-  alt: Diagrama de VLANs
+  image: /blog/img/cover.png
+  alt: cover placeholder
   relative: true
-comments: true
+comments: false
 aliases:
   - Fundamentos de VLANs
 ---
@@ -59,11 +59,11 @@ En el próximo artículo veremos cómo configurar [[trunking-vlans|trunking entr
 
 [[posts/trunking-vlans/index.md]]
 
-[[posts/fundamentos-vlan/index.md]]
+[[index]]
 
 [[posts/trunking-vlans/index.md]]
 
-[[posts/fundamentos-vlan/index.md]]
+[[index]]
 
 
 
