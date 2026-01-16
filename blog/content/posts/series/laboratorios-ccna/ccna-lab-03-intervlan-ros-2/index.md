@@ -8,7 +8,7 @@ series: ["CCNA"]
 description: "Solución para configurar enrutamiento inter-vlan con Router-on-Stick"
 comments: true
 cover:
-  image: blog/img/router-on-stick-cover.png
+  image: /blog/img/router-on-stick-cover.png
   alt: Image of a router with a stick on a ethernet port
   relative: true
 ---
