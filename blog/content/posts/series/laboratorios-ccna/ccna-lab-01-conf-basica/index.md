@@ -14,6 +14,7 @@ series:
 comments: true
 cover:
   image: comandos-basicos-ios-cover.jpg
+  relative: true
 aliases:
   - "CCNA - Laboratorio No. 1: Comandos Básicos de Cisco IOS"
 ---
