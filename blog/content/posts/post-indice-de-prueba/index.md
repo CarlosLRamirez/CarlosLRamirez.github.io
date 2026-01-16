@@ -20,18 +20,14 @@ Esto si funcionando dentro de Obsidian, lo ideal es que esto tambien funcione en
 - [CCNA - Laboratorio No. 1: Comandos Básicos de Cisco IOS](series/laboratorios-ccna/ccna-lab-01-conf-basica/index.md)
 - [ccna-lab-stp](ccna-lab-stp.md)
 
-Imagenes
-- ![](trunking-vlans/trunk-diagram.png)
-- ![](series/laboratorios-ccna/ccna-lab-03-intervlan-ros-2/lab-intervlan-ros-P10.png)
+Imagen dentro del bundle
+
+![](bundleimage.jpg)
 
 
+Imagenes en static fuera del vault de Obsidian
 
-
-Esto no funciona dentro de Obsidian
-
-- [[/blog/posts/series/laboratorios-ccna/ccna-lab-03-intervlan-ros-2/]]
-
-
+![test](/blog/img/test.png)
 
 
 ---
