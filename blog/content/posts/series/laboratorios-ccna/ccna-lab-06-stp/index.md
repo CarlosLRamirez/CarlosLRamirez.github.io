@@ -21,7 +21,7 @@ El protocolo STP a utilizar es Rapid PVST+, y se debe configurar el SW3 como roo
 
 ## Topología
 
-![topologia](/images/ccna-lab-intervlan-stp-topology.png)
+![topologia](ccna-lab-intervlan-stp-topology.png)
 
 ## Procedimiento
 

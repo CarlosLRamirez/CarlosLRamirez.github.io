@@ -109,7 +109,7 @@ MainSW#
 
 ### Parte 3: VLANs y puertos de switch
 
-- Configure las VLANs en SW1, SW2 y MainSW de acuerdo a la información proporcionada en [tabla de vlans](#tabla-de-vlans)
+- Configure las VLANs en SW1, SW2 y MainSW de acuerdo a la información proporcionada en la [tabla de VLANs](../ccna-lab-04-intervlan-L3switch#tabla-de-vlans) de la nota con las  **instrucciones**
 
 #### SW1, SW2 y MainSW
 
@@ -132,7 +132,7 @@ MainSW(config-vlan)#exit
 MainSW(config)#
 ```
 
-- Configure los puertos de acceso en SW1 y SW2 según la información proporcionada en la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip)
+- Configure los puertos de acceso en SW1 y SW2 según la información proporcionada en la [tabla de asignación de puertos](../ccna-lab-04-intervlan-L3switch#asignación-de-puertos-y-direccionamiento-ip)
 
 #### Repetir para SW1 y SW2
 
@@ -155,7 +155,7 @@ SW1(config-if-range)#exit
 SW1(config)#
 ```
 
-- Configure los enlaces troncales en SW1, SW2 y MainSW de forma **estática**, de acuerdo con la [tabla de asignación de puertos](#asignación-de-puertos-y-direccionamiento-ip). **_Unicamente debe permitir el tráfico de las vlans utilizadas en el ejercicio y rechazar cualquier trafico que pertenezca a otra VLAN._**
+- Configure los enlaces troncales en SW1, SW2 y MainSW de forma **estática**, de acuerdo con la [tabla de asignación de puertos](../ccna-lab-04-intervlan-L3switch#asignación-de-puertos-y-direccionamiento-ip). **_Unicamente debe permitir el tráfico de las vlans utilizadas en el ejercicio y rechazar cualquier trafico que pertenezca a otra VLAN._**
 
 #### SW1 y SW2
 
@@ -179,7 +179,7 @@ MainSW(config-if-range)#exit
 MainSW(config)#
 ```
 
-- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip).
+- Habilite las interfaces de administración en SW1 y SW2 y asigne las direcciónes IP, de acuerdo con la información [proporcionada](../ccna-lab-04-intervlan-L3switch#asignación-de-puertos-y-direccionamiento-ip).
 - Configure lo necesario para que el switch puede ser alcanzado desde redes externas
 
 #### SW1
@@ -206,7 +206,7 @@ SW2(config)#
 
 ### Parte 4: Enrutamiento inter vlan
 
-- Habilite el enrutamiento inter-vlan en MainSW mediante la configuración de las SVIs correspondientes, según lo indicado en la [tabla](#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar en enrutamiento IPv4 en el router multicapa.
+- Habilite el enrutamiento inter-vlan en MainSW mediante la configuración de las SVIs correspondientes, según lo indicado en la [tabla](../ccna-lab-04-intervlan-L3switch#asignación-de-puertos-y-direccionamiento-ip), no olvide habilitar en enrutamiento IPv4 en el router multicapa.
 
 #### MainSW
 
@@ -233,7 +233,7 @@ MainSW#
 
 ### Parte 5: Direcciones de los hosts
 
-- Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](#asignación-de-puertos-y-direccionamiento-ip)
+- Asigne las direcciones IP a las PC's de acuerdo a la información [proporcionada](../ccna-lab-04-intervlan-L3switch#asignación-de-puertos-y-direccionamiento-ip)
 
 #### Ejemplo: PC eng1
 
@@ -260,7 +260,7 @@ MainSW#
 
 Intenta realizar el laboratorio por tu cuenta, si tienes dudas puedes consultar el archivo de Packet Tracer con toda la configuración [aquí](ccna-lab-intervlan-L3switch-answer.pkt)
 
-	Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compártelo.
+Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compártelo.
 
 Si encuentras algún error o punto de mejora, por favor deja tus comentarios.
 
