@@ -109,7 +109,7 @@ MainSW#
 
 ### Parte 3: VLANs y puertos de switch
 
-- Configure las VLANs en SW1, SW2 y MainSW de acuerdo a la información proporcionada en la [tabla de VLANs](../ccna-lab-04-intervlan-L3switch#tabla-de-vlans) de la nota con las  **instrucciones**
+- Configure las VLANs en SW1, SW2 y MainSW de acuerdo a la información proporcionada en la [tabla de VLANs]({{< relref "/posts/ccna-lab-04-intervlan-L3switch#tabla-de-vlans" >}}) de la nota con las  **instrucciones**.
 
 #### SW1, SW2 y MainSW
 
