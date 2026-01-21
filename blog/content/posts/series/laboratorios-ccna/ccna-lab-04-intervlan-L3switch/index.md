@@ -1,5 +1,6 @@
 ---
 title: CCNA Lab - Inter Vlan Routing with Multilayer Switch - Lab Instructions
+slug: "ccna-lab-04-intervlan-l3switch"
 date: 2022-09-26T12:00:00-06:00
 draft: false
 tags:
