@@ -105,7 +105,7 @@ El proposito de este laboratorio es configurar una red con 3 VLAN, una para cada
 - Si realizó toda la configuración correctamente, debe de poder hacer ping desde cualquier computadora a los demas host, incluyendo las SVI de los switches y las interfaces del router.
 - Debe poder acceder por SSH a los switches y al router desde cualquier computadora.
 
-Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](../ccna-lab-05-intervlan-L3switch-answer/index.md)
+Intenta realizar el laboratorio por tu cuenta, si tiene alguna duda, puede consultar la solución [aqui](../ccna-lab-05-intervlan-l3switch-answer/index.md)
 
 Espero este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compártelo.
 

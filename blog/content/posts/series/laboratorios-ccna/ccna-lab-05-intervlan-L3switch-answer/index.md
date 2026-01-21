@@ -15,7 +15,7 @@ series:
 cover:
   image: ccna-lab-05-cover.webp
 ---
-En este artículo encontraras la solución paso a paso para configurar enrutamiento inter-vlan en routers Cisco multicapa, mediante interfaces  tipo SVI. Para ver las instrucciones de este laboratorio, ve primero [aquí](../ccna-lab-04-intervlan-L3switch/index.md).
+En este artículo encontraras la solución paso a paso para configurar enrutamiento inter-vlan en routers Cisco multicapa, mediante interfaces  tipo SVI. Para ver las instrucciones de este laboratorio, ve primero [aquí](../ccna-lab-04-intervlan-l3switch/index.md).
 
 ## Solución paso a paso
 
@@ -110,7 +110,17 @@ MainSW#
 
 ### Parte 3: VLANs y puertos de switch
 
-- Configure las VLANs en SW1, SW2 y MainSW de acuerdo a la información proporcionada en la [tabla de vlans](../ccna-lab-04-intervlan-L3switch#tabla-de-vlans) de la nota con las  **instrucciones**.
+- Configure las VLANs en SW1, SW2 y MainSW de acuerdo a la información proporcionada en la [Tabla de VLANs](../ccna-lab-04-intervlan-l3switch/index.md#Tabla%20de%20VLANs) en las [instrucciones](../ccna-lab-04-intervlan-l3switch/index.md) del laboratorio.
+
+otra [Tabla de VLANs](../ccna-lab-04-intervlan-l3switch/index.md#Tabla%20de%20VLANs) y [Asignación de puertos y direccionamiento IP](../ccna-lab-04-intervlan-l3switch/index.md#Asignación%20de%20puertos%20y%20direccionamiento%20IP)
+
+- [Pasar a modo de configuración global](../ccna-lab-01-conf-basica/index.md#Pasar%20a%20modo%20de%20configuración%20global)
+
+
+
+Esto funciona dentro de Obsdian  ⏫ - PROBADO
+
+Supuestamente hice un chapus con Claude
 
 #### SW1, SW2 y MainSW
 
