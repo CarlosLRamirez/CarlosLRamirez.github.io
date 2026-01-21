@@ -117,6 +117,9 @@ Tutoriales prácticos, experiencias y aprendizajes.
       lang = "es"
 
 
+
+disablePathToLower = false
+
 # Markup y highlighting
 [markup]
   [markup.highlight]
