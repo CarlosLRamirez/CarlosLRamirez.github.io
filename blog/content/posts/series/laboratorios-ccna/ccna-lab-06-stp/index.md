@@ -1,34 +1,42 @@
 ---
-title: "CCNA Lab - Inter-Vlan routing + Spanning Tree Protocol"
-date: 2022-09-27T08:00:00-06:00
+title: "CCNA Lab 6: Inter-Vlan routing and Spanning Tree Protocol"
+date: 2022-09-30
 draft: false
-tags: ["ccna", "lab", "spanish"]
-categories: ["Networking"]
-description: "Laboratorio de Rapid PVST+ en una red multi vlan"
+tags:
+  - ccna
+  - lab
+  - spanish
+categories:
+  - Networking
+description: Configuración de Rapid PVST+ en una red multi vlan
 cover:
-  image: "/images/ccna-lab-intervlan-stp-topology.png"
+  image: ccna-lab-06-cover.webp
+comments: true
+series:
+  - CCNA
 ---
 
-En el siguiente laboratorio se muestra el funcionamiento del protocolo Rapid Spanning Tree Protocol (Rapid PVST+) de CISCO. en una red multi vlan, formada por varios switches tanto L2 como L2/L3
+En el siguiente laboratorio se muestra el funcionamiento del protocolo Rapid Spanning Tree Protocol (Rapid PVST+) de CISCO. en una red multi-vlan, formada por varios switches tanto L2 como L2/L3.
 
 ## Objetivo
 
-El proposito de este laboratorio es configurar una red con 3 VLANs de trafico de usuario, así como una VLAN para la administración de los equipos de red, la red se configurará para utilizar la VLAN 99 como Vlan nativa y el enrutamiento inter-vlan lo realizará el SW1 por medio de SVIs.
+El propósito de este laboratorio es configurar una red con 3 VLANs de trafico de usuario, así como una VLAN para la administración de los equipos de red, la red se configurará para utilizar la VLAN 99 como vlan nativa y el enrutamiento inter-vlan lo realizará el SW1 por medio de SVIs.
 
 Se deben configurar los puertos de acceso y troncales en cada switch, los enlaces troncales solo deben permitir el trafico de las vlans utilizadas en la red, y la vlan nativa sera la 99.
 
-El protocolo STP a utilizar es Rapid PVST+, y se debe configurar el SW3 como root bridge prinicipal para las Vlans 10 y 12, el SW2 como el bridge root principal para las Vlans 11 y 99, el SW1 debe ser el root bridge secundario para todas las Vlans.
+El protocolo STP a utilizar es Rapid PVST+, y se debe configurar el SW3 como root bridge principal para las Vlans 10 y 12, el SW2 como el bridge root principal para las Vlans 11 y 99, el SW1 debe ser el root bridge secundario para todas las Vlans.
 
 ## Topología
 
 ![topologia](ccna-lab-intervlan-stp-topology.png)
 
+Descargue el archivo inicial [aqui](ccna-lab-intervlan-stp-start.pkt)
+
 ## Procedimiento
 
 ### Parte 1: Definicion de VLANS
 
-Agregamos las VLANs en todos los switches de la red,  aqui se muestra un ejemplo para SW1, sin embargo esto mismo se debe configurar en todos los switches.
-
+Agregamos las VLANs en todos los switches de la red, aqui se muestra un ejemplo para SW1, sin embargo esto mismo se debe configurar en todos los switches.
 
 ```text
 SW1(config)#
@@ -79,8 +87,7 @@ SW5(config)#
 
 ### Parte 3: Configuración de enlaces troncales
 
-Configuramos los enlaces troncales entre switcehs, unicamente permitimos las VLANS utilizadas en la red, y configuramos la VLAN nativa.
-
+Configuramos los enlaces troncales entre switches, únicamente permitimos las VLANS utilizadas en la red, y configuramos la VLAN nativa.
 
 ```
 SW4(config)#
@@ -104,7 +111,6 @@ SW5(config-if-range)#exit
 SW5(config)#
 ```
 
-
 ```
 SW2(config)#
 SW2(config)#interface range fa0/22-24,G0/1
@@ -114,7 +120,6 @@ SW2(config-if-range)#switchport trunk native vlan 99
 SW2(config-if-range)#exit
 SW2(config)#
 ```
-
 
 ```
 SW3(config)#
@@ -126,7 +131,6 @@ SW3(config-if-range)#exit
 SW3(config)#
 ```
 
-
 ```
 SW1(config)#
 SW1(config)#interface range Gi1/0/23-24
@@ -137,7 +141,8 @@ SW1(config-if-range)#
 SW1(config-if-range)#exit
 ```
 
-> Mientras realizamos la configuración de los enlaces troncales en todos los switches, nos iran apareciendo los siguiente mensajes de advertencia. Estos los podemos ignorar y deben desaparecer una vez todos los switches tengan la misma configuración.
+> [!NOTE]
+> Mientras realizamos la configuración de los enlaces troncales en todos los switches, nos irán apareciendo los siguiente mensajes de advertencia. Estos los podemos ignorar y deben desaparecer una vez todos los switches tengan la misma configuración.
 
 ```
 4-NATIVE_VLAN_MISMATCH: Native VLAN mismatch discovered on FastEthernet0/24 (99), with SW2 FastEthernet0/23 (1).
@@ -171,9 +176,9 @@ Fa0/24      none
 
 ### Parte 5: Inter Vlan Routing
 
-Habilitamos el proceso de routing, y configuramos las SVI's (una por VLAN) en SW1, para que haga el enrutamiento intervlan.
+Habilitamos el proceso de routing, y configuramos las SVI's (una por VLAN) en SW1, para que haga el enrutamiento inter-vlan.
 
-```
+```cisco
 SW1(config)#
 SW1(config)#ip routing
 SW1(config)#interface vlan 10
@@ -208,10 +213,10 @@ Switch is in rapid-pvst mode
 Root bridge for: default students teachers staff mgmt
 ```
 
-Vamos a modificar el arbol STP asignando root bridges diferentes por vlan, según lo indicado en las instrucciones:
-
+Vamos a modificar el árbol STP asignando root bridges diferentes por vlan, según lo indicado en las instrucciones:
 
 SW3 será el root principal para las vlan 10 y 12:
+
 ```
 SW3(config)#
 SW3(config)#spanning-tree vlan 10 root primary
@@ -239,9 +244,7 @@ SW1(config)#spanning-tree vlan 99 root secondary
 SW1(config)#
 ```
 
-
-Aqui podemos ver que SW3 es ahora root brige para las vlans default, `student` y `staff`:
-
+Aquí podemos ver que SW3 es ahora root brige para las vlans default, `student` y `staff`:
 
 ```
 SW3#show spanning-tree summary
@@ -261,9 +264,9 @@ Root bridge for: teachers mgmt
 
 Ahora vamos a configurar las funcionalidades de `PortFast` y `BPDUGuard` en los puertos de acceso (que conectan hosts).
 
-Aqui Se muestra el ejemplo para SW4, el mismo procedimiento se debe seguir en SW5
+Aquí Se muestra el ejemplo para SW4, el mismo procedimiento se debe seguir en SW5
 
-*Observe que aparece un mensaje de advertencia al configurar portfast, este caso se puede ignorar.*
+_Observe que aparece un mensaje de advertencia al configurar portfast, este caso se puede ignorar._
 
 ```
 SW4(config)#interface r
@@ -292,14 +295,16 @@ SW4(config)#
 
 ## Conclusiones
 
-Con este laboratorio hemos practicado con el protocolo spanning tree, especificamente la version **rapid pvst+,** de CISCO, y hemos modificado el arbol de spanning tree para poder balancear el trafico entre las diferentes vlans de la red.
+Con este laboratorio hemos practicado con el protocolo spanning tree, especifica mente la version **rapid pvst+,** de CISCO, y hemos modificado el árbol de spanning tree para poder balancear el trafico entre las diferentes vlans de la red.
 
-Este laboratorio es el **primero** de una serie de **3**, los laboratorios posteriores los puede encontrar aqui, [Parte 2](/blog/posts/ccna-lab-ethechannel/), y [Parte 3](/blog/posts/ccna-lab-dhcpv4/).
+Este laboratorio es el **primero** de una serie de **3**, los laboratorios posteriores los puede encontrar aqui:
 
+- [Parte 2 - Etherchannel](../ccna-lab-07-etherchannel/index.md)
+- [Parte 3 - DHCP](../ccna-lab-08-dhcpv4/index.md)
 
-Espero que este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compartelo.
+Espero que este laboratorio sea de ayuda en tu preparación para la certificación de CCNA o para aprender de redes en general. Si crees que puede ayudar a otros, por favor compártelo.
 
-Si encuentras algun error o punto de mejora, por favor deja tus comentarios.
+Si encuentras algún error o punto de mejora, por favor deja tus comentarios.
 
 Saludos,
 

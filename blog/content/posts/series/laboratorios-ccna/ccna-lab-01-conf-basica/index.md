@@ -1,6 +1,6 @@
 ---
 title: "CCNA - Laboratorio 1: Comandos Básicos de IOS"
-date: 2022-09-13T12:00:00-06:00
+date: 2022-09-13
 draft: false
 tags:
   - ccna

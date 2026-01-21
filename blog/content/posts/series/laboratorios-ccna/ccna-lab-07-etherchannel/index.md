@@ -1,18 +1,26 @@
 ---
-title: "CCNA Lab - Inter-Vlan routing + Etherchannel"
-date: 2022-09-27T10:00:00-06:00
+title: "CCNA Lab 7:  Inter-Vlan routing + Etherchannel"
+date: 2022-10-01
 draft: false
-tags: ["ccna", "lab", "spanish"]
-categories: ["Networking"]
-description: "Laboratorio de agregación de enlaces con LACP, PAgP y manual"
-series: ["CCNA"]
+tags:
+  - ccna
+  - lab
+  - spanish
+categories:
+  - Networking
+description: Laboratorio de agregación de enlaces con LACP, PAgP y manual
+series:
+  - CCNA
 cover:
-  image: "/images/ccna-lab-intervlan-etherchannel-topology.png"
+  image: ccna-lab-07-cover.webp
+comments: true
 ---
 
-Este laboratorio es el **No. 2** de **3**, los laboratorios anteriores los puede encontrar aqui, [Parte 1](/blog/posts/ccna-lab-stp/), y [Parte 3](/blog/posts/ccna-lab-dhcpv4/).
+Este laboratorio es el **No. 2** de una serie de **3**, los laboratorios anteriores los puede encontrar aqui, 
+- [CCNA Lab 6 - Spanning Tree Protocol](../ccna-lab-06-stp/index.md)
+- [iCCNA Lab 8 - DHCPv4](../ccna-lab-08-dhcpv4/index.md)
 
-Partiendo del ejercicio anterior, ahora agregaremos enlaces redudantes entres SW1, SW2 y SW3 para formar Etherchannels entre ellos y aumentar el ancho de banda y la disponiblidad.
+Partiendo del ejercicio anterior, ahora agregaremos enlaces redudantes entres SW1, SW2 y SW3 para formar Etherchannels entre ellos y aumentar el ancho de banda y la disponibilidad.
 
 ## Objetivo
 
@@ -20,13 +28,13 @@ El proposito de este laboratorio es configurar la agregación de enlaces (Etherc
 
 ## Topología
 
-![topologia](/images/ccna-lab-intervlan-etherchannel-topology.png)
+![topologia](ccna-lab-intervlan-etherchannel-topology.png)
 
 ## Procedimiento
 
 ### Parte 1: Etherchannel entre SW2 y SW3 (LACP)
 
-Empezamos con apagar las interfaces individuales que forman el channel-group, para evitar cualquier conflicto. Eliminamos toda la configuración previa existe en las interfaces individuales y las agregamos a un nuervo channel-group.
+Empezamos con apagar las interfaces individuales que forman el channel-group, para evitar cualquier conflicto. Eliminamos toda la configuración previa existe en las interfaces individuales y las agregamos a un nuevo channel-group.
 
 Luego configuramos el enlace troncal, pero esta vez a nivel de port-channel, no en las interfaces individuales
 
@@ -70,7 +78,7 @@ SW3(config)#
 
 ### Parte 2: Etherchannel entre SW1 y SW3 (PAgP)
 
-Configuramos el etherchannel en SW3 con las interfaces apagadas para evitar cualquier conflicto, primero eliminamos toda la configuración exitente en las interfaces individuales, luego las asociamos con el channel group 2 y finalmente configuramos en enlace troncal en el Port-channel.
+Configuramos el etherchannel en SW3 con las interfaces apagadas para evitar cualquier conflicto, primero eliminamos toda la configuración existente en las interfaces individuales, luego las asociamos con el channel group 2 y finalmente configuramos en enlace troncal en el Port-channel.
 
 ```
 SW3(config)#
@@ -151,7 +159,7 @@ SW2(config)#
 
 ## Parte 4: Verificación de enlaces etherchannel
 
-Encendemos todos los puertos troncales y verificamos que los etherchannel y los enlaces troncales esten correctos.
+Encendemos todos los puertos troncales y verificamos que los etherchannel y los enlaces troncales estén correctos.
 
 ```
 SW1(config)#

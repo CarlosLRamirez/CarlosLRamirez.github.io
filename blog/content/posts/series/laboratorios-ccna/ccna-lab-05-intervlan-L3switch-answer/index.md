@@ -1,7 +1,7 @@
 ---
-title: CCNA Lab - Inter Vlan Routing with Multilayer Switch - Lab Solution
-slug: "ccna-lab-05-intervlan-l3switch-answer"
-date: 2022-09-26T14:00:00-06:00
+title: "CCNA Lab 5: Inter Vlan Routing with Multilayer Switch - Lab Solution"
+slug: ccna-lab-05-intervlan-l3switch-answer
+date: 2022-09-29
 draft: false
 tags:
   - ccna
@@ -14,6 +14,7 @@ series:
   - CCNA
 cover:
   image: ccna-lab-05-cover.webp
+comments: true
 ---
 En este artículo encontraras la solución paso a paso para configurar enrutamiento inter-vlan en routers Cisco multicapa, mediante interfaces  tipo SVI. Para ver las instrucciones de este laboratorio, ve primero [aquí](../ccna-lab-04-intervlan-l3switch/index.md).
 

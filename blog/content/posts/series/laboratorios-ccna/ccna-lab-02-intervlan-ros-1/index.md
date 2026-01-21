@@ -1,11 +1,16 @@
 ---
 title: "CCNA - Laboratorio 2: Inter Vlan Routing con Router-on-Stick (Instrucciones)"
-date: 2022-09-26T10:00:00-06:00
+date: 2022-09-26
 draft: false
-tags: ["ccna", "lab", "spanish"]
-categories: ["Networking"]
-description: "Ennrutamiento de enrutamiento inter-vlan con Router-on-Stick"
-series: ["CCNA"]
+tags:
+  - ccna
+  - lab
+  - spanish
+categories:
+  - Networking
+description: Ennrutamiento de enrutamiento inter-vlan con Router-on-Stick
+series:
+  - CCNA
 comments: true
 cover:
   image: /blog/img/router-on-stick-cover.webp
