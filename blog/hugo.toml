@@ -5,7 +5,6 @@ theme = ["hugo-admonitions", "PaperMod"]
 
 # Habilita emojis y highlighting
 enableEmoji = true
-pygmentsUseClasses = true
 
 [pagination]
   pagerSize = 10
@@ -73,7 +72,7 @@ Tutoriales prácticos, experiencias y aprendizajes.
   UseHugoToc = true
   disableSpecial1stPost = false
   disableScrollToTop = false
-  comments = false
+  comments = true
   hidemeta = false
   hideSummary = false
   showtoc = true
@@ -100,8 +99,6 @@ Tutoriales prácticos, experiencias y aprendizajes.
     name = "rss"
     url = "/blog/index.xml"
  
-  comments = true 
-
   [params.comments]
     [params.comments.giscus]
       repo = "CarlosLRamirez/CarlosLRamirez.github.io"
@@ -132,7 +129,16 @@ disablePathToLower = false
 
   [markup.goldmark]
     [markup.goldmark.renderer]
-      unsafe = true
+      unsafe = true  # Needed for raw HTML support
+    
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github" # Best for compatibility with Obsidian links
+
+      [markup.goldmark.parser.attribute]
+        block = true # Allows syntax like: ## Header {.custom-class}
+        title = true
+
 
 # Outputs
 [outputs]

@@ -1,18 +1,41 @@
-{{- $url := urls.Parse .Destination -}}
-{{- $scheme := $url.Scheme -}}
+{{- /* 1. Parse the destination to separate Path and Anchor (Fragment) */ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $path := $u.Path -}}
+{{- $fragment := $u.Fragment -}}
+{{- $scheme := $u.Scheme -}}
 
-<a href="
-{{- if eq $scheme "" -}}
-	{{- if strings.HasSuffix $url.Path ".md" -}}
-		{{- relref .Page .Destination | safeURL -}}
-	{{- else -}}
-		{{- .Destination | safeURL -}}
-	{{- end -}}
-{{- else -}}
-	{{- .Destination | safeURL -}}
-{{- end -}}"
-{{- with .Title }} title="{{ . | safeHTML }}"{{- end -}}>
-{{- .Text | safeHTML -}}
+{{- /* Variable to hold the final href */ -}}
+{{- $destination := .Destination -}}
+
+{{- /* 2. Check if it is an internal link (no http/https) and points to a Markdown file */ -}}
+{{- if and (not $scheme) (strings.HasSuffix $path ".md") -}}
+  
+  {{- /* 3. Resolve the page using ONLY the path (strip the anchor for lookup) */ -}}
+  {{- /* We try-catch this with 'with' to prevent build errors if a link is broken */ -}}
+  {{- with .Page.GetPage $path -}}
+    {{- $destination = .RelPermalink -}}
+    
+    {{- /* 4. Re-attach and Fix the Anchor if it exists */ -}}
+    {{- if $fragment -}}
+      {{- /* Obsidian sends "Tabla%20de%20VLANs", Hugo expects "tabla-de-vlans" */ -}}
+      {{- /* Step A: Replace %20 with space to get raw text */ -}}
+      {{- $decodedFragment := replace $fragment "%20" " " -}}
+      {{- /* Step B: Anchorize (slugify) to match Hugo's header ID generation */ -}}
+      {{- $cleanFragment := $decodedFragment | anchorize -}}
+      
+      {{- $destination = printf "%s#%s" $destination $cleanFragment -}}
+    {{- end -}}
+  
+  {{- else -}}
+    {{- /* Fallback: If page not found, warn in console but keep original path so you see the error */ -}}
+    {{- warnf "Broken link in '%s': %s" .Page.File.Path .Destination -}}
+    {{- $destination = .Destination -}}
+  {{- end -}}
+{{- end -}}
+
+<a href="{{ $destination | safeURL }}"
+  {{- with .Title }} title="{{ . | safeHTML }}"{{- end -}}
+  {{- if strings.HasPrefix $destination "http" }} target="_blank" rel="noopener"{{ end -}}
+>
+  {{- .Text | safeHTML -}}
 </a>
-
-{{- /* whitespace stripped here to avoid trailing newline in rendered result caused by file EOL */ -}}
