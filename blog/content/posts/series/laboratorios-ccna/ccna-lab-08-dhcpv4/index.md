@@ -32,7 +32,7 @@ Configurar un servidor DHCPv4 en un switch multicapa, en una red multi vlan. El 
 
 ## Procedimiento
 
-# Parte 1: Rango de direcciones excluidas
+### Parte 1: Rango de direcciones excluidas
 
 ```
 SW1(config)#
@@ -45,7 +45,7 @@ SW1(config)#ip dhcp excluded-address 192.168.12.100 192.168.12.254
 SW1(config)#
 ```
 
-# Parte2: Configuración de los pools de DHCP
+### Parte2: Configuración de los pools de DHCP
 
 ```
 SW1(config)#
@@ -72,7 +72,7 @@ SW1(dhcp-config)#exit
 SW1(config)#
 ```
 
-# Parte 3: Prueba
+### Parte 3: Prueba
 
 Aqui podemos ver que el servidor DHCP esta entregando direcciones IP de acuerdo al rango indicado.
 
