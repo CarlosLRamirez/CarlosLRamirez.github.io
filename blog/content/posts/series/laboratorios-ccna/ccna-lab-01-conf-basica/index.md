@@ -11,7 +11,6 @@ categories:
 description: Comandos básicos de Cisco IOS
 series:
   - CCNA
-comments: true
 cover:
   image: comandos-basicos-ios-cover.jpg
   relative: true

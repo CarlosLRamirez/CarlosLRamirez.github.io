@@ -14,7 +14,6 @@ series:
   - CCNA
 cover:
   image: ccna-lab-04-cover.webp
-comments: true
 ---
 
 ## Objetivo

@@ -14,7 +14,6 @@ series:
   - CCNA
 cover:
   image: ccna-lab-05-cover.webp
-comments: true
 ---
 En este artículo encontraras la solución paso a paso para configurar enrutamiento inter-vlan en routers Cisco multicapa, mediante interfaces  tipo SVI. Para ver las instrucciones de este laboratorio, ve primero [aquí](../ccna-lab-04-intervlan-l3switch/index.md).
 

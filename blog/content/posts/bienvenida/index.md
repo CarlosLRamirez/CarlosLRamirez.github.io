@@ -7,7 +7,7 @@ tags:
   - bienvenida
 categories:
   - General
-comments: true
+comments: false
 description: Primer post del blog técnico de Carlos L. Ramírez
 aliases:
   - Post de Bienvenida

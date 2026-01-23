@@ -13,7 +13,6 @@ series:
   - CCNA
 cover:
   image: ccna-lab-07-cover.webp
-comments: true
 ---
 
 Este laboratorio es el **No. 2** de una serie de **3**, los laboratorios anteriores los puede encontrar aqui, 

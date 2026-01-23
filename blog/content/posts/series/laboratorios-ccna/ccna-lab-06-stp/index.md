@@ -11,7 +11,6 @@ categories:
 description: Configuración de Rapid PVST+ en una red multi vlan
 cover:
   image: ccna-lab-06-cover.webp
-comments: true
 series:
   - CCNA
 ---
