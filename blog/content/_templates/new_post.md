@@ -29,6 +29,8 @@ tags: []
 categories: []
 aliases:
   - <% postTitle %>
+cover:
+  image: post-cover.webp
 ---
 
 Start writing here...

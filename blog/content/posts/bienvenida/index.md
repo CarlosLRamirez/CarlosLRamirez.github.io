@@ -1,7 +1,7 @@
 ---
 title: Bienvenido a Mi Blog Técnico
 date: 2025-01-14T18:00:00-06:00
-draft: false
+draft: true
 tags:
   - meta
   - bienvenida
