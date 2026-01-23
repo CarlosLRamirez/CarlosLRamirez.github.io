@@ -13,6 +13,8 @@ aliases:
   - "CCNA Lab 12: Red Empresarial Completa - Inter-VLAN, HSRP, DHCP, STP y Seguridad L2"
 cover:
   image: ccna-lab-12-cover.webp
+series:
+  - CCNA
 ---
 
 ## Introducción

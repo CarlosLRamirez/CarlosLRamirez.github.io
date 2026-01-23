@@ -13,8 +13,7 @@ cover:
 
 Solución Repaso General CCNA 2
 
-https://drive.google.com/file/d/1p9Eb3tbSiZEHdGaDxfS48iNiM5oa5SUJ/view?usp=drive_link
-
+[Packet Tracer](INTEGRACION%20final%20ccna2.pkt)
 # Laboratorio de Integración CCNA 2
 
 ## Información de Direccionamiento IP
@@ -45,8 +44,6 @@ https://drive.google.com/file/d/1p9Eb3tbSiZEHdGaDxfS48iNiM5oa5SUJ/view?usp=drive
 | 100     | NATIVE      |               |               |              |                 |
 
 
-
-
 ## Instrucciones
 
 ### Port Security
@@ -54,13 +51,10 @@ https://drive.google.com/file/d/1p9Eb3tbSiZEHdGaDxfS48iNiM5oa5SUJ/view?usp=drive
 ### Spanning Tree
 
 - Configura el Spanning Tree Protocol (STP) para distribuir la carga entre los switches de distribución en HQ de la siguiente manera:
-  - SW1 (SW-D-HQ01) debe ser configurado como el Root Bridge para las VLANs 100 (OPERATIONS) y 102 (MARKETING).
-  - SW2 (SW-D-HQ02) debe ser configurado como el Root Bridge para las VLANs 101 (ACCOUTING) y 99 (IT-MGMT).
-
+	- SW1 (SW-D-HQ01) debe ser configurado como el Root Bridge para las VLANs 100 (OPERATIONS) y 102 (MARKETING).
+	- SW2 (SW-D-HQ02) debe ser configurado como el Root Bridge para las VLANs 101 (ACCOUTING) y 99 (IT-MGMT).
 - El modo de STP debe ser Rapid-PVST
-
 - Excluir las primeras 10 IPs de cada red
-
 ## Configuración Paso a Paso
 
 ### Data Center

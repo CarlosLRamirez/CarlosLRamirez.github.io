@@ -2,7 +2,7 @@
 title: "CCNA Lab 10: Redes Inalámbricas Empresariales con WLC, DHCP y Autenticación RADIUS"
 date: 2022-10-13T08:01:00
 draft: false
-description: "Implementa una red WiFi empresarial completa con Wireless LAN Controller (WLC), autenticación segura mediante servidor RADIUS, servidor DHCP centralizado, segmentación por VLANs, y configuración de redes para usuarios generales e invitados. Incluye Inter-VLAN routing y DHCP relay."
+description: Implementa una red WiFi empresarial completa con Wireless LAN Controller (WLC), autenticación segura mediante servidor RADIUS, servidor DHCP centralizado, segmentación por VLANs, y configuración de redes para usuarios generales e invitados. Incluye Inter-VLAN routing y DHCP relay.
 tags:
   - ccna
   - lab
@@ -13,6 +13,8 @@ aliases:
   - "CCNA Lab 10: WLAN, DHCPv4, RADIUS"
 cover:
   image: ccna-lab-10-cover.webp
+series:
+  - CCNA
 ---
 
 ## Introducción

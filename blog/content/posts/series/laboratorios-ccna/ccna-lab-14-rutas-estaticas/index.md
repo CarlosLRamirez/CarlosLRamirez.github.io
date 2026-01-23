@@ -1,6 +1,6 @@
 ---
 title: "CCNA Lab 14:"
-date: 2022-10-13T08:05:00
+date: 2025-03-05T08:00:00
 draft: true
 description:
 tags: []
@@ -10,16 +10,53 @@ aliases:
 cover:
   image: ccna-lab-14cover.webp
 ---
-
+> Necesita revision
 # Laboratorio de Rutas Estaticas
 
-https://drive.google.com/file/d/1-NcKjySMRQeY4X2aqS-fL2AEyjwPov2l/view?usp=drive_link
+Archivo de Laboratorio en [Packet Tracer](Practica_RutasEstaticas5Marzo2025_p1.pkt)
+## Parametros de Configuración
+
+### Red Data Center
+
+VLAN 100 10.0.100.0/24 (WEB)
+VLAN 101 10.0.101.0/24 (SERVICIOS DE RED)
+VLAN 80 10.0.80.0/24 (ADMIN)
+
+### Red Celeste
+VLAN 10 192.168.0.0/24
+
+VLAN 11 192.168.1.0/24
+
+VLAN 12 192.168.2.0/24
+
+VLAN 80 192.168.3.0/24
 
 
+### Red Amarillo
 
-## Red Celeste 
+VLAN 10 192.168.4.0/25
 
-### Switch:S1
+VLAN 11 192.168.4.128/25
+
+VLAN 12 192.168.5.0/24
+
+VLAN 80 172.16.0.0/24
+
+## Instrucciones
+- Configurar los parametros básicos en todos los dispositivos
+	- Nombre de host
+		- Password de vty (telnet): `cisco`
+		- Paswword de Exec privilegiado: `cisco`
+- Configure las vlans id y nombres de vlans
+- Configure las direccioens ip y descripcion de las interfaces en los dispositovs de red.
+- Configure el enrutamiento intervaln utilizando sub/interfaces  o svi segun aplique
+- Configure el enrutamiento entre las diferentes redes mediante rutas estiaticas
+- Todos los dispositvos deben comunicarse entre si, incluyendo la interfaz de administracion los dipsonibos de red.
+
+## Solución
+### Red Celeste 
+
+#### Switch:S1
 
 ```
 hostname S1
@@ -66,7 +103,7 @@ ip address 192.168.3.2 255.255.255.0
 no shutdown
 ```
 
-### Router:R1
+#### Router:R1
 
 ```
 hostname R1
@@ -122,7 +159,7 @@ exit
 
 ```
 
-#### Opcion 1x: Rutas estaticas individuales directamente conectadas
+##### Opcion 1x: Rutas estaticas individuales directamente conectadas
 
 ```
 ip route 192.168.4.0 255.255.255.128 s0/1/0
@@ -131,7 +168,7 @@ ip route 192.168.5.0 255.255.255.128 s0/1/0
 ip route 172.16.0.0 255.255.255.0 s0/1/0
 ```
 
-#### Opcion 2: Rutas estaticas individuales por ip de siguiente salto
+##### Opcion 2: Rutas estaticas individuales por ip de siguiente salto
 ```
 ip route 192.168.4.0 255.255.255.128 10.1.1.2
 ip route 192.168.4.128 255.255.255.128 10.1.1.2
@@ -139,47 +176,53 @@ ip route 192.168.5.0 255.255.255.128 10.1.1.2
 ip route 172.16.0.0 255.255.255.0 10.1.1.2
 ```
 
-#### Opcion 3a: Rutas estaticas por defecto directamente conectada
+##### Opcion 3a: Rutas estaticas por defecto directamente conectada
 ```
 ip route 0.0.0.0 0.0.0.0 s0/1/0
 ```
 
-#### Opcion 3b: Rutas estaticas por defecto por ip de siguiente salto
+##### Opcion 3b: Rutas estaticas por defecto por ip de siguiente salto
 ```
 ip route 0.0.0.0 0.0.0.0 10.1.1.2
 ```
 
-#### Opcion 4a: Rutas estaticas sumarizadas con interfaz de salida
+##### Opcion 4a: Rutas estaticas sumarizadas con interfaz de salida
 
 ```
 ip route 192.168.4.0 255.255.254.0 s0/1/0
 ip route 172.16.0.0 255.255.255.0 s0/1/0
 ```
 
-### Opcion 4b: Rutas estaticas sumarizadas con ip de siguiente salto ****
+##### Opcion 4b: Rutas estaticas sumarizadas con ip de siguiente salto ****
 
 ```
 ip route 192.168.4.0 255.255.254.0 10.1.1.2
 ip route 172.16.0.0 255.255.255.0 10.1.1.2
 ```
 
-### Ruta estatica sumarizada al Data Center
 
-Segmento 10.0.0.0/16 reservado para el Data Center:
 
-´´´
+#### Enrutamiento estatico en R1 hacia Data Center
+
+PAra configurar el enrutamiento esttico tenemos varias opciones, a continuacion de muestras las fierentes altenrativas todas
+##### Ruta estatica sumarizada al Data Center
+
+Segmento `10.0.0.0/16` reservado para el Data Center:
+
+```bash
 ip route 10.0.0.0 255.255.0.0 10.1.1.2
-´´´
+```
 
-### Ejemplo de Ruta de host
+##### Ejemplo de Ruta de host hacia el Data Center
 
-´´´
+```bash
 ip route 10.0.100.10 255.255.255.255 10.1.1.2
 ip route 10.0.101.10 255.255.255.255 10.1.1.2
 ip route 10.0.101.11 255.255.255.255 10.1.1.2
-´´´
+```
 
-### Configuracion de rutas flotantes para el enlace redudante
+#### Enrutamiento estatico en R1 hacia redes Amarillas y Celeste
+##### Rutas flotantes para el enlace redudante
 
 ---- red amarilla - ruta principal --
 ip route 192.168.4.0 255.255.254.0 10.1.1.10 
@@ -202,9 +245,9 @@ ip route 10.0.101.11 255.255.255.255 10.1.1.10 2
 
 
 
-## Red Amarilla
+### Red Amarilla
 
-### Switch:S2
+#### Switch:S2
 
 ```
 hostname S2
@@ -251,7 +294,7 @@ ip address 172.16.0.2 255.255.255.0
 no shutdown
 
 ```
-### Switch: SWL3
+#### Switch: SWL3
 ```
 hostname SWL3
 
@@ -321,9 +364,9 @@ ip route 0.0.0.0 0.0.0.0 10.1.1.5
 
 ```
 
-## Red Data Center
+### Red Data Center
 
-### Switch Data Center
+#### Switch Data Center
 
 ´´´
 enable

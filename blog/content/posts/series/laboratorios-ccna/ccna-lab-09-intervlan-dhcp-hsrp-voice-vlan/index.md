@@ -13,6 +13,8 @@ aliases:
   - "CCNA Lab 9: Intervlan + DHCPv4 + HSRP + Voice Vlan"
 cover:
   image: ccna-lab-09-cover.webp
+series:
+  - CCNA
 ---
 
 ## Introducción

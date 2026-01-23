@@ -2,7 +2,7 @@
 title: "CCNA Lab 11: Red Multi-Sede con Router-on-Stick, OSPF y Control de Acceso (ACLs)"
 date: 2022-10-13T08:02:00
 draft: false
-description: "Domina la configuración de redes empresariales multi-sede aprendiendo enrutamiento Inter-VLAN con Router-on-Stick, implementación de OSPF de área única para conectividad WAN, y políticas de seguridad granulares mediante ACLs extendidas. Escenario realista de institución educativa con tres países, segmentación de usuarios (estudiantes, profesores, administración), servidores centralizados y salida a Internet controlada."
+description: Domina la configuración de redes empresariales multi-sede aprendiendo enrutamiento Inter-VLAN con Router-on-Stick, implementación de OSPF de área única para conectividad WAN, y políticas de seguridad granulares mediante ACLs extendidas. Escenario realista de institución educativa con tres países, segmentación de usuarios (estudiantes, profesores, administración), servidores centralizados y salida a Internet controlada.
 tags:
   - ccna
   - lab
@@ -13,6 +13,8 @@ aliases:
   - "CCNA Lab 11: Router-on-stick . OSPF, ACLs"
 cover:
   image: ccna-lab-11-cover.webp
+series:
+  - CCNA
 ---
 
 ## 1. Objetivo

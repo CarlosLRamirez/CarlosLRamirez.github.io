@@ -2,7 +2,7 @@
 title: "CCNA Lab 13: Red Multi-Sede con Switches Capa 3, OSPF, ACLs y NAT"
 date: 2022-10-13T08:04:00
 draft: false
-description: "Implementa una red empresarial multi-sede usando switches multicapa (Layer 3) para enrutamiento Inter-VLAN mediante SVIs, OSPF de área única con dos métodos de configuración (clásico y moderno), políticas de seguridad con ACLs extendidas, y NAT con pool de IPs públicas. Variante moderna del Lab 11 que refleja arquitecturas de campus empresariales actuales donde switches L3 reemplazan routers tradicionales."
+description: Implementa una red empresarial multi-sede usando switches multicapa (Layer 3) para enrutamiento Inter-VLAN mediante SVIs, OSPF de área única con dos métodos de configuración (clásico y moderno), políticas de seguridad con ACLs extendidas, y NAT con pool de IPs públicas. Variante moderna del Lab 11 que refleja arquitecturas de campus empresariales actuales donde switches L3 reemplazan routers tradicionales.
 tags:
   - ccna
   - lab
@@ -13,6 +13,7 @@ aliases:
   - "CCNA LAB 13:"
 cover:
   image: ccna-lab-13-cover.webp
+series: CCNA
 ---
 
 ## Introducción
