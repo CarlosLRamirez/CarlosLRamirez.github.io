@@ -32,7 +32,7 @@ Amazon Bedrock is a fully managed service by AWS that you can use to build Gener
 
 - I searched for the Amazon Bedrock service in the AWS console,
 
-![AWS Console Search](Pasted%20image%2020251208160123.png)
+![AWS Console Search](Pasted%20image%2020251208160123%201.png)
 
 - And it opened the main service console
 
