@@ -113,12 +113,12 @@ Tutoriales prácticos, experiencias y aprendizajes.
       theme = "preferred_color_scheme"
       lang = "es"
 
-  # Umami Analytics
-  [params.analytics.umami]
-    enable = true
-    websiteId = "f4f03d75-f1ec-47f9-ad02-c4fd06d4400b"
-    jsLocation = "https://cloud.umami.is/script.js"
-
+  # # Umami Analytics
+  # [params.analytics.umami]
+  #   enable = true
+  #   websiteId = "f4f03d75-f1ec-47f9-ad02-c4fd06d4400b"
+  #   jsLocation = "https://cloud.umami.is/script.js"
+  #
 disablePathToLower = false
 
 # Markup y highlighting
