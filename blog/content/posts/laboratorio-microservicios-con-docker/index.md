@@ -2,13 +2,13 @@
 title: Laboratorio Microservicios con Docker
 date: 2026-05-05T09:56:00-06:00
 lastmod: 2026-05-05T16:08:00-06:00
-draft: true
+draft: false
 tags:
   - docker
   - lab
   - microservices
 categories: []
-description: ''
+description: ""
 cover:
   image: post-cover.webp
 ---
