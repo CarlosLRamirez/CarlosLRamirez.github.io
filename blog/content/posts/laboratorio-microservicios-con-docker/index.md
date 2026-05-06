@@ -1,54 +1,60 @@
 ---
 title: Laboratorio Microservicios con Docker
 date: 2026-05-05T09:56:00-06:00
-lastmod: 2026-05-05T16:08:00-06:00
-draft: false
+lastmod: 2026-05-06T07:32:00-06:00
 tags:
   - docker
   - lab
   - microservices
-categories:
-  - Lab
-description: Laboratorio paso a paso para construir y desplegar tres microservicios contenerizados con Docker Compose — dos backends en Node.js/Express y un frontend en Nginx — como punto de partida hacia un despliegue en Amazon ECS Fargate.
+categories: []
+description: Laboratorio paso a paso para construir y desplegar tres microservicios contenerizados con Docker Compose
 cover:
-  image: post-cover.webp
+  image: docker-post-cover.png
 ---
 
-En este laboratorio construí un demo de una aplicación web **muy básica**, para poder experimentar con el despliegue de micro-servicios en contenedores Docker, empezando desde cero de forma local y luego poder desplegarlo y escalarlo en el servicio de Amazon Elastic Container Service.
+## Introducción
 
-Dado que no soy desarrollador , mi intención no es enfocarme en el código, sino más bien entender cómo interactúa cada pieza del rompecabezas, el flujo de la comunicación entre contenedores, y  poder documentar el paso a paso de su implementación.
+En este laboratorio construí un demo de una aplicación web **muy básica**, para poder experimentar con el despliegue de micro-servicios en contenedores Docker, la idea es empezar totalmente desde cero y poder ejecutarla en forma local en mi computadora, para luego poder desplegarlo en la nube de AWS utilizando Amazon Elastic Container Service (ECS), e integrarlo com más servicios típicos de una aplicación productiva.
+
+Dado que no soy desarrollador , mi intención no es enfocarme en el código, sino más bien entender cómo interactúa cada pieza del rompecabezas, el flujo de la comunicación entre contenedores, y poder documentar el paso a paso de su implementación.
 
 ## Descripción General
 
-El demo consta de tres micro-servicios contenerizados usando Docker, dos forman parte del backend y uno para el frontend el cual será la interfaz del usuario, cada microservicio de backend es un API *stateless*, la cual devuelve información cuando se le invoca.
+El demo es muy simple, consta de tres micro-servicios contenerizados usando Docker, dos forman parte del backend y uno para el frontend el cual será la interfaz del usuario, cada microservicio de backend es un API _stateless_, la cual devuelve información generica cuando se le invoca.
+
 ## Diagrama a alto nivel
 
-![](Pasted%20image%2020260505105632.png)
+![](Pasted%20image%2020260506071803.png)
 
-## Descripción de Micro-servicios  
+## Descripción de Micro-servicios
 
 ### Servicio Usuarios
 
-Es un API de Backend construida en Node.js/Express, la cual simula ser un catálogo de Usuarios. 
+Es un API de Backend construida en Node.js/Express, la cual simula ser un catálogo de Usuarios.
 
 Devuelve el listado en formato JSON, al ser llamada en la ruta `/users` por el método `GET` en el puerto `3000`.
 
 ```json
-{ service: "Usuarios", data: ["Alice", "Bob", "Charlie"], version: "1.0" }
+{ "service": "Usuarios", "data": ["Alice", "Bob", "Charlie"], "version": "1.0" }
 ```
 
 ### Servicio Productos (Backend)
 
-Es un API de Backend construida en Node.js/Express, la cual simula ser un catálogo de Productos. 
+Es un API de Backend construida en Node.js/Express, la cual simula ser un catálogo de Productos.
 
 Devuelve el listado en formato JSON, al ser llamado en la ruta `/products` por el método `GET` en el puerto `3001`.
 
 ```json
-{ service: "Productos", data: ["Laptop", "Mouse", "Teclado"], version: "1.0" }
+{
+  "service": "Productos",
+  "data": ["Laptop", "Mouse", "Teclado"],
+  "version": "1.0"
+}
 ```
+
 ### Servicio FrontEnd
 
-Página web principal construida usando HTML/CSS/Javascript puro, la cual invoca a las APIs de backend por medio de dos botones, y va colocando las respuestas en una caja de texto, agregando una estampa de tiempo de cada solicitud.
+Página web principal construida usando HTML/CSS/Javascript puro, la cual invoca a las APIs de backend por medio de dos botones, y va colocando las respuestas en una caja de texto, agregando una estampa de tiempo en el momento que se hizo la solicitud, esto nos permite compararla con el tiempo en que el API respondió.
 
 ![](Pasted%20image%2020260505160449.png)
 
@@ -75,7 +81,7 @@ lab-microservicios/
 └── docker-compose.yml
 ```
 
-Luego para poder manejar versionamiento y poder subirlo a Github posteriormente, debemos iniciar la carpeta como repositorio de **Git**. 
+Luego para poder manejar versionamiento y poder subirlo a Github posteriormente, debemos iniciar la carpeta como repositorio de **Git**.
 
 Abrimos la terminal dentro de la carpeta principal del proyecto y usamos este comando:
 
@@ -83,7 +89,7 @@ Abrimos la terminal dentro de la carpeta principal del proyecto y usamos este co
 git init
 ```
 
-Adicionalmente se debe crear el archivo `.gitignore` en la carpeta raíz del proyecto, para que ciertas carpetas y archivos nunca se suban a un repositorio público como Github, ya sea por seguridad o para no subir archivos grandes innecesarios que puedan reconstruirse. 
+Adicionalmente se debe crear el archivo `.gitignore` en la carpeta raíz del proyecto, para que ciertas carpetas y archivos nunca se suban a un repositorio público como Github, ya sea por seguridad o para no subir archivos grandes innecesarios que puedan reconstruirse.
 
 En proyectos de `Node.js`y `Docker`generalmente el `.gitignore`lleva esto:
 
@@ -116,12 +122,12 @@ Ahora conectamos nuestro repositorio local con un repositorio (público o privad
 
 - Crea el repo en la web de GitHub (vacío, sin README ni licencia).
 - Utiliza estos comandos en la terminal desde la carpeta principal del proyecto, cambiando `TU_USUARIO/TU_REPOSITORIO.git` con la ruta del repositorio recién creado
-    
-    ```bash
-    git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-    git branch -M main
-    git push -u origin main
-    ```
+
+  ```bash
+  git remote add origin https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+  git branch -M main
+  git push -u origin main
+  ```
 
 > **Note:** Por el momento aún no hay código de aplicación pero puedes ver la estructura de carpetas y archivos hasta este punto en este [commit](https://github.com/CarlosLRamirez/lab-microservicios/tree/8a5c2bbd7c9c13ba0e77350b12225014893a7b6b) (Me faltó agregar el `docker-compose.yml` el cual agregué después.)
 
@@ -129,148 +135,197 @@ Ahora conectamos nuestro repositorio local con un repositorio (público o privad
 
 Copiar y pegar el siguiente código de aplicación en cada uno de los archivos `index` de cada servicio.
 
-####  Servicio Usuarios (`servicio-usuarios/index.js`)
+#### Servicio Usuarios (`servicio-usuarios/index.js`)
 
 **Puerto:** 3000 | **Ruta:** `/users`
 
 ```js
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const app = express();
 const PORT = 3000;
 
 // Middleware para permitir peticiones desde otros orígenes (como tu frontend)
 app.use(cors());
 
-app.get('/users', (req, res) => {
-    res.json({ 
-        service: "Usuarios", 
-        data: ["Alice", "Bob", "Charlie"], 
-        version: "1.0",
-        timestamp: new Date().toISOString()
-    });
+app.get("/users", (req, res) => {
+  res.json({
+    service: "Usuarios",
+    data: ["Alice", "Bob", "Charlie"],
+    version: "1.0",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servicio Usuarios corriendo en http://localhost:${PORT}`);
+  console.log(`🚀 Servicio Usuarios corriendo en http://localhost:${PORT}`);
 });
 ```
 
-####  Servicio Productos (`servicio-productos/index.js`)
+#### Servicio Productos (`servicio-productos/index.js`)
 
 **Puerto:** 3001 | **Ruta:** `/products`
 
 ```js
-const express = require('express');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
 const app = express();
 const PORT = 3001;
 
 // Middleware para permitir peticiones desde otros orígenes
 app.use(cors());
 
-app.get('/products', (req, res) => {
-    res.json({ 
-        service: "Productos", 
-        data: ["Laptop", "Mouse", "Teclado"], 
-        version: "1.0",
-        timestamp: new Date().toISOString()
-    });
+app.get("/products", (req, res) => {
+  res.json({
+    service: "Productos",
+    data: ["Laptop", "Mouse", "Teclado"],
+    version: "1.0",
+    timestamp: new Date().toISOString(),
+  });
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servicio Productos corriendo en http://localhost:${PORT}`);
+  console.log(`🚀 Servicio Productos corriendo en http://localhost:${PORT}`);
 });
 ```
 
-####  Servicio Front-End `servicio-frontend/index.html`:  
+#### Servicio Front-End `servicio-frontend/index.html`
 
 Pagina Web principal que hace consultas hacia las APIs de backend al presionar dos botones, y transforma la respuesta en un log en tiempo real, permitiendo ver el momento de la respuesta.
 
 ```html
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Log de Microservicios</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 30px; background: #eceff1; }
-        .controls { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: inline-block; margin-bottom: 20px; }
-        button { padding: 12px 20px; font-size: 14px; cursor: pointer; margin: 5px; border-radius: 5px; border: none; color: white; font-weight: bold; transition: 0.3s; }
-        .btn-users { background-color: #0288d1; }
-        .btn-users:hover { background-color: #01579b; }
-        .btn-products { background-color: #388e3c; }
-        .btn-products:hover { background-color: #1b5e20; }
-        .btn-clear { background-color: #757575; }
-        
-        #log-container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            text-align: left; 
-            background: #263238; 
-            color: #80cbc4; 
-            padding: 15px; 
-            border-radius: 8px; 
-            height: 400px; 
-            overflow-y: auto; 
-            font-family: 'Courier New', Courier, monospace;
-            box-shadow: inset 0 0 10px #000;
-        }
-        .log-entry { border-bottom: 1px solid #37474f; padding: 8px 0; font-size: 13px; }
-        .timestamp { color: #ffca28; font-weight: bold; margin-right: 10px; }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        padding: 30px;
+        background: #eceff1;
+      }
+      .controls {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+      button {
+        padding: 12px 20px;
+        font-size: 14px;
+        cursor: pointer;
+        margin: 5px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      .btn-users {
+        background-color: #0288d1;
+      }
+      .btn-users:hover {
+        background-color: #01579b;
+      }
+      .btn-products {
+        background-color: #388e3c;
+      }
+      .btn-products:hover {
+        background-color: #1b5e20;
+      }
+      .btn-clear {
+        background-color: #757575;
+      }
+
+      #log-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+        background: #263238;
+        color: #80cbc4;
+        padding: 15px;
+        border-radius: 8px;
+        height: 400px;
+        overflow-y: auto;
+        font-family: "Courier New", Courier, monospace;
+        box-shadow: inset 0 0 10px #000;
+      }
+      .log-entry {
+        border-bottom: 1px solid #37474f;
+        padding: 8px 0;
+        font-size: 13px;
+      }
+      .timestamp {
+        color: #ffca28;
+        font-weight: bold;
+        margin-right: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Laboratorio de Microservicios</h1>
-    
+
     <div class="controls">
-        <button class="btn-users" onclick="llamarAPI(3000, 'users')">Consultar Usuarios</button>
-        <button class="btn-products" onclick="llamarAPI(3001, 'products')">Consultar Productos</button>
-        <button class="btn-clear" onclick="document.getElementById('log-container').innerHTML = ''">Limpiar Log</button>
+      <button class="btn-users" onclick="llamarAPI(3000, 'users')">
+        Consultar Usuarios
+      </button>
+      <button class="btn-products" onclick="llamarAPI(3001, 'products')">
+        Consultar Productos
+      </button>
+      <button
+        class="btn-clear"
+        onclick="document.getElementById('log-container').innerHTML = ''"
+      >
+        Limpiar Log
+      </button>
     </div>
 
-    <div id="log-container">
-        </div>
+    <div id="log-container"></div>
 
     <script>
-        async function llamarAPI(puerto, endpoint) {
-            const container = document.getElementById('log-container');
-            const timestamp = new Date().toLocaleTimeString();
-            
-            try {
-	            //esto lo tendremos que cambiar en producción para que no apunte a localhost
-                const response = await fetch(`http://localhost:${puerto}/${endpoint}`);
-                const data = await response.json();
-                
-                // Creamos el nuevo elemento de log
-                const entry = document.createElement('div');
-                entry.className = 'log-entry';
-                entry.innerHTML = `<span class="timestamp">[${timestamp}]</span> <strong>${endpoint.toUpperCase()}:</strong> ${JSON.stringify(data)}`;
-                
-                // Lo agregamos al inicio para ver lo más nuevo arriba
-                container.prepend(entry);
-                
-            } catch (error) {
-                const entry = document.createElement('div');
-                entry.className = 'log-entry';
-                entry.style.color = '#ff5252';
-                entry.innerHTML = `<span class="timestamp">[${timestamp}]</span> <strong>ERROR:</strong> No se pudo conectar con el puerto ${puerto}`;
-                container.prepend(entry);
-            }
+      async function llamarAPI(puerto, endpoint) {
+        const container = document.getElementById("log-container");
+        const timestamp = new Date().toLocaleTimeString();
+
+        try {
+          //esto lo tendremos que cambiar en producción para que no apunte a localhost
+          const response = await fetch(
+            `http://localhost:${puerto}/${endpoint}`,
+          );
+          const data = await response.json();
+
+          // Creamos el nuevo elemento de log
+          const entry = document.createElement("div");
+          entry.className = "log-entry";
+          entry.innerHTML = `<span class="timestamp">[${timestamp}]</span> <strong>${endpoint.toUpperCase()}:</strong> ${JSON.stringify(data)}`;
+
+          // Lo agregamos al inicio para ver lo más nuevo arriba
+          container.prepend(entry);
+        } catch (error) {
+          const entry = document.createElement("div");
+          entry.className = "log-entry";
+          entry.style.color = "#ff5252";
+          entry.innerHTML = `<span class="timestamp">[${timestamp}]</span> <strong>ERROR:</strong> No se pudo conectar con el puerto ${puerto}`;
+          container.prepend(entry);
         }
+      }
     </script>
-</body>
+  </body>
 </html>
 ```
 
->  **Nota:** Esto funciona en local pero **no es arquitectura de microservicios correcta**. El frontend llama directamente a los backends por puerto hardcodeado. En un entorno real , los contenedores no se exponen directamente al browser — hay un API Gateway o un reverse proxy (Nginx) en frente. 
+---
 
-```js
-const response = await fetch(`http://localhost:${puerto}/${endpoint}`);
-```
+> **Note:** > **Esto funciona solo en local:**
+> `const response = await fetch(´http://localhost:${puerto}/${endpoint}´);`
+>
+> Pero **no es arquitectura de microservicios correcta**. El frontend llama directamente a los backends por puerto hardcodeado. En un entorno real , los contenedores no se exponen directamente al browser — hay un API Gateway o un reverse proxy (Nginx) en frente.
 
-
-### Archivos `package.json` 
+### Archivos `package.json`
 
 Para que Docker pueda "contenerizar" las aplicaciones según el microservicio debemos indicarle qué librerías debería descargar para que la aplicación pueda ejecutarse. Esto lo hacemos mediante el archivo `package.json`en cada carpeta del microservicio.
 
@@ -296,7 +351,6 @@ Copia y pega estos bloques de código en cada archivo según el servicio.
 }
 ```
 
-
 #### 2. `servicio-productos/package.json`
 
 ```json
@@ -309,14 +363,13 @@ Copia y pega estos bloques de código en cada archivo según el servicio.
     "start": "node index.js"
   },
   "dependencies": {
-   "cors": "^2.8.5", 
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   }
 }
 ```
 
 #### 3. `servicio-frontend/package.json` (Opcional)
-
 
 ```json
 {
@@ -332,6 +385,7 @@ Copia y pega estos bloques de código en cada archivo según el servicio.
 El archivo `Dockerfile` contiene las instrucciones necesarias para poder construir la imagen del contenedor de cada microservicio, en este se incluye una imagen que se utiliza como base, y sobre esta Docker copia los archivos que va a necesitar, instala dependencias, define comandos , etc. Para esto utiliza un enfoque en capas, donde cada elemento se instala sobre otro.
 
 Copia y pega estos bloques de código en cada archivo según el servicio.
+
 #### 1. Dockerfile: Servicio Usuarios
 
 **Ubicación:** `servicio-usuarios/Dockerfile`
@@ -360,8 +414,6 @@ EXPOSE 3000
 CMD ["node", "index.js"]
 ```
 
----
-
 #### 2. Dockerfile: Servicio Productos
 
 **Ubicación**: `servicio-productos/Dockerfile`
@@ -389,7 +441,6 @@ EXPOSE 3001
 CMD ["node", "index.js"]
 ```
 
----
 #### 3. Dockerfile: Servicio Frontend
 
 **Ubicación**: `servicio-frontend/Dockerfile`
@@ -405,7 +456,7 @@ COPY index.html /usr/share/nginx/html/index.html
 # 3. Nginx por defecto corre en el puerto 80 (el estándar para tráfico web HTTP)
 EXPOSE 80
 
-# Nota: Nginx arranca automáticamente al iniciar el contenedor, 
+# Nota: Nginx arranca automáticamente al iniciar el contenedor,
 # por lo que no es estrictamente necesario poner un CMD aquí.
 ```
 
@@ -414,7 +465,6 @@ EXPOSE 80
 Finalmente debemos definir como arrancar nuestra aplicación multi-contenedor, indicando cuales microservicios la conforman, como se comunican entre ellos, eso lo hacemos mediante el archivo `docker-compose.yml`. Copiar y pegar este contenido en dicho archivo en la raiz del proyecto.
 
 ```yaml
-
 services:
   # --- Microservicio de Usuarios ---
   usuarios:
@@ -447,17 +497,17 @@ services:
       - usuarios
       - productos
 
-# Definimos una red privada para que se vean entre ellos 
+# Definimos una red privada para que se vean entre ellos
 networks:
   mslab-network:
     driver: bridge
 ```
 
-### Levantar en Local
+### Desplegar en Local
 
-Finalmente debemos probar que todo funcione y "levantar" el proyecto en local, para esto necesitamos tener Docker Desktop instalado en nuestra computadora.
+Finalmente debemos probar que todo funcione y desplegar el proyecto en local, para esto necesitamos tener Docker Desktop instalado en nuestra computadora.
 
-Puedes descargar Docker Desktop para tu sistema operativo [aquí](https://www.docker.com/products/docker-desktop/) 
+Puedes descargar Docker Desktop para tu sistema operativo [aquí](https://www.docker.com/products/docker-desktop/)
 
 Una vez instalado Docker Desktop construimos las imágenes y desplegamos los contenedores para los tres microservicios.
 
@@ -476,16 +526,14 @@ Al final debe salir un mensaje como este:
  ✔ Network lab-microservicios_mslab-network Created                                                                                                                  0.0s
  ✔ Container mslab-productos                Created                                                                                                                  0.0s
  ✔ Container mslab-usuarios                 Created                                                                                                                  0.0s
- ✔ Container mslab-frontend                 Created 
+ ✔ Container mslab-frontend                 Created
 ```
 
 Una vez terminado debería poder acceder a la página principal colocando esta URL `http://localhost:8080/` en el navegador.
 
-> Puedes encontrar el estado del repositorio del proyecto hasta este punto en este [commit](https://github.com/CarlosLRamirez/lab-microservicios/tree/b710afc89c8b8d487d94148683bc9751d919522f)
+## Resultados y Conclusiones
 
-## Conclusiones
+- Logre desplegar una mini-aplicación básica la cual está conformada por tres contenedores corriendo cada uno un pequeño microservicio.
+- El siguiente paso es desplegar dicha aplicación en la nube de AWS mediante el servicio de Amazon ECS Fargate, es posible que se necesiten hacer unos ajustes.
 
-Felicidades, hemos desplegado una mini-aplicación básica la cual está conformada por tres contenedores corriendo cada uno un pequeño microservicio, El siguiente paso es desplegar dicha aplicación en la nube de AWS mediante el servicio de Amazon ECS Fargate.
-
-
-
+> Puedes encontrar el estado del proyecto del proyecto hasta este punto en este [commit](https://github.com/CarlosLRamirez/lab-microservicios/tree/b710afc89c8b8d487d94148683bc9751d919522f)
