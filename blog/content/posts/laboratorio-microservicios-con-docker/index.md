@@ -7,15 +7,14 @@ tags:
   - docker
   - lab
   - microservices
-categories: []
-description: ""
+categories:
+  - Lab
+description: Laboratorio paso a paso para construir y desplegar tres microservicios contenerizados con Docker Compose — dos backends en Node.js/Express y un frontend en Nginx — como punto de partida hacia un despliegue en Amazon ECS Fargate.
 cover:
   image: post-cover.webp
 ---
 
- 
-
-En este laboratorio construí un demo de una aplicación web **muy básica**, para poder experimentar con la orquestación de micro-servicios en contenedores Docker, empezando desde cero de forma local y luego poder desplegarlo y escalarlo en el servicio de Amazon Elastic Container Service.. 
+En este laboratorio construí un demo de una aplicación web **muy básica**, para poder experimentar con el despliegue de micro-servicios en contenedores Docker, empezando desde cero de forma local y luego poder desplegarlo y escalarlo en el servicio de Amazon Elastic Container Service.
 
 Dado que no soy desarrollador , mi intención no es enfocarme en el código, sino más bien entender cómo interactúa cada pieza del rompecabezas, el flujo de la comunicación entre contenedores, y  poder documentar el paso a paso de su implementación.
 
@@ -239,6 +238,7 @@ Pagina Web principal que hace consultas hacia las APIs de backend al presionar d
             const timestamp = new Date().toLocaleTimeString();
             
             try {
+	            //esto lo tendremos que cambiar en producción para que no apunte a localhost
                 const response = await fetch(`http://localhost:${puerto}/${endpoint}`);
                 const data = await response.json();
                 
@@ -262,6 +262,13 @@ Pagina Web principal que hace consultas hacia las APIs de backend al presionar d
 </body>
 </html>
 ```
+
+>  **Nota:** Esto funciona en local pero **no es arquitectura de microservicios correcta**. El frontend llama directamente a los backends por puerto hardcodeado. En un entorno real , los contenedores no se exponen directamente al browser — hay un API Gateway o un reverse proxy (Nginx) en frente. 
+
+```js
+const response = await fetch(`http://localhost:${puerto}/${endpoint}`);
+```
+
 
 ### Archivos `package.json` 
 
@@ -404,10 +411,9 @@ EXPOSE 80
 
 ### Archivo `docker-compose.yml`
 
-Finalmente debemos decirle a `Docker` cómo "orquestar" todos los contenedores que conforman nuestra aplicación, es decir qué microservicios la conforman, cómo se comunican entre ellos, y en qué puertos se exponen.
+Finalmente debemos definir como arrancar nuestra aplicación multi-contenedor, indicando cuales microservicios la conforman, como se comunican entre ellos, eso lo hacemos mediante el archivo `docker-compose.yml`. Copiar y pegar este contenido en dicho archivo en la raiz del proyecto.
 
 ```yaml
-version: '3.8' # Versión del motor de compose
 
 services:
   # --- Microservicio de Usuarios ---
@@ -436,12 +442,12 @@ services:
       - "8080:80" # Entraremos por http://localhost:8080
     networks:
       - mslab-network
-    # Le decimos que espere a que los backends estén listos
+    # Le decimos que espere a que los contenedores arranquen
     depends_on:
       - usuarios
       - productos
 
-# Definimos una red privada para que se vean entre ellos (opcional pero pro)
+# Definimos una red privada para que se vean entre ellos 
 networks:
   mslab-network:
     driver: bridge
@@ -475,8 +481,11 @@ Al final debe salir un mensaje como este:
 
 Una vez terminado debería poder acceder a la página principal colocando esta URL `http://localhost:8080/` en el navegador.
 
+> Puedes encontrar el estado del repositorio del proyecto hasta este punto en este [commit](https://github.com/CarlosLRamirez/lab-microservicios/tree/b710afc89c8b8d487d94148683bc9751d919522f)
+
 ## Conclusiones
 
 Felicidades, hemos desplegado una mini-aplicación básica la cual está conformada por tres contenedores corriendo cada uno un pequeño microservicio, El siguiente paso es desplegar dicha aplicación en la nube de AWS mediante el servicio de Amazon ECS Fargate.
+
 
 
