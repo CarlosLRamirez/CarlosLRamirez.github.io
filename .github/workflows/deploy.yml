@@ -55,6 +55,14 @@ jobs:
           mkdir -p ../public/blog
           cp -r public/* ../public/blog/
 
+      # ===== Build Portfolio (Hugo) =====
+      - name: Build Portfolio with Hugo
+        run: |
+          cd portfolio
+          hugo --minify --baseURL "https://carloslramirez.com/portfolio/"
+          mkdir -p ../public/portfolio
+          cp -r public/* ../public/portfolio/
+
       # ===== Copy CNAME for custom domain =====
       - name: Copy CNAME
         run: cp CNAME public/

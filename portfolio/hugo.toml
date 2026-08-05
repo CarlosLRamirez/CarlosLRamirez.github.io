@@ -1,0 +1,28 @@
+baseURL = 'https://carloslramirez.com/portfolio/'
+title = 'Portfolio | Carlos L. Ramírez'
+locale = 'en-us'
+
+# Sitio sin tema: todos los layouts viven en layouts/
+enableEmoji = true
+enableRobotsTXT = true
+
+# Un portafolio no necesita tags ni categorías
+disableKinds = ['taxonomy', 'term']
+
+# Los proyectos viven en content/projects/ pero se publican en la raíz
+# del portafolio: /portfolio/<slug>/. Con :slugorcontentbasename manda el
+# nombre de la carpeta, salvo que definas `slug:` en el front matter.
+[permalinks]
+  projects = '/:slugorcontentbasename/'
+
+[params]
+  author = 'Carlos L. Ramírez'
+  description = 'Cloud architecture and delivery programs — Landing Zones, migrations, disaster recovery, and cloud-native modernization for banking and fintech in LATAM.'
+  landingURL = 'https://carloslramirez.com/'
+  blogURL = 'https://carloslramirez.com/blog/'
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  noClasses = false

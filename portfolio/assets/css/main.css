@@ -1,0 +1,369 @@
+/* Paleta y tipografía alineadas con el landing page (landing-source/index.html) */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0a0a0a;
+  color: #e5e5e5;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  padding: 2.5rem 0 1rem;
+}
+
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.site-header a {
+  color: #888;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.site-header a:hover {
+  color: #fff;
+}
+
+.site-header a.home {
+  color: #e5e5e5;
+  font-weight: 500;
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+  padding: 2rem 0 3rem;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.intro p {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  max-width: 68ch;
+}
+
+/* ---------- Grid de proyectos ---------- */
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  background-color: #252525;
+  border-color: #444;
+  transform: translateY(-2px);
+}
+
+.card-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid #333;
+}
+
+.card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.card-sector {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #666;
+}
+
+.card h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.35;
+}
+
+.card p {
+  font-size: 0.875rem;
+  color: #b0b0b0;
+  flex: 1;
+}
+
+/* ---------- Chips de stack ---------- */
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+}
+
+.stack li {
+  font-size: 0.72rem;
+  color: #999;
+  background-color: #0f0f0f;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+}
+
+/* ---------- Página de proyecto ---------- */
+
+.project {
+  padding: 1rem 0 4rem;
+  max-width: 72ch;
+}
+
+.project h1 {
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1.25rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.meta dt {
+  color: #666;
+}
+
+.meta dd {
+  color: #d0d0d0;
+}
+
+.project-cover {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #333;
+  margin-bottom: 2rem;
+}
+
+.outcomes {
+  background-color: #131313;
+  border: 1px solid #2a2a2a;
+  border-left: 3px solid #444;
+  border-radius: 6px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.outcomes h2 {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.outcomes ul {
+  padding-left: 1.1rem;
+}
+
+.outcomes li {
+  font-size: 0.9rem;
+  color: #c5c5c5;
+  margin-bottom: 0.35rem;
+}
+
+/* ---------- Cuerpo del proyecto ---------- */
+
+.content {
+  font-size: 0.95rem;
+  color: #c5c5c5;
+}
+
+.content h2 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 2rem 0 0.75rem;
+  font-weight: 600;
+}
+
+.content h3 {
+  font-size: 1rem;
+  color: #e5e5e5;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.content p,
+.content ul,
+.content ol {
+  margin-bottom: 1rem;
+}
+
+.content ul,
+.content ol {
+  padding-left: 1.25rem;
+}
+
+.content li {
+  margin-bottom: 0.3rem;
+}
+
+.content a {
+  color: #7aa2c4;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.content a:hover {
+  color: #9dc0dd;
+}
+
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #333;
+}
+
+.content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+}
+
+.content pre {
+  background-color: #131313;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.content blockquote {
+  border-left: 3px solid #444;
+  padding-left: 1rem;
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+.content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.content th,
+.content td {
+  border: 1px solid #333;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+.content th {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  margin-top: auto;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid #1f1f1f;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.site-footer a {
+  color: #666;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+/* ---------- Estado vacío ---------- */
+
+.empty {
+  grid-column: 1 / -1;
+  color: #777;
+  font-size: 0.9rem;
+  border: 1px dashed #333;
+  border-radius: 8px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .intro h1 { font-size: 1.6rem; }
+  .project h1 { font-size: 1.45rem; }
+  .meta { grid-template-columns: 1fr; gap: 0.15rem; }
+  .meta dd { margin-bottom: 0.5rem; }
+}
