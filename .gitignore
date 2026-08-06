@@ -1,14 +1,6 @@
-# Jekyll
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-.bundle/
-vendor/
-
-# Hugo
+# Hugo (blog)
 resources/
-public/
+/blog/public/
 .hugo_build.lock
 
 # Quartz/Node

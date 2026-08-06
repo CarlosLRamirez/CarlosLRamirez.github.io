@@ -1,0 +1,25 @@
+---
+import { profile } from '../data/site';
+---
+
+<header class="fixed top-0 inset-x-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-hairline">
+  <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#hero" class="font-display text-lg text-ink">
+      Carlos Ramírez
+    </a>
+    <div class="hidden sm:flex items-center gap-7 font-mono text-xs uppercase tracking-wider text-ink-muted">
+      <a href="#about" class="hover:text-blueprint transition-colors">About</a>
+      <a href="#projects" class="hover:text-blueprint transition-colors">Projects</a>
+      <a href="#experience" class="hover:text-blueprint transition-colors">Experience</a>
+      <a href="#education" class="hover:text-blueprint transition-colors">Education</a>
+      <a href={profile.blogUrl} class="hover:text-blueprint transition-colors">Blog</a>
+      <a href={profile.notesUrl} class="hover:text-blueprint transition-colors">Notes</a>
+    </div>
+    <a
+      href="#contact"
+      class="font-mono text-xs uppercase tracking-wider px-4 py-2 border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
+    >
+      Contact
+    </a>
+  </nav>
+</header>

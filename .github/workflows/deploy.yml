@@ -25,21 +25,21 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # ===== Build Landing (Jekyll) =====
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      # ===== Build Landing + Portfolio (Astro) =====
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          ruby-version: '3.2'
-          bundler-cache: true
-          working-directory: ./landing-source
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: landing-source/package-lock.json
 
-      - name: Build Landing with Jekyll
+      - name: Build Landing with Astro
         run: |
           cd landing-source
-          bundle install
-          bundle exec jekyll build --destination ../public
-        env:
-          JEKYLL_ENV: production
+          npm ci
+          npm run build
+          mkdir -p ../public
+          cp -r dist/. ../public/
 
       # ===== Build Blog (Hugo) =====
       - name: Setup Hugo
@@ -55,17 +55,11 @@ jobs:
           mkdir -p ../public/blog
           cp -r public/* ../public/blog/
 
-      # ===== Build Portfolio (Hugo) =====
-      - name: Build Portfolio with Hugo
+      # ===== Copy CNAME + disable Jekyll processing =====
+      - name: Copy CNAME and add .nojekyll
         run: |
-          cd portfolio
-          hugo --minify --baseURL "https://carloslramirez.com/portfolio/"
-          mkdir -p ../public/portfolio
-          cp -r public/* ../public/portfolio/
-
-      # ===== Copy CNAME for custom domain =====
-      - name: Copy CNAME
-        run: cp CNAME public/
+          cp CNAME public/
+          touch public/.nojekyll
 
       # ===== Deploy =====
       - name: Upload artifact

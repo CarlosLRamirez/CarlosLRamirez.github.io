@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+/* =====================================================================
+   DESIGN TOKENS — edita aquí para experimentar con colores y tipografía.
+   Cada valor se usa en todo el sitio a través de clases de Tailwind
+   (ej. bg-paper, text-ink, font-display), así que un cambio aquí se
+   propaga automáticamente a todos los componentes — no necesitas tocar
+   nada en src/components/.
+   ===================================================================== */
+@theme {
+
+  /* --- COLORES ------------------------------------------------------
+     Paleta actual: "papel + plano técnico" (blueprint).
+     Formato: cualquier valor CSS válido (hex, rgb, hsl, oklch).
+
+     Para experimentar rápido, prueba reemplazar solo --color-blueprint
+     y --color-seal (los dos acentos) y deja paper/ink como están —
+     son los que más cambian la "personalidad" del sitio sin arriesgar
+     legibilidad.
+  ------------------------------------------------------------------- */
+  --color-paper: #FAFAF7;          /* fondo principal — blanco cálido tipo papel.
+                                       Alternativas a probar: #FFFFFF (más frío/neutral),
+                                       #F5F0E8 (más cálido/vintage), #0A0A0A (si quieres
+                                       volver a dark mode manteniendo el resto del sistema) */
+
+  --color-ink: #1C1E21;            /* texto principal — casi negro, no gris.
+                                       Debe tener buen contraste contra --color-paper. */
+
+  --color-ink-muted: #5A5F66;      /* texto secundario (descripciones, metadata) */
+
+  --color-blueprint: #1E3A5F;      /* ACENTO PRIMARIO — links, headers de sección,
+                                       líneas del diagrama, botones outline en hover.
+                                       Es el color que más define la identidad del sitio.
+                                       Alternativas: #2D5016 (verde bosque/technical),
+                                       #4A1942 (morado oscuro/editorial), #7A1F1F (vino) */
+
+  --color-blueprint-light: #3B5A80; /* variante clara del acento, para hovers sutiles */
+
+  --color-hairline: #D8DCE1;       /* líneas divisorias finas, bordes.
+                                       Debe ser sutil — no debe competir con el texto. */
+
+  --color-seal: #B45309;           /* ACENTO SECUNDARIO — solo se usa en años de
+                                       certificación y badges de estado ("In Progress").
+                                       Funciona como un "sello oficial". Alternativas:
+                                       #7C2D12 (terracota oscuro), #713F12 (bronce),
+                                       #1E3A5F (mismo que blueprint, si prefieres un
+                                       solo acento en vez de dos) */
+
+
+  /* --- TIPOGRAFÍA -----------------------------------------------------
+     3 roles distintos, cada uno con un trabajo específico — no los
+     mezcles sin razón, esa separación es lo que le da carácter editorial
+     al sitio en vez de verse genérico.
+
+     Para cambiar una fuente: reemplaza el nombre aquí Y actualiza el
+     link de Google Fonts en la primera línea de este archivo (@import
+     url(...)) para incluir la fuente nueva. Si no la agregas al import,
+     el navegador hará fallback a la fuente genérica (serif/sans-serif/
+     monospace) sin avisar.
+  ------------------------------------------------------------------- */
+  --font-display: "Fraunces", serif;
+  /* Fuente de TÍTULOS — la que carga la personalidad del diseño.
+     Se usa con moderación (headline, títulos de sección, títulos de
+     proyecto) — nunca en párrafos largos.
+     Alternativas con carácter similar (serif editorial):
+       "Newsreader", "Source Serif 4", "Lora", "Libre Caslon Text"
+     Alternativas más audaces (menos "serif clásico"):
+       "Instrument Serif" (más fina/elegante), "Bricolage Grotesque"
+       (sans con personalidad, si quieres alejarte de serif del todo) */
+
+  --font-body: "Inter", sans-serif;
+  /* Fuente de CUERPO — debe ser neutral y muy legible, no protagonista.
+     Alternativas: "Source Sans 3", "IBM Plex Sans", "Public Sans" */
+
+  --font-mono: "IBM Plex Mono", monospace;
+  /* Fuente de DATOS/TÉCNICO — stack tecnológico, fechas, eyebrows
+     (§ 01 — About), badges. Refuerza el tono "documento técnico".
+     Alternativas: "JetBrains Mono", "Space Mono", "Fragment Mono" */
+}
+
+
+/* =====================================================================
+   ESTILOS BASE — normalmente no necesitas tocar esto, se alimenta
+   de los tokens de arriba automáticamente.
+   ===================================================================== */
+
+html {
+  background: var(--color-paper);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Fondo de "plano técnico" — grid muy sutil detrás del hero.
+   Sube/baja --background-size para hacer el grid más grande/pequeño,
+   o el "opacity" de abajo para hacerlo más/menos visible. */
+.blueprint-grid {
+  background-image:
+    linear-gradient(var(--color-hairline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-hairline) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+}
+
+/* Estilo de las etiquetas "§ 01 — About", "§ 02 — Stack", etc. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-blueprint);
+}
+
+/* Foco de teclado visible — accesibilidad, no lo quites */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-blueprint);
+  outline-offset: 2px;
+}
+
+/* Respeta preferencia de "reduce motion" del sistema — no lo quites */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,45 @@
+---
+import { ctaClosing, profile } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<section id="contact" class="py-24 px-6 border-t border-hairline">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="font-display text-4xl sm:text-5xl text-ink leading-tight">
+      {ctaClosing.heading}
+    </h2>
+    <p class="mt-5 text-ink-muted leading-relaxed max-w-lg mx-auto">
+      {ctaClosing.body}
+    </p>
+    <div class="mt-9 flex flex-wrap justify-center gap-5">
+      <a
+        href={`mailto:${profile.email}`}
+        class="font-mono text-xs uppercase tracking-wider px-6 py-3 bg-ink text-paper hover:bg-blueprint transition-colors"
+      >
+        Email Me
+      </a>
+      <a
+        href={profile.linkedin}
+        class="font-mono text-xs uppercase tracking-wider px-6 py-3 border border-ink text-ink hover:border-blueprint hover:text-blueprint transition-colors"
+      >
+        Connect on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="px-6 py-10 border-t border-hairline">
+  <div class="max-w-4xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div>
+      <p class="font-display text-ink">{profile.name}</p>
+      <p class="font-mono text-xs text-ink-muted mt-0.5">{profile.headline}</p>
+    </div>
+    <div class="flex gap-5 font-mono text-xs uppercase tracking-wider text-ink-muted">
+      <a href={profile.blogUrl} class="hover:text-blueprint transition-colors">Blog</a>
+      <a href={profile.notesUrl} class="hover:text-blueprint transition-colors">Notes</a>
+      <a href={profile.github} class="hover:text-blueprint transition-colors">GitHub</a>
+      <a href={profile.linkedin} class="hover:text-blueprint transition-colors">LinkedIn</a>
+    </div>
+  </div>
+  <p class="max-w-4xl mx-auto font-mono text-xs text-ink-muted mt-6">© {year} {profile.name}</p>
+</footer>

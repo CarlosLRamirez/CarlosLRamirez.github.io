@@ -1,0 +1,44 @@
+---
+import { profile } from '../data/site';
+import ArchDiagram from './ArchDiagram.astro';
+---
+
+<section id="hero" class="relative pt-36 pb-20 px-6 overflow-hidden">
+  <div class="absolute inset-0 -z-10 blueprint-grid" aria-hidden="true"></div>
+
+  <div class="max-w-4xl mx-auto grid sm:grid-cols-[1fr_320px] gap-10 items-center">
+    <div>
+      <p class="eyebrow mb-4">Cloud Technical Program Manager</p>
+      <h1 class="font-display text-5xl sm:text-6xl leading-[1.05] text-ink">
+        Carlos<br/>Ramírez
+      </h1>
+      <p class="mt-5 text-lg text-ink-muted max-w-md leading-relaxed">
+        {profile.tagline}
+      </p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-5">
+        <a
+          href="#projects"
+          class="font-mono text-xs uppercase tracking-wider px-5 py-3 bg-ink text-paper hover:bg-blueprint transition-colors"
+        >
+          View Projects
+        </a>
+        <a
+          href={profile.resumeUrl}
+          class="font-mono text-xs uppercase tracking-wider px-5 py-3 border border-ink text-ink hover:border-blueprint hover:text-blueprint transition-colors"
+        >
+          Download Resume
+        </a>
+      </div>
+
+      <div class="mt-6 flex gap-5 font-mono text-xs text-ink-muted">
+        <a href={profile.github} class="hover:text-blueprint transition-colors underline decoration-hairline underline-offset-4">GitHub</a>
+        <a href={profile.linkedin} class="hover:text-blueprint transition-colors underline decoration-hairline underline-offset-4">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="hidden sm:block">
+      <ArchDiagram />
+    </div>
+  </div>
+</section>
