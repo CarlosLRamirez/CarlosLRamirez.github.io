@@ -153,17 +153,16 @@ export const productionProjects: Project[] = [
 // Proyectos personales — diseño propio, evidencia técnica directa.
 // Añade aquí conforme los construyas.
 export const personalProjects: Project[] = [
-  // Ejemplo de estructura a seguir cuando publiques el primero:
-  // {
-  //   slug: "landing-zone-lab",
-  //   title: "Multi-Account Landing Zone (Personal Lab)",
-  //   description:
-  //     "Self-designed AWS Landing Zone with Control Tower, custom OU structure, and SCPs — fully defined in Terraform. Includes architecture decisions and tradeoffs.",
-  //   tech: ["AWS Control Tower", "Terraform", "SCPs"],
-  //   category: "personal",
-  //   status: "In progress",
-  //   href: "https://github.com/CarlosLRamirez/landing-zone-lab",
-  // },
+  {
+    slug: "aws-multi-account-landing-zone",
+    title: "Multi-Account Landing Zone (Personal Lab)",
+    description:
+      "Self-designed AWS Landing Zone with Control Tower, custom OU structure, and SCPs — fully defined in Terraform. Includes architecture decisions and tradeoffs.",
+    tech: ["AWS Control Tower", "Terraform", "SCPs"],
+    category: "personal",
+    status: "In progress",
+    href: "https://github.com/CarlosLRamirez/aws-multi-account-landing-zone",
+  },
 ];
 
 export const education = [
