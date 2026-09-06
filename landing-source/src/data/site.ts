@@ -9,7 +9,7 @@ export const profile = {
   headline: "Cloud Technical Program Manager",
   subheadline: "AWS Solutions Architect Professional",
   tagline:
-    "Bringing cloud architecture — Landing Zones, migrations, and cloud-native modernization — from design into production for banking and fintech.",
+    "Leading technology infrastructure projects — architecture and delivery alike — turning business needs into solutions that hold up in production.",
   location: "Guatemala",
   email: "carloslrm@gmail.com",
   linkedin: "https://www.linkedin.com/in/carloslrm",
@@ -20,13 +20,11 @@ export const profile = {
   photo: null, // ej: "/profile.jpg" en /public — null usa placeholder
 };
 
-export const about = `I bridge cloud architecture and delivery for enterprise programs — bringing Landing Zone deployments, large-scale migrations, and cloud-native modernization from design into production for banking and fintech clients.
+export const about = `I lead technology infrastructure projects that span both the management and the technical execution — planning delivery, coordinating stakeholders, and directing architecture decisions through to production.
 
-At Escala24x7, an AWS Premier Tier Partner, I've directed Cloud Foundation builds (Control Tower, SCPs, multi-account networking), a 100+ server lift-and-shift migration, disaster recovery implementations under Pilot Light architecture, and cloud-native application delivery — both event-driven serverless (Lambda, DynamoDB, Step Functions) and containerized (Fargate, ECR) — including modernization of legacy monoliths into microservices, deployed through Terraform-managed IaC and CI/CD pipelines.
+My focus is designing and implementing technology solutions that solve concrete business needs: modernizing legacy systems, executing large-scale migrations, and building resilient, secure infrastructure that scales with the organization.
 
-I hold the AWS Solutions Architect Professional certification, which shapes how I approach delivery: I evaluate architectural tradeoffs alongside engineering teams and turn them into plans that hold up under real constraints — strict change windows, multi-country stakeholders, hard compliance requirements.
-
-My background started in cellular network engineering at Ericsson before moving through enterprise IT infrastructure and cloud consulting — so I read a system end to end, not just the project plan.`;
+I hold AWS Solutions Architect Professional and PMP certifications, with a background that runs from network engineering through enterprise IT to cloud architecture — the range that lets me own a project from business case to deployed system.`;
 
 export const ctaClosing = {
   heading: "Let's talk cloud architecture and delivery.",
