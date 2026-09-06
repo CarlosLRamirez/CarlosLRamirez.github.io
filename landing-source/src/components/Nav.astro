@@ -1,26 +1,44 @@
 ---
-import { profile } from '../data/site';
+import type { Content } from '../data/types';
+
+interface Props {
+  content: Content;
+}
+
+const { content: t } = Astro.props;
+const otherLangHref = t.lang === 'en' ? '/es/' : '/';
+const otherLangLabel = t.lang === 'en' ? 'ES' : 'EN';
 ---
 
 <header class="fixed top-0 inset-x-0 z-50 bg-paper/95 backdrop-blur-sm border-b border-hairline">
   <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="#hero" class="font-display text-lg text-ink">
-      Carlos Ramírez
+    <a href="#hero" class="font-display text-lg text-ink shrink-0 whitespace-nowrap">
+      {t.profile.name}
     </a>
-    <div class="hidden sm:flex items-center gap-7 font-mono text-xs uppercase tracking-wider text-ink-muted">
-      <a href="#portfolio" class="hover:text-blueprint transition-colors">Portfolio</a>
-      <a href="#about" class="hover:text-blueprint transition-colors">About</a>
-      <a href="#projects" class="hover:text-blueprint transition-colors">Delivery</a>
-      <a href="#experience" class="hover:text-blueprint transition-colors">Experience</a>
-      <a href="#education" class="hover:text-blueprint transition-colors">Education</a>
-      <a href={profile.blogUrl} class="hover:text-blueprint transition-colors">Blog</a>
-      <a href={profile.notesUrl} class="hover:text-blueprint transition-colors">Notes</a>
+    <div class="hidden lg:flex items-center gap-5 font-mono text-xs uppercase tracking-wider text-ink-muted whitespace-nowrap">
+      <a href="#portfolio" class="hover:text-blueprint transition-colors">{t.nav.portfolio}</a>
+      <a href="#about" class="hover:text-blueprint transition-colors">{t.nav.about}</a>
+      <a href="#projects" class="hover:text-blueprint transition-colors">{t.nav.delivery}</a>
+      <a href="#experience" class="hover:text-blueprint transition-colors">{t.nav.experience}</a>
+      <a href="#education" class="hover:text-blueprint transition-colors">{t.nav.education}</a>
+      <a href={t.profile.blogUrl} class="hover:text-blueprint transition-colors">{t.nav.blog}</a>
+      <a href={t.profile.notesUrl} class="hover:text-blueprint transition-colors">{t.nav.notes}</a>
     </div>
-    <a
-      href="#contact"
-      class="font-mono text-xs uppercase tracking-wider px-4 py-2 border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
-    >
-      Contact
-    </a>
+    <div class="flex items-center gap-3 shrink-0 whitespace-nowrap">
+      <a
+        href={otherLangHref}
+        hreflang={t.lang === 'en' ? 'es' : 'en'}
+        class="font-mono text-xs uppercase tracking-wider px-3 py-2 border border-hairline text-ink-muted hover:border-blueprint hover:text-blueprint transition-colors"
+        aria-label={t.lang === 'en' ? 'Ver el sitio en español' : 'View site in English'}
+      >
+        {otherLangLabel}
+      </a>
+      <a
+        href="#contact"
+        class="font-mono text-xs uppercase tracking-wider px-4 py-2 border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
+      >
+        {t.nav.contact}
+      </a>
+    </div>
   </nav>
 </header>

@@ -1,19 +1,25 @@
 ---
-import { experience, profile } from '../data/site';
+import type { Content } from '../data/types';
+
+interface Props {
+  content: Content;
+}
+
+const { content: t } = Astro.props;
 ---
 
 <section id="experience" class="py-20 px-6 border-t border-hairline">
   <div class="max-w-4xl mx-auto">
     <div class="grid sm:grid-cols-[140px_1fr] gap-8">
-      <p class="eyebrow">§ 04 — Experience</p>
+      <p class="eyebrow">{t.experienceEyebrow}</p>
       <div>
         <div class="flex justify-end mb-6">
-          <a href={profile.linkedin} class="font-mono text-xs text-blueprint hover:text-ink transition-colors underline decoration-hairline underline-offset-4">
-            Full history on LinkedIn →
+          <a href={t.profile.linkedin} class="font-mono text-xs text-blueprint hover:text-ink transition-colors underline decoration-hairline underline-offset-4">
+            {t.experienceLinkedinCta}
           </a>
         </div>
         <div class="space-y-0">
-          {experience.map((item, i) => (
+          {t.experience.map((item, i) => (
             <div class="grid sm:grid-cols-[50px_100px_1fr] gap-3 sm:gap-6 border-t border-hairline py-5 first:border-t-0 first:pt-0">
               <p class="font-mono text-xs text-blueprint pt-0.5">{String(i + 1).padStart(2, '0')}</p>
               <p class="font-mono text-xs text-ink-muted pt-0.5">{item.period}</p>

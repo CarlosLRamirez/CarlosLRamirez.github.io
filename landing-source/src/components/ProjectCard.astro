@@ -1,12 +1,13 @@
 ---
-import type { Project } from '../data/site';
+import type { Project } from '../data/types';
 
 interface Props {
   project: Project;
   index: number;
+  viewProjectLabel: string;
 }
 
-const { project, index } = Astro.props;
+const { project, index, viewProjectLabel } = Astro.props;
 const num = String(index + 1).padStart(2, '0');
 ---
 
@@ -34,7 +35,7 @@ const num = String(index + 1).padStart(2, '0');
       href={project.href}
       class="mt-4 inline-block font-mono text-xs text-blueprint hover:text-ink transition-colors underline decoration-hairline underline-offset-4"
     >
-      View project →
+      {viewProjectLabel}
     </a>
   )}
 </div>

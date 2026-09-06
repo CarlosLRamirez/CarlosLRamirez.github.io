@@ -1,32 +1,37 @@
 ---
 import '../styles/global.css';
+import type { Content } from '../data/types';
 
 interface Props {
-  title?: string;
-  description?: string;
+  content: Content;
 }
 
-const {
-  title = 'Carlos Ramírez | Cloud Delivery Lead',
-  description = 'Cloud Delivery Lead leading technology infrastructure projects — architecture and delivery alike — turning business needs into solutions that hold up in production. AWS Solutions Architect Professional, PMP.',
-} = Astro.props;
+const { content: t } = Astro.props;
+const canonicalPath = t.lang === 'en' ? '/' : '/es/';
+const site = Astro.site ?? new URL('https://carloslramirez.com');
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={t.lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <meta name="description" content={t.meta.description} />
+    <title>{t.meta.title}</title>
 
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <link rel="canonical" href={new URL(canonicalPath, site)} />
+    <link rel="alternate" hreflang="en" href={new URL('/', site)} />
+    <link rel="alternate" hreflang="es" href={new URL('/es/', site)} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', site)} />
+
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={t.lang === 'en' ? 'en_US' : 'es_GT'} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>

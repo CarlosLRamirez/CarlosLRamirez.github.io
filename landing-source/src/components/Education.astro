@@ -1,15 +1,21 @@
 ---
-import { education, certifications } from '../data/site';
+import type { Content } from '../data/types';
+
+interface Props {
+  content: Content;
+}
+
+const { content: t } = Astro.props;
 ---
 
 <section id="education" class="py-20 px-6 border-t border-hairline">
   <div class="max-w-4xl mx-auto grid sm:grid-cols-[140px_1fr] gap-8">
-    <p class="eyebrow">§ 05 — Education</p>
+    <p class="eyebrow">{t.educationEyebrow}</p>
     <div class="grid sm:grid-cols-2 gap-12">
       <div>
-        <h3 class="font-display text-xl text-ink mb-5">Degrees</h3>
+        <h3 class="font-display text-xl text-ink mb-5">{t.educationDegreesHeading}</h3>
         <div class="space-y-5">
-          {education.map((e) => (
+          {t.education.map((e) => (
             <div class="border-t border-hairline pt-3">
               <p class="text-ink">{e.degree}</p>
               <p class="text-ink-muted text-sm">{e.school}</p>
@@ -20,9 +26,9 @@ import { education, certifications } from '../data/site';
       </div>
 
       <div>
-        <h3 class="font-display text-xl text-ink mb-5">Certifications</h3>
+        <h3 class="font-display text-xl text-ink mb-5">{t.educationCertsHeading}</h3>
         <ul class="space-y-0">
-          {certifications.map((c) => (
+          {t.certifications.map((c) => (
             <li class="flex items-baseline justify-between border-t border-hairline py-3 text-sm">
               <span class="text-ink">{c.name}</span>
               <span class="font-mono text-xs text-seal ml-3 shrink-0">{c.year}</span>
