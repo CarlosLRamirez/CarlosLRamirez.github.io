@@ -6,7 +6,7 @@
 
 export const profile = {
   name: "Carlos Ramírez",
-  headline: "Cloud Technical Program Manager",
+  headline: "Cloud Delivery Lead",
   subheadline: "AWS Solutions Architect Professional",
   tagline:
     "Leading technology infrastructure projects — architecture and delivery alike — turning business needs into solutions that hold up in production.",
