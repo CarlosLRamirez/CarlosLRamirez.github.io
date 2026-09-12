@@ -160,7 +160,6 @@ export const personalProjects: Project[] = [
       "Self-designed AWS Landing Zone with Control Tower, custom OU structure, and SCPs — fully defined in Terraform. Includes architecture decisions and tradeoffs.",
     tech: ["AWS Control Tower", "Terraform", "SCPs"],
     category: "personal",
-    status: "In progress",
     href: "https://github.com/CarlosLRamirez/aws-multi-account-landing-zone",
   },
 ];
