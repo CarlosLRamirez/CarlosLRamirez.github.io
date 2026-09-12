@@ -8,17 +8,18 @@ import Projects from '../components/Projects.astro';
 import Experience from '../components/Experience.astro';
 import Education from '../components/Education.astro';
 import CtaFooter from '../components/CtaFooter.astro';
+import { en } from '../data/content.en';
 ---
 
-<Layout>
-  <Nav />
+<Layout content={en}>
+  <Nav content={en} />
   <main>
-    <Hero />
-    <About />
-    <TechStack />
-    <Projects />
-    <Experience />
-    <Education />
-    <CtaFooter />
+    <Hero content={en} />
+    <About content={en} />
+    <TechStack content={en} />
+    <Projects content={en} />
+    <Experience content={en} />
+    <Education content={en} />
+    <CtaFooter content={en} />
   </main>
 </Layout>

@@ -1,6 +1,12 @@
 ---
-import { profile } from '../data/site';
+import type { Content } from '../data/types';
 import ArchDiagram from './ArchDiagram.astro';
+
+interface Props {
+  content: Content;
+}
+
+const { content: t } = Astro.props;
 ---
 
 <section id="hero" class="relative pt-36 pb-20 px-6 overflow-hidden">
@@ -8,12 +14,12 @@ import ArchDiagram from './ArchDiagram.astro';
 
   <div class="max-w-4xl mx-auto grid sm:grid-cols-[1fr_320px] gap-10 items-center">
     <div>
-      <p class="eyebrow mb-4">Cloud Technical Program Manager</p>
+      <p class="eyebrow mb-4">{t.profile.headline}</p>
       <h1 class="font-display text-5xl sm:text-6xl leading-[1.05] text-ink">
         Carlos<br/>Ramírez
       </h1>
       <p class="mt-5 text-lg text-ink-muted max-w-md leading-relaxed">
-        {profile.tagline}
+        {t.profile.tagline}
       </p>
 
       <div class="mt-8 flex flex-wrap items-center gap-5">
@@ -21,24 +27,24 @@ import ArchDiagram from './ArchDiagram.astro';
           href="#projects"
           class="font-mono text-xs uppercase tracking-wider px-5 py-3 bg-ink text-paper hover:bg-blueprint transition-colors"
         >
-          View Projects
+          {t.hero.viewPortfolio}
         </a>
         <a
-          href={profile.resumeUrl}
+          href={t.profile.resumeUrl}
           class="font-mono text-xs uppercase tracking-wider px-5 py-3 border border-ink text-ink hover:border-blueprint hover:text-blueprint transition-colors"
         >
-          Download Resume
+          {t.hero.downloadResume}
         </a>
       </div>
 
       <div class="mt-6 flex gap-5 font-mono text-xs text-ink-muted">
-        <a href={profile.github} class="hover:text-blueprint transition-colors underline decoration-hairline underline-offset-4">GitHub</a>
-        <a href={profile.linkedin} class="hover:text-blueprint transition-colors underline decoration-hairline underline-offset-4">LinkedIn</a>
+        <a href={t.profile.github} class="hover:text-blueprint transition-colors underline decoration-hairline underline-offset-4">{t.hero.githubLabel}</a>
+        <a href={t.profile.linkedin} class="hover:text-blueprint transition-colors underline decoration-hairline underline-offset-4">{t.hero.linkedinLabel}</a>
       </div>
     </div>
 
     <div class="hidden sm:block">
-      <ArchDiagram />
+      <ArchDiagram content={t} />
     </div>
   </div>
 </section>

@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import TechStack from '../../components/TechStack.astro';
+import Projects from '../../components/Projects.astro';
+import Experience from '../../components/Experience.astro';
+import Education from '../../components/Education.astro';
+import CtaFooter from '../../components/CtaFooter.astro';
+import { es } from '../../data/content.es';
+---
+
+<Layout content={es}>
+  <Nav content={es} />
+  <main>
+    <Hero content={es} />
+    <About content={es} />
+    <TechStack content={es} />
+    <Projects content={es} />
+    <Experience content={es} />
+    <Education content={es} />
+    <CtaFooter content={es} />
+  </main>
+</Layout>

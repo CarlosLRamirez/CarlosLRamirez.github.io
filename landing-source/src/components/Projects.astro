@@ -1,36 +1,42 @@
 ---
-import { productionProjects, personalProjects } from '../data/site';
+import type { Content } from '../data/types';
 import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  content: Content;
+}
+
+const { content: t } = Astro.props;
 ---
 
 <section id="projects" class="py-20 px-6 border-t border-hairline">
   <div class="max-w-4xl mx-auto">
     <div class="grid sm:grid-cols-[140px_1fr] gap-8">
-      <p class="eyebrow">§ 03 — Projects</p>
+      <p class="eyebrow">{t.projects.eyebrow}</p>
       <div>
         <div class="mb-14">
-          <h3 class="font-display text-2xl text-ink mb-1">Production Delivery</h3>
+          <h3 class="font-display text-2xl text-ink mb-1">{t.projects.production.heading}</h3>
           <p class="text-sm text-ink-muted mb-8">
-            Cloud programs delivered for enterprise clients. Client and country details withheld under confidentiality.
+            {t.projects.production.subheading}
           </p>
           <div class="grid sm:grid-cols-2 gap-x-10 gap-y-8">
-            {productionProjects.map((p, i) => <ProjectCard project={p} index={i} />)}
+            {t.productionProjects.map((p, i) => <ProjectCard project={p} index={i} viewProjectLabel={t.projects.viewProjectLabel} />)}
           </div>
         </div>
 
-        <div>
-          <h3 class="font-display text-2xl text-ink mb-1">Personal Projects</h3>
+        <div id="portfolio">
+          <h3 class="font-display text-2xl text-ink mb-1">{t.projects.personal.heading}</h3>
           <p class="text-sm text-ink-muted mb-8">
-            Self-designed architecture — full ownership of design decisions, tradeoffs, and implementation.
+            {t.projects.personal.subheading}
           </p>
 
-          {personalProjects.length > 0 ? (
+          {t.personalProjects.length > 0 ? (
             <div class="grid sm:grid-cols-2 gap-x-10 gap-y-8">
-              {personalProjects.map((p, i) => <ProjectCard project={p} index={i} />)}
+              {t.personalProjects.map((p, i) => <ProjectCard project={p} index={i} viewProjectLabel={t.projects.viewProjectLabel} />)}
             </div>
           ) : (
             <div class="border-t border-dashed border-hairline pt-5">
-              <p class="font-mono text-sm text-ink-muted">— New personal projects in progress. Coming soon.</p>
+              <p class="font-mono text-sm text-ink-muted">{t.projects.personal.emptyState}</p>
             </div>
           )}
         </div>
