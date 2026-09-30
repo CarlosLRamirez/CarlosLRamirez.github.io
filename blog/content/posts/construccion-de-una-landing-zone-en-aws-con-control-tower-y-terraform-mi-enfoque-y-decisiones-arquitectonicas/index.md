@@ -134,6 +134,7 @@ Root
 
 [ADR-002 — Cuentas fundacionales](https://github.com/CarlosLRamirez/aws-multi-account-landing-zone/blob/main/docs/adr/ADR-002-Foundational-Accounts.md)
 
+- Otra preuba de que tan facil es
 - Cuenta management **nueva y limpia**; la cuenta existente con el dominio en Route 53 **no** se usó como management — entrará después como miembro bajo Infrastructure (el hosted zone no se mueve, solo la cuenta se une a la organización).
 - CT v4.0 pide "Config Aggregator Account" y "CloudTrail Administrator" como roles separados, no una cuenta "Audit" genérica.
 
