@@ -55,7 +55,7 @@ enableEmoji = true
 
 # Página de inicio
   [params.homeInfoParams]
-    Title = "Bienvenido a mi Blog Técnico 👋"
+    Title = "Bienvenido a mi Blog 👋"
     Content = """
 Explorando AWS Cloud, IoT, Networking y AI.  
 Tutoriales prácticos, experiencias y aprendizajes.
