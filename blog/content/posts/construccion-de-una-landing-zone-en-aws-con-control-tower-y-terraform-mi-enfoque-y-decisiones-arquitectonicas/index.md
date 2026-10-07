@@ -1,11 +1,11 @@
 ---
 title: "Construcción de una Landing Zone en AWS con Control Tower y Terraform: mi enfoque y decisiones arquitectónicas"
 date: 2026-09-22T14:30:00-06:00
-lastmod: 2026-09-29T14:00:00-06:00
-draft: true
+lastmod: 2026-10-06T13:29:00-06:00
+draft: false
 tags:
-  - post
-  - privado
+  - aws
+  - draft
 categories: []
 description: ''
 cover:
@@ -20,9 +20,9 @@ En este articulo te cuento como construí una Landing Zone en AWS para un entorn
 
 ## Objetivo
 
-Mi objetivo con este proyecto no era crear un laboratorio rápido para luego destruirlo, sino implementar una plataforma base en AWS que me sirva para alojar futuros proyectos personales de aprendizaje que pueda incluir en mi portafolio técnico, así como incorporar las cuentas aisladas que he creado con el tiempo y en donde tengo desplegados algunos servicios que uso de forma "productiva", como algún bucket S3 el hosted zone en Route53 de mi propio dominio personal.
+Mi objetivo con este proyecto no era crear un laboratorio rápido para luego destruirlo, sino implementar una plataforma base en AWS que me sirva para alojar futuros proyectos personales de aprendizaje que pueda incluir en mi portafolio técnico, así como incorporar las cuentas aisladas que he creado con el tiempo y en donde tengo desplegados algunos servicios que uso de forma "productiva" (como algún bucket S3 el hosted zone en Route53 de mi propio dominio personal).
 
-### Requisitos principales
+### Requisitos principales 
 
 Antes de iniciar el proyecto tenia tres requisitos claros que quería mantener, a primera vista puede parecer que se contraponen uno con otro, pero cada uno tiene su razón de ser,espero que con las decisiones de arquitectura que tomé haya logrado conciliarnos.
 
@@ -107,10 +107,12 @@ Además de las definiciones iniciales, tomé una serie de decisiones arquitectó
 
 [ADR-001: Organizational Units (OU)](https://github.com/CarlosLRamirez/aws-multi-account-landing-zone/blob/main/docs/adr/ADR-001-OU-Structure.md)
 
+![](diagraamct.drawio.png)
+
 - Ademas de la `OU Security` para las cuentas de servició , decidí crear 2 OUs de nivel uno para desplegar cuentas de usuarios o cargas de trabajo: `OU Workload`y `OU Sandbox`.
-- En la `OU Worklods` viviran cuentas de proyectos tipo empresarial en donde según descrito en los #Requisitos principales se espera un entorno multi-ambiente, es por eso que se crearon tres OUs separadas para cada uno: `Dev`, `Staging` y `Prod`.
+- En la `OU Worklods` viviran cuentas de proyectos tipo empresarial en donde según descrito en los [Requisitos principales](#requisitos-principales) se espera un entorno multi-ambiente, es por eso que se crearon tres OUs separadas para cada uno: `Dev`, `Staging` y `Prod`.
 - En la `OU Sandbox` ira cuentas donde pienso desplegar pruebas o proyectos simples donde no se requiere la rigurosidad de una ambiente empresarial.
-- También crearé una OU llamada `Infrastructure` cuyo objetivo es alojar cuentas para servicios transversales como la cuenta de `Networking` la cual esta destinada a los servicios de conectividad centralizada (más detalle en #Networking Centralizado).
+- También crearé una OU llamada `Infrastructure` cuyo objetivo es alojar cuentas para servicios transversales como la cuenta de `Networking` la cual esta destinada a los servicios de conectividad centralizada (más detalle en [Networking Centralizado](#networking-centralizado)).
 - Adicionalmente se contemplan otras dos OUs:
   - Policy Staging: Destinada para una cuenta especial para hacer pruebas de SCs de manera aislada sin afectar toda la organización.
   - ClosedAccounts: Aqui se colocarán todas las cuentas que han sido borradas y aún esan en proceso de que AWS configure su borrado completamente, el cual toma alrededor de 90 dias.
@@ -130,15 +132,45 @@ Root
 └── ClosedAccounts OU    (cuentas cerradas esperando los 90 días; no registrada en CT)
 ```
 
-### Cuentas  base o fundacionales
+### Cuentas base o fundacionales
 
 [ADR-002 — Cuentas fundacionales](https://github.com/CarlosLRamirez/aws-multi-account-landing-zone/blob/main/docs/adr/ADR-002-Foundational-Accounts.md)
 
-- Otra preuba de que tan facil es
-- Cuenta management **nueva y limpia**; la cuenta existente con el dominio en Route 53 **no** se usó como management — entrará después como miembro bajo Infrastructure (el hosted zone no se mueve, solo la cuenta se une a la organización).
-- CT v4.0 pide "Config Aggregator Account" y "CloudTrail Administrator" como roles separados, no una cuenta "Audit" genérica.
+La landing zone se apoya en cuentas con un rol específico. Las agrupé en tres categorías:
 
-### **ADR-003 — Guardrails (3 SCPs propias)**
+#### 1. Cuentas de Control Tower (Security OU)
+
+| Cuenta     | Rol                                        | Notas                                                                                                          |
+| ---------- | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| Management | Root de la organización y de Control Tower | Cuenta principal **nueva y limpia**, creada solo para este proposito, sin cargas de trabajo u otros servicios. |
+| LogArchive | CloudTrail administrator                   | Centraliza los logs de CloudTrail de toda la organización.                                                     |
+| Aggregator | Config Aggregator                          | Consolida la información de AWS Config de todas las cuentas.                                                   |
+
+#### 2. Cuentas de infraestructura (Infrastructure OU)
+
+| Cuenta          | Rol                                                   |
+| --------------- | ----------------------------------------------------- |
+| Networking      | Hub de conectividad (VPC peering hub-and-spoke)       |
+| Shared Services | Reservada para servicios transversales; aún no creada |
+
+#### 3. Cuentas auxiliares
+
+| Cuenta       | Rol                                                                             |
+| ------------ | ------------------------------------------------------------------------------- |
+| SCP-test     | Cuenta aislada para probar SCPs antes de aplicarlas (Policy Staging OU)         |
+| MyWebApp-dev | Primera cuenta Workload (Dev OU); valida el flujo completo de aprovisionamiento |
+
+#### 4. Cuentas cerradas
+
+En el proceso de despliegue del Control Tower, cometí algunos errores o cambios de decision, lo que me llevo a tener dos cuentas que tuve que cerrar en el proceso: `Audit` y `Networking (duplicada)`, estas cuentas las moví a la OU de `ClosedAccounts` esperando que transcurra el tiempo de 90 días requerido por AWS para darlas por cerradas por completo.
+
+Con las cuentas definidas, el siguiente paso fue decidir qué guardrails aplicar sobre ellas.
+
+### Guardrails
+
+[ADR-003: Estrategia de guardrails](https://github.com/CarlosLRamirez/aws-multi-account-landing-zone/blob/main/docs/adr/ADR-003-Guardrail-Strategy.md)
+
+Control Tower ya viene con sus propios controles, pero ninguno resuelve lo que más me preocupaba: que un error o un descuido mío me genere una factura inesperada. Por eso definí tres _Service Control Policies_ (SCPs) propias. Son pocas a propósito y la idea es que representen el tipo de controles típicos que puede tener una organización y cada una responde a un riesgo concreto de costo u orden. 
 
 | #   | SCP                                                          | Aplicada a                                                          |
 | --- | ------------------------------------------------------------ | ------------------------------------------------------------------- |
@@ -146,15 +178,29 @@ Root
 | 2   | Denegar creación de Transit Gateway                          | Todas las OUs excepto Security — sin excepción ni para `Networking` |
 | 3   | Tags obligatorios (`Project` + `Environment`) en EC2/RDS/S3  | Workloads (heredado por Dev/Staging/Prod)                           |
 
-- El alcance cambió respecto a la propuesta original: #1 y #3 se **acotaron**; #2 se **amplió** a toda la organización.
-- CT ya despliega 13 controles preventivos obligatorios en la Security OU → no replicarlos como SCPs propias.
-- Las SCPs **no aplican a la cuenta management** (restricción de diseño de Organizations, no un hueco) → su seguridad depende de IAM + Identity Center + MFA.
+La primera limita los tipos de instancia EC2 a tres tamaños pequeños. Si alguien lanza por error una instancia grande, la política lo bloquea antes de que cueste dinero. La segunda impide crear un Transit Gateway. Este servicio cobra por hora y por cada GB que pasa por él, y como decidí conectar las cuentas con VPC Peering (lo explico más adelante), no quiero que aparezca uno por accidente. La tercera obliga a etiquetar con `Project` y `Environment` los recursos de EC2, RDS y S3, para saber siempre de qué proyecto y de qué ambiente es cada cosa cuando llegue el momento de revisar costos.
 
-### Networking Centralizado
+La política #1 está acotada a las cuentas de Dev, Staging y Sandbox, dado que se asume que en un entorno empresarial real los ambientes bajos y de pruebas no necesitan la misma carga computacional que un ambiente productivo.
 
-- TGW es lo "correcto" a escala, pero tiene costo por hora + por GB que no se justifica aquí → peering hub-and-spoke hacia una cuenta `Networking`, **sin peering spoke-to-spoke**.
-- Sin NAT Gateway por ahora (las subnets privadas no tienen salida — deliberado, revisable).
-- Plan de CIDR jerárquico estilo enterprise, con pools de reserva (ver sección 7).
+La SCP #2 la amplié a toda la organización menos Security. Incluso la cuenta `Networking` queda sin excepción. Esto es para evitar desplegar un Transit Gateway por error, el cual genera costos fijos que en este momento no son justificables. Si en el futuro quiero desplegar un Transit Gateway, prefiero tener que cambiar la política de forma consciente y no que se cuele por un descuido o desconocimiento.
+
+#### Cómo las probé
+
+Antes de aplicar cada política a una OU real, la probé en la cuenta `SCP-test`, que vive en `Policy Staging`. El flujo fue siempre el mismo: adjuntar la política a esa OU, hacer una prueba que debía fallar y otra que debía funcionar, y luego desadjuntarla. Así me aseguraba de que bloqueaba lo que debía y nada más, sin arriesgar el resto de la organización.
+
+### Networking centralizado
+
+[ADR-004: Estrategia de networking](https://github.com/CarlosLRamirez/aws-multi-account-landing-zone/blob/main/docs/adr/ADR-004-Networking-Strategy.md)
+
+Con cuentas separadas por ambiente, tarde o temprano van a necesitar comunicarse entre sí, y había que decidir cómo conectarlas. La opción que usaría una empresa a escala es **AWS Transit Gateway**, que funciona como un punto central al que se conectan todas las VPCs. El problema es que cobra por hora y por cada GB de tráfico, y ese costo fijo no se justifica para una plataforma personal con un presupuesto de menos de USD 10 al mes. Por eso lo descarté, y de hecho lo bloqueé con la SCP #2.
+
+En su lugar elegí **VPC Peering con un diseño hub-and-spoke**. Hay una cuenta `Networking` que actúa como centro (_hub_), y cada cuenta de workload se conecta a ella con su propia conexión de peering. El peering no tiene costo por hora, solo se paga el tráfico que lo atraviesa. La contrapartida es que el peering no es transitivo: dos cuentas conectadas al hub no pueden hablar entre ellas a través de él, y por eso **no hay peering entre spokes**. Lo acepté porque hoy no tengo ningún caso que lo necesite, y si aparece, se puede migrar a Transit Gateway sin rehacer el resto de la plataforma.
+
+La cuenta `Networking` no es una cuenta de workloads, y eso me llevó a usar dos diseños de VPC distintos en lugar de uno solo. La del hub no tiene Internet Gateway ni subnets públicas reales: su trabajo es concentrar las conexiones de peering (y más adelante una VPN hacia un entorno on-premises), no exponer nada a internet. Las cuentas de workload sí usan una VPC estándar con subnets públicas, de aplicación y de datos. Este diseño lo empaqueté en un módulo de Terraform reutilizable, para que cada cuenta nueva parta del mismo estándar.
+
+Sobre la salida a internet, por ahora **no desplegué NAT Gateway**. Las subnets privadas quedan sin ruta de salida, lo cual es deliberado porque también tiene un costo fijo por hora. Es una decisión que puedo revisar cuando una carga de trabajo realmente lo requiera.
+
+Por último, definí un **plan de direccionamiento IP jerárquico**, con un bloque de red por función y pools de reserva por ambiente (Sandbox, Dev, Staging y Prod). Los pools tienen espacio para crecer, pero no significa que planee crear muchas cuentas por ambiente: es solo margen para no tener que renumerar después. Un error de direccionamiento es muy costoso de corregir, porque el rango principal de una VPC no se puede cambiar en caliente, y el peering exige que los rangos de las cuentas conectadas no se solapen. El plan completo lo explico en la sección 7.
 
 **ADR-005 — IaC con Terraform**
 

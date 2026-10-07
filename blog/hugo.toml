@@ -53,14 +53,6 @@ enableEmoji = true
   author = "Carlos L. Ramírez"
 
 
-# Página de inicio
-  [params.homeInfoParams]
-    Title = "Bienvenido a mi Blog 👋"
-    Content = """
-Explorando AWS Cloud, IoT, Networking y AI.  
-Tutoriales prácticos, experiencias y aprendizajes.
-"""
-
   # Características del tema
   ShowReadingTime = true
   ShowShareButtons = true
@@ -72,11 +64,18 @@ Tutoriales prácticos, experiencias y aprendizajes.
   UseHugoToc = true
   disableSpecial1stPost = false
   disableScrollToTop = false
-  comments = true
   hidemeta = false
   hideSummary = false
   showtoc = true
   tocopen = false
+
+# Página de inicio
+  [params.homeInfoParams]
+    Title = "Bienvenido a mi Blog 👋"
+    Content = """
+Explorando AWS Cloud, IoT, Networking y AI.  
+Tutoriales prácticos, experiencias y aprendizajes.
+"""
 
   # Redes sociales
   [[params.socialIcons]]
